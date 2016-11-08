@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF71DD29486001297A6 /* RegisterController .swift */; };
+		AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF91DD294FC001297A6 /* RememberController.swift */; };
+		AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BFB1DD2953F001297A6 /* FacebookController.swift */; };
 		AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */; };
 		AC981FB51DD24E0C0004E6D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB41DD24E0C0004E6D6 /* ViewController.swift */; };
 		AC981FB81DD24E0C0004E6D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC981FB61DD24E0C0004E6D6 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC912BF71DD29486001297A6 /* RegisterController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterController .swift"; sourceTree = "<group>"; };
+		AC912BF91DD294FC001297A6 /* RememberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberController.swift; sourceTree = "<group>"; };
+		AC912BFB1DD2953F001297A6 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
 		AC981FAF1DD24E0C0004E6D6 /* seawag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seawag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC981FB41DD24E0C0004E6D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 				AC981FBE1DD24E0C0004E6D6 /* LaunchScreen.storyboard */,
 				AC981FC11DD24E0C0004E6D6 /* Info.plist */,
 				AC981FB91DD24E0C0004E6D6 /* seawag.xcdatamodeld */,
+				AC912BF71DD29486001297A6 /* RegisterController .swift */,
+				AC912BF91DD294FC001297A6 /* RememberController.swift */,
+				AC912BFB1DD2953F001297A6 /* FacebookController.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -266,8 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC981FB51DD24E0C0004E6D6 /* ViewController.swift in Sources */,
+				AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */,
 				AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */,
+				AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */,
 				AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */,
+				AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +530,7 @@
 				AC981FDC1DD24E0C0004E6D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC981FDD1DD24E0C0004E6D6 /* Build configuration list for PBXNativeTarget "seawagTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +539,7 @@
 				AC981FDF1DD24E0C0004E6D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC981FE01DD24E0C0004E6D6 /* Build configuration list for PBXNativeTarget "seawagUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +548,7 @@
 				AC981FE21DD24E0C0004E6D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
