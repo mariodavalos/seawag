@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var User: UITextField!
     @IBOutlet weak var Paser: UITextField!
     
+    @IBOutlet weak var FondoParallax: UIImageView!
+    @IBOutlet var LoginParallax: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
         self.Paser.layer.cornerRadius = 22.0
         self.Paser.layer.borderWidth = 2
         self.Paser.layer.borderColor = UIColor.white.cgColor
-        
+        addParallaxToView(vw: FondoParallax)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +41,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func addParallaxToView(vw: UIImageView) {
+        let amount = 100
+        
+        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        horizontal.minimumRelativeValue = -amount
+        horizontal.maximumRelativeValue = amount
+        
+        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        vertical.minimumRelativeValue = -amount
+        vertical.maximumRelativeValue = amount
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontal, vertical]
+        vw.addMotionEffect(group)
+    }
 
 }
 

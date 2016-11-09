@@ -11,14 +11,18 @@ import UIKit
 class RememberController: UIViewController {
     
     
+    @IBOutlet weak var PassButton: UIButton!
+    @IBOutlet weak var Email: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Email.underlinedExtend()
+        PassButton.layer.cornerRadius = 22.0
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be
     }
     
     
