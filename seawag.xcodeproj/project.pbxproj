@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD21DD6725800879D1C /* LoginController.swift */; };
+		AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD41DD673F400879D1C /* CameraController.swift */; };
+		AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD61DD6744B00879D1C /* EditorController.swift */; };
 		AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D48A61DD39AA800D6D91F /* Helpers.swift */; };
 		AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF71DD29486001297A6 /* RegisterController .swift */; };
 		AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF91DD294FC001297A6 /* RememberController.swift */; };
 		AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BFB1DD2953F001297A6 /* FacebookController.swift */; };
 		AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */; };
-		AC981FB51DD24E0C0004E6D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB41DD24E0C0004E6D6 /* ViewController.swift */; };
 		AC981FB81DD24E0C0004E6D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC981FB61DD24E0C0004E6D6 /* Main.storyboard */; };
 		AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB91DD24E0C0004E6D6 /* seawag.xcdatamodeld */; };
 		AC981FBD1DD24E0C0004E6D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC981FBC1DD24E0C0004E6D6 /* Assets.xcassets */; };
 		AC981FC01DD24E0C0004E6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC981FBE1DD24E0C0004E6D6 /* LaunchScreen.storyboard */; };
 		AC981FCB1DD24E0C0004E6D6 /* seawagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FCA1DD24E0C0004E6D6 /* seawagTests.swift */; };
 		AC981FD61DD24E0C0004E6D6 /* seawagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */; };
+		ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */; };
+		ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A71DD4CD84009CF65E /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC4B2AD21DD6725800879D1C /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		AC4B2AD41DD673F400879D1C /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		AC4B2AD61DD6744B00879D1C /* EditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorController.swift; sourceTree = "<group>"; };
 		AC5D48A61DD39AA800D6D91F /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		AC912BF71DD29486001297A6 /* RegisterController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterController .swift"; sourceTree = "<group>"; };
+		AC912BF71DD29486001297A6 /* RegisterController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterController .swift"; sourceTree = "<group>"; wrapsLines = 1; };
 		AC912BF91DD294FC001297A6 /* RememberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberController.swift; sourceTree = "<group>"; };
 		AC912BFB1DD2953F001297A6 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
 		AC981FAF1DD24E0C0004E6D6 /* seawag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seawag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC981FB41DD24E0C0004E6D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC981FB71DD24E0C0004E6D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC981FBA1DD24E0C0004E6D6 /* seawag.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = seawag.xcdatamodel; sourceTree = "<group>"; };
 		AC981FBC1DD24E0C0004E6D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 		AC981FD11DD24E0C0004E6D6 /* seawagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = seawagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seawagUITests.swift; sourceTree = "<group>"; };
 		AC981FD71DD24E0C0004E6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacityController.swift; sourceTree = "<group>"; };
+		ACEDD8A71DD4CD84009CF65E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +115,8 @@
 		AC981FB11DD24E0C0004E6D6 /* seawag */ = {
 			isa = PBXGroup;
 			children = (
+				AC4B2AD21DD6725800879D1C /* LoginController.swift */,
 				AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */,
-				AC981FB41DD24E0C0004E6D6 /* ViewController.swift */,
 				AC981FB61DD24E0C0004E6D6 /* Main.storyboard */,
 				AC981FBC1DD24E0C0004E6D6 /* Assets.xcassets */,
 				AC981FBE1DD24E0C0004E6D6 /* LaunchScreen.storyboard */,
@@ -118,6 +126,10 @@
 				AC912BF91DD294FC001297A6 /* RememberController.swift */,
 				AC912BFB1DD2953F001297A6 /* FacebookController.swift */,
 				AC5D48A61DD39AA800D6D91F /* Helpers.swift */,
+				ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */,
+				ACEDD8A71DD4CD84009CF65E /* AlertController.swift */,
+				AC4B2AD41DD673F400879D1C /* CameraController.swift */,
+				AC4B2AD61DD6744B00879D1C /* EditorController.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -277,13 +289,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC981FB51DD24E0C0004E6D6 /* ViewController.swift in Sources */,
+				ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */,
 				AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */,
 				AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */,
+				AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */,
+				ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */,
+				AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */,
 				AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */,
 				AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */,
 				AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */,
 				AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */,
+				AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

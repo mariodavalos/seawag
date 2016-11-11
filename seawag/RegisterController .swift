@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterController: UIViewController {
+class RegisterController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var Name: UITextField!
@@ -23,7 +23,6 @@ class RegisterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.Register.layer.cornerRadius = 22.0
-       
         Name.underlined()
         LastName.underlined()
         Email.underlined()
@@ -36,6 +35,34 @@ class RegisterController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    var NoName: UILabel!
     
+    @IBAction func Register(_ sender: UIButton) {
+        if(Name.text?.isEmpty)!
+        { 
+            Name.messageEmpty(message: "Campo obligatorio")
+        }
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.Name {
+            self.LastName.becomeFirstResponder()
+        }
+        else if textField == self.LastName {
+            self.Email.becomeFirstResponder()
+        }
+        else if textField == self.Email {
+            self.Email2.becomeFirstResponder()
+        }
+        else if textField == self.Email2 {
+            self.Password.becomeFirstResponder()
+        }
+        else if textField == self.Password {
+        self.Password2.becomeFirstResponder()
+        }
+        else if textField == self.Password2 {
+            Password2.resignFirstResponder()
+        }
+        return true
+    }
 }

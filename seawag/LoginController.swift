@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginController: UIViewController {
 
     @IBOutlet weak var Login: UIButton!
     @IBOutlet weak var Registrate: UIButton!

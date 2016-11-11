@@ -26,4 +26,7 @@ class RememberController: UIViewController {
     }
     
     
+    @IBAction func Confirm(_ sender: Any) {
+        
+    }
 }
