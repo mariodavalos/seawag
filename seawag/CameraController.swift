@@ -20,18 +20,22 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var Logo: UIImageView!
     @IBOutlet weak var Carrete: UIButton!
     @IBOutlet weak var Userconfig: UIButton!
+    @IBOutlet weak var PhotoSelector: UIButton!
+    @IBOutlet weak var Center: UIButton!
+    @IBOutlet weak var Editor: UIButton!
+    
     
     var session: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var usingFrontCamera = false
+    public static var usingFrontCamera = false
     var on: Bool = false
     
     public static var ImageTaken: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Editor.setImage(nil, for: .normal)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,11 +43,21 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        stillImageOutput = AVCaptureStillImageOutput()
+        stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
         loadCamera()
     }
     
     @IBAction func CameraFront(_ sender: UIButton) {
-        usingFrontCamera = !usingFrontCamera
+        CameraController.usingFrontCamera = !CameraController.usingFrontCamera
+        if(CameraController.usingFrontCamera) {
+            Carrete.setImage(nil, for: .normal)
+            Carrete.isEnabled = false
+        }
+        else {
+            Carrete.setImage(#imageLiteral(resourceName: "Flash"), for: .normal)
+            Carrete.isEnabled = true
+        }
         loadCamera()
     }
     
@@ -58,7 +72,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         //currentCaptureDevice = (usingFrontCamera ? getFrontCamera() : getBackCamera())
         
         do {
-            input = try AVCaptureDeviceInput(device: (usingFrontCamera ? getFrontCamera() : getBackCamera()))
+            input = try AVCaptureDeviceInput(device: (CameraController.usingFrontCamera ? getFrontCamera() : getBackCamera()))
         } catch let error1 as NSError {
             error = error1
             input = nil
@@ -68,29 +82,27 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         for i : AVCaptureDeviceInput in (self.session?.inputs as! [AVCaptureDeviceInput]){
             self.session?.removeInput(i)
         }
+       /* for i : AVCaptureStillImageOutput in (self.session?.outputs as! [AVCaptureStillImageOutput]){
+            self.session?.removeOutput(i)
+        }*/
         if error == nil && session!.canAddInput(input) {
             session!.addInput(input)
-            stillImageOutput = AVCaptureStillImageOutput()
-            stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+           
             if session!.canAddOutput(stillImageOutput) {
                 session!.addOutput(stillImageOutput)
-                videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-                videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
-                videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-                //self.cameraPreviewSurface.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
-                self.previewView.layer.addSublayer(videoPreviewLayer!)
-                DispatchQueue.main.async {
-                    self.session!.startRunning()
-                }
-                
-                
+            
+            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
+            videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
+            videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+            //self.previewView.layer.r
+            self.previewView.layer.addSublayer(videoPreviewLayer!)
+            DispatchQueue.main.async {
+                self.session!.startRunning()
+            }
             }
         }
-        
-        
-        
     }
-    
+    /*
     func CameraSee()
     {
         session = AVCaptureSession()
@@ -128,7 +140,8 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             print(error!.localizedDescription)
         }
         
-    }
+    }*/
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         videoPreviewLayer!.frame = previewView.bounds
@@ -137,9 +150,13 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         
         previewView.isHidden = false
         WeLabel.isHidden = true
-        //Logo.isHidden = true
-        //Carrete.isHidden = true
-        //Userconfig.isHidden = true
+        Logo.image = nil
+        Userconfig.setImage(#imageLiteral(resourceName: "Rotate"), for: .normal)
+        Carrete.setImage(#imageLiteral(resourceName: "Flash"), for: .normal)
+        PhotoSelector.setImage(#imageLiteral(resourceName: "PhotOnn"), for: .normal)
+        Center.setImage(#imageLiteral(resourceName: "Camera"), for: .normal)
+        Editor.setImage(nil, for: .normal)
+        Editor.isEnabled = false
     }
     
     @IBAction func TakePhoto(_ sender: UIButton) {
@@ -155,17 +172,22 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     let dataProvider = CGDataProvider(data: imageData as! CFData)
                     let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
-                    let image = UIImage(cgImage: cgImageRef!, scale: 0.01, orientation: UIImageOrientation.right)
+                    let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right)
+                        )
                     // ...
                     // Add the image to captureImageView here...
+                    CameraController.ImageTaken = self.CameraScreen
                     self.CameraScreen.image = image
+                    CameraController.ImageTaken.image = image
                     //self.CameraScreen.image = image
                     self.previewView.isHidden = true
                     //
                 }
             })
         }
-        CameraController.ImageTaken = self.CameraScreen
+        Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
+        Editor.isEnabled = true
+        //CameraController.ImageTaken.image = self.CameraScreen.image
         //self.CameraScreen.image = CameraController.ImageTaken.image
     }
     

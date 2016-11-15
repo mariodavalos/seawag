@@ -88,7 +88,7 @@ class EditorController: UIViewController {
                 currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
                 
                 if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-                    procesedFilter.append(UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: .right))
+                    procesedFilter.append(UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right)))
                }
                 context = nil
                 currentFilter = nil

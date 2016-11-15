@@ -24,6 +24,7 @@
 		AC981FD61DD24E0C0004E6D6 /* seawagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */; };
 		ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */; };
 		ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A71DD4CD84009CF65E /* AlertController.swift */; };
+		ACFB4B191DDBCD4B00F40932 /* SocialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4B181DDBCD4B00F40932 /* SocialController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		AC981FD71DD24E0C0004E6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacityController.swift; sourceTree = "<group>"; };
 		ACEDD8A71DD4CD84009CF65E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		ACFB4B181DDBCD4B00F40932 /* SocialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				AC4B2AD41DD673F400879D1C /* CameraController.swift */,
 				AC4B2AD61DD6744B00879D1C /* EditorController.swift */,
 				AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */,
+				ACFB4B181DDBCD4B00F40932 /* SocialController.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */,
 				AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */,
 				AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */,
+				ACFB4B191DDBCD4B00F40932 /* SocialController.swift in Sources */,
 				AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */,
 				AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */,
 				ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */,
