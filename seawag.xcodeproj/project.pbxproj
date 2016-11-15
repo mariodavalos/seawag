@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */; };
 		AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD21DD6725800879D1C /* LoginController.swift */; };
 		AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD41DD673F400879D1C /* CameraController.swift */; };
 		AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD61DD6744B00879D1C /* EditorController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmController.swift; sourceTree = "<group>"; };
 		AC4B2AD21DD6725800879D1C /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AC4B2AD41DD673F400879D1C /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		AC4B2AD61DD6744B00879D1C /* EditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				ACEDD8A71DD4CD84009CF65E /* AlertController.swift */,
 				AC4B2AD41DD673F400879D1C /* CameraController.swift */,
 				AC4B2AD61DD6744B00879D1C /* EditorController.swift */,
+				AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */,
 				AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */,
 				AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */,
+				AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */,
 				ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */,
 				AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */,
 				AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */,

@@ -19,7 +19,7 @@ class AlertController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       ActiveButton.layer.cornerRadius = 22.0
+        ActiveButton.layer.cornerRadius = 22.0
     }
     
     override func didReceiveMemoryWarning() {
