@@ -29,7 +29,7 @@ extension UITextField {
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
-    func messageEmpty(message: String)
+    func messageAlert(message: String)
     {
         let alert = CATextLayer()
         alert.string = message
@@ -37,12 +37,26 @@ extension UITextField {
         alert.fontSize = 11
         alert.font = UIFont.italicSystemFont(ofSize: 11)
         alert.frame = CGRect(x: 0, y: self.frame.size.height - 12, width: self.frame.size.width, height: 13)
-        if((self.layer.sublayers?.count)!>2)
-        {
-            self.layer.sublayers?.remove(at: 1)
-        }
-        self.layer.addSublayer(alert)
+        self.layer.sublayers?.removeAll()
         self.layer.masksToBounds = true
-        
+        self.layer.addSublayer(alert)
+    }
+    func messageAlertLine(message: String, isview: Bool) -> Bool
+    {
+        let alert = CATextLayer()
+        alert.string = message
+        alert.foregroundColor = UIColor.red.cgColor
+        alert.fontSize = 11
+        alert.font = UIFont.italicSystemFont(ofSize: 11)
+        alert.frame = CGRect(x: 0, y: self.frame.size.height - 12, width: self.frame.size.width, height: 13)
+        self.layer.sublayers?.removeAll()
+        self.underlined()
+        self.layer.masksToBounds = true
+        if(isview){
+            self.layer.addSublayer(alert)
+            return false
+        }else{
+            return true
+        }
     }
 }

@@ -38,12 +38,27 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     var NoName: UILabel!
     
     @IBAction func Register(_ sender: UIButton) {
-        if(Name.text?.isEmpty)!
-        { 
-            Name.messageEmpty(message: "Campo obligatorio")
+        if(validateDates()){
+         //Name.messageAlert(message: "Todo es correcto")
         }
     }
-    
+    func validateDates()-> Bool{
+        var success: Bool
+        success = true
+        success  = (Name.messageAlertLine(message: "Campo obligatorio", isview: (Name.text?.isEmpty)!) && success) ? true : false
+        success  = (LastName.messageAlertLine(message: "Campo obligatorio", isview: (LastName.text?.isEmpty)!) && success) ? true : false
+        success  = (Email.messageAlertLine(message: "Campo obligatorio", isview: (Email.text?.isEmpty)!) && success) ? true : false
+        success  = (Email2.messageAlertLine(message: "Campo obligatorio", isview: (Email2.text?.isEmpty)!) && success) ? true : false
+        success  = (Password.messageAlertLine(message: "Campo obligatorio", isview: (Password.text?.isEmpty)!) && success) ? true : false
+        success  = (Password2.messageAlertLine(message: "Campo obligatorio", isview: (Password2.text?.isEmpty)!) && success) ? true : false
+        if((!(Email.text?.isEmpty)!)){
+           success  = (Email.messageAlertLine(message: "Correo no coincide", isview: ((Email2.text!.compare(Email.text!)) != ComparisonResult.orderedSame)) && success) ? true : false
+            }
+        if((!(Password.text?.isEmpty)!)){
+            success  = (Password.messageAlertLine(message: "Password no coincide", isview: ((Password2.text!.compare(Password.text!)) != ComparisonResult.orderedSame )) && success) ? true : false
+        }
+        return success
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.Name {
             self.LastName.becomeFirstResponder()
@@ -64,5 +79,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             Password2.resignFirstResponder()
         }
         return true
+    }
+    @IBAction func Closing(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

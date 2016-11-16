@@ -40,6 +40,7 @@ class EditorController: UIViewController {
     @IBOutlet weak var Shadow10: UIButton!
     
     @IBOutlet weak var ImageTake: UIImageView!
+    public static var ImageTakes: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,25 +67,21 @@ class EditorController: UIViewController {
     func FilterAplicate1(){
         
         context = CIContext()
-        //currentFilter = CIFilter(name: "CISepiaTone")
-        let beginImage = CIImage(image: ImageTake.image!)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.4, y: 0.4))
-        //currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        //var cgimg: CGImage!
-        //var processedImage: UIImage!
+        let beginImage = CIImage(image: ImageTake.image!)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.33, y: 0.33))
         var procesedFilter: [UIImage] = []
         for i in 1...10 {
             autoreleasepool {
                 context = CIContext()
                 if(i==1){currentFilter = CIFilter(name: "CISepiaTone")}
                 if(i==2){currentFilter = CIFilter(name: "CIPhotoEffectInstant")}
-                if(i==3){currentFilter = CIFilter(name: "CIVignette")}
-                if(i==4){currentFilter = CIFilter(name: "CIVibrance")}
-                if(i==5){currentFilter = CIFilter(name: "CIHueAdjust")}
+                if(i==3){currentFilter = CIFilter(name: "CIComicEffect")}
+                if(i==4){currentFilter = CIFilter(name: "CIPointillize")}
+                if(i==5){currentFilter = CIFilter(name: "CIDiscBlur")}
                 if(i==6){currentFilter = CIFilter(name: "CIColorInvert")}
-                if(i==7){currentFilter = CIFilter(name: "CIPhotoEffectInstant")}
-                if(i==8){currentFilter = CIFilter(name: "CIPhotoEffectInstant")}
-                if(i==9){currentFilter = CIFilter(name: "CIPhotoEffectInstant")}
-                if(i==10){currentFilter = CIFilter(name: "CIPhotoEffectInstant")}
+                if(i==7){currentFilter = CIFilter(name: "CIPhotoEffectTonal")}
+                if(i==8){currentFilter = CIFilter(name: "CIColorMonochrome")}
+                if(i==9){currentFilter = CIFilter(name: "CIPhotoEffectProcess")}
+                if(i==10){currentFilter = CIFilter(name: "CICrystallize")}
                 currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
                 
                 if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
@@ -104,111 +101,6 @@ class EditorController: UIViewController {
         Filter8.setImage(procesedFilter.removeFirst(), for: .normal)
         Filter9.setImage(procesedFilter.removeFirst(), for: .normal)
         Filter10.setImage(procesedFilter.removeFirst(), for: .normal)
-        //CFBagReleaseCallBack.self
-          /*
-        autoreleasepool(invoking: { () -> () in
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(1), orientation: .right)
-            Filter1.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-        })
-        autoreleasepool(invoking: { () -> () in
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIPhotoEffectInstant")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(1), orientation: .right)
-            Filter2.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-            
-        })
-        autoreleasepool(invoking: { () -> () in
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIVignette")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(1), orientation: .right)
-            Filter3.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-        })
-        autoreleasepool(invoking: { () -> () in
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIVibrance")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(1), orientation: .right)
-            Filter4.setImage(processedImage, for: .normal)
-        }
-        /*
-    }
-    func FilterAplicate2(){
-        let beginImage = CIImage(image: ImageTake.image!)
-       */
-         context.clearCaches()
-        })
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIHueAdjust")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: .right)
-            Filter5.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIColorInvert")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: .right)
-            Filter6.setImage(processedImage, for: .normal)
-        }
-        
-        context.clearCaches()
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIPhotoEffectInstant")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: .right)
-            Filter7.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIPhotoEffectInstant")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: .right)
-            Filter8.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIPhotoEffectInstant")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: .right)
-            Filter9.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-        context = CIContext()
-        currentFilter = CIFilter(name: "CIPhotoEffectInstant")
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        
-        if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-            processedImage = UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: .right)
-            Filter10.setImage(processedImage, for: .normal)
-        }
-        context.clearCaches()
-        // */
     }
     func RoundFilters(){
         self.AplicateButton.layer.borderWidth = 0.5
@@ -315,6 +207,10 @@ class EditorController: UIViewController {
         CleanShadows()
         ShadowCreate(Shadow: Shadow10)
         ImageTake.image = Filter10.image(for: .normal)
+    }
+    @IBAction func AplicateFilter(_ sender: UIButton) {
+        CameraController.ImageTaken.image = ImageTake.image;
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

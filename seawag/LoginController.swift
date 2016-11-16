@@ -6,7 +6,10 @@
 //  Copyright © 2016 Ooomovil. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import FacebookCore
+import FacebookLogin
 
 class LoginController: UIViewController {
 

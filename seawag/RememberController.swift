@@ -29,4 +29,7 @@ class RememberController: UIViewController {
     @IBAction func Confirm(_ sender: Any) {
         
     }
+    @IBAction func Closing(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

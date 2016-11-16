@@ -12,9 +12,13 @@ import UIKit
 
 class SocialController: UIViewController {
     
+    @IBOutlet weak var SaveButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //ActiveButton.layer.cornerRadius = 22.0
+        self.SaveButton.layer.borderWidth = 2
+        self.SaveButton.layer.borderColor = UIColor.blue.cgColor
+        self.SaveButton.layer.cornerRadius = 22.0
     }
     
     override func didReceiveMemoryWarning() {

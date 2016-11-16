@@ -36,16 +36,24 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     override func viewDidLoad() {
         super.viewDidLoad()
         Editor.setImage(nil, for: .normal)
+        stillImageOutput = AVCaptureStillImageOutput()
+        stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        stillImageOutput = AVCaptureStillImageOutput()
-        stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
         loadCamera()
+        if(CameraController.ImageTaken != nil){
+            CameraScreen.image = CameraController.ImageTaken.image
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
     }
     
     @IBAction func CameraFront(_ sender: UIButton) {
@@ -69,8 +77,6 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         var error: NSError?
         var input: AVCaptureDeviceInput!
         
-        //currentCaptureDevice = (usingFrontCamera ? getFrontCamera() : getBackCamera())
-        
         do {
             input = try AVCaptureDeviceInput(device: (CameraController.usingFrontCamera ? getFrontCamera() : getBackCamera()))
         } catch let error1 as NSError {
@@ -82,9 +88,6 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         for i : AVCaptureDeviceInput in (self.session?.inputs as! [AVCaptureDeviceInput]){
             self.session?.removeInput(i)
         }
-       /* for i : AVCaptureStillImageOutput in (self.session?.outputs as! [AVCaptureStillImageOutput]){
-            self.session?.removeOutput(i)
-        }*/
         if error == nil && session!.canAddInput(input) {
             session!.addInput(input)
            
@@ -94,7 +97,6 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
             videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-            //self.previewView.layer.r
             self.previewView.layer.addSublayer(videoPreviewLayer!)
             DispatchQueue.main.async {
                 self.session!.startRunning()
@@ -102,46 +104,6 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             }
         }
     }
-    /*
-    func CameraSee()
-    {
-        session = AVCaptureSession()
-        session!.sessionPreset = AVCaptureSessionPresetPhoto
-    
-        var error: NSError?
-        
-        var input: AVCaptureDeviceInput!
-        do {
-            input = try AVCaptureDeviceInput(device:  (usingFrontCamera ? getFrontCamera() : getBackCamera()))
-            
-            if error == nil && session!.canAddInput(input) {
-                session!.addInput(input)
-                // ...
-                // The remainder of the session setup will go here...
-                
-                stillImageOutput = AVCaptureStillImageOutput()
-                stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
-                
-                if session!.canAddOutput(stillImageOutput) {
-                    session!.addOutput(stillImageOutput)
-                    // ...
-                    // Configure the Live Preview here...
-                    videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-                    videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
-                    videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-                    previewView.layer.addSublayer(videoPreviewLayer!)
-                    session!.startRunning()
-                }
-            }
-            
-        } catch let error1 as NSError {
-            error = error1
-            input = nil
-            print(error!.localizedDescription)
-        }
-        
-    }*/
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         videoPreviewLayer!.frame = previewView.bounds
@@ -160,35 +122,25 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     @IBAction func TakePhoto(_ sender: UIButton) {
-        //session?.stopRunning()
         if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
-            // ...
-            // Code for photo capture goes here...
             stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: { (sampleBuffer, error) -> Void in
-                // ...
-                // Process the image data (sampleBuffer) here to get an image file we can put in our captureImageView
-                
+          
                 if sampleBuffer != nil {
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     let dataProvider = CGDataProvider(data: imageData as! CFData)
                     let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
                     let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right)
                         )
-                    // ...
-                    // Add the image to captureImageView here...
+             
                     CameraController.ImageTaken = self.CameraScreen
                     self.CameraScreen.image = image
                     CameraController.ImageTaken.image = image
-                    //self.CameraScreen.image = image
                     self.previewView.isHidden = true
-                    //
                 }
             })
         }
         Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
         Editor.isEnabled = true
-        //CameraController.ImageTaken.image = self.CameraScreen.image
-        //self.CameraScreen.image = CameraController.ImageTaken.image
     }
     
     @IBAction func ActivateFlash(_ sender: UIButton) {
@@ -198,13 +150,10 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             do {
                 _ = try avDevice?.lockForConfiguration()
             } catch {}
-            
-            // check if your torchMode is on or off. If on turns it off otherwise turns it on
             if on == true {
                 avDevice?.torchMode = AVCaptureTorchMode.off
                 on = false
             } else {
-                // sets the torch intensity to 100%
                 do {
                     _ = try avDevice?.setTorchModeOnWithLevel(1.0)
                     on = true
@@ -230,5 +179,5 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     func getBackCamera() -> AVCaptureDevice{
         return AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     }
-
+    
 }
