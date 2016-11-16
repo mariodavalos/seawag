@@ -7,17 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */; };
+		AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD21DD6725800879D1C /* LoginController.swift */; };
+		AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD41DD673F400879D1C /* CameraController.swift */; };
+		AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD61DD6744B00879D1C /* EditorController.swift */; };
+		AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D48A61DD39AA800D6D91F /* Helpers.swift */; };
+		AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF71DD29486001297A6 /* RegisterController .swift */; };
+		AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF91DD294FC001297A6 /* RememberController.swift */; };
+		AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BFB1DD2953F001297A6 /* FacebookController.swift */; };
+		AC960B341DDD1E2B0040E8C2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B301DDD1E2B0040E8C2 /* Bolts.framework */; };
+		AC960B351DDD1E2B0040E8C2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B301DDD1E2B0040E8C2 /* Bolts.framework */; };
+		AC960B361DDD1E2C0040E8C2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B301DDD1E2B0040E8C2 /* Bolts.framework */; };
+		AC960B371DDD1E2C0040E8C2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B311DDD1E2B0040E8C2 /* FBSDKCoreKit.framework */; };
+		AC960B381DDD1E2C0040E8C2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B311DDD1E2B0040E8C2 /* FBSDKCoreKit.framework */; };
+		AC960B391DDD1E2C0040E8C2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B311DDD1E2B0040E8C2 /* FBSDKCoreKit.framework */; };
+		AC960B3A1DDD1E2C0040E8C2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B321DDD1E2B0040E8C2 /* FBSDKLoginKit.framework */; };
+		AC960B3B1DDD1E2C0040E8C2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B321DDD1E2B0040E8C2 /* FBSDKLoginKit.framework */; };
+		AC960B3C1DDD1E2C0040E8C2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B321DDD1E2B0040E8C2 /* FBSDKLoginKit.framework */; };
+		AC960B3D1DDD1E2C0040E8C2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B331DDD1E2B0040E8C2 /* FBSDKShareKit.framework */; };
+		AC960B3E1DDD1E2C0040E8C2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B331DDD1E2B0040E8C2 /* FBSDKShareKit.framework */; };
+		AC960B3F1DDD1E2C0040E8C2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC960B331DDD1E2B0040E8C2 /* FBSDKShareKit.framework */; };
 		AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */; };
-		AC981FB51DD24E0C0004E6D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB41DD24E0C0004E6D6 /* ViewController.swift */; };
 		AC981FB81DD24E0C0004E6D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC981FB61DD24E0C0004E6D6 /* Main.storyboard */; };
 		AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC981FB91DD24E0C0004E6D6 /* seawag.xcdatamodeld */; };
 		AC981FBD1DD24E0C0004E6D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC981FBC1DD24E0C0004E6D6 /* Assets.xcassets */; };
 		AC981FC01DD24E0C0004E6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC981FBE1DD24E0C0004E6D6 /* LaunchScreen.storyboard */; };
 		AC981FCB1DD24E0C0004E6D6 /* seawagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FCA1DD24E0C0004E6D6 /* seawagTests.swift */; };
 		AC981FD61DD24E0C0004E6D6 /* seawagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */; };
+		ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */; };
+		ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A71DD4CD84009CF65E /* AlertController.swift */; };
+		ACFB4B191DDBCD4B00F40932 /* SocialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4B181DDBCD4B00F40932 /* SocialController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AC960B221DDD1B890040E8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8115C0D81CFE540D001FF33B;
+			remoteInfo = FacebookCore;
+		};
+		AC960B241DDD1B890040E8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 811C5DFD1CFFD36600E4A925;
+			remoteInfo = FacebookLogin;
+		};
+		AC960B261DDD1B890040E8C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 811C5E0A1CFFD36D00E4A925;
+			remoteInfo = FacebookShare;
+		};
 		AC981FC71DD24E0C0004E6D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AC981FA71DD24E0B0004E6D6 /* Project object */;
@@ -35,9 +78,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmController.swift; sourceTree = "<group>"; };
+		AC4B2AD21DD6725800879D1C /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		AC4B2AD41DD673F400879D1C /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		AC4B2AD61DD6744B00879D1C /* EditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorController.swift; sourceTree = "<group>"; };
+		AC5D48A61DD39AA800D6D91F /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		AC912BF71DD29486001297A6 /* RegisterController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterController .swift"; sourceTree = "<group>"; wrapsLines = 1; };
+		AC912BF91DD294FC001297A6 /* RememberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberController.swift; sourceTree = "<group>"; };
+		AC912BFB1DD2953F001297A6 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
+		AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FacebookSwift.xcodeproj; path = "../../../Downloads/facebook-sdk-swift-0.2.0/FacebookSwift.xcodeproj"; sourceTree = "<group>"; };
+		AC960B301DDD1E2B0040E8C2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		AC960B311DDD1E2B0040E8C2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		AC960B321DDD1E2B0040E8C2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		AC960B331DDD1E2B0040E8C2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		AC960B401DDD1F660040E8C2 /* Bolts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bolts.xcodeproj; path = "../../../Downloads/facebook-sdk-swift-0.2.0/Carthage/Checkouts/facebook-ios-sdk/Bolts-IOS/Bolts.xcodeproj"; sourceTree = "<group>"; };
+		AC960B431DDD1F660040E8C2 /* FBSDKCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FBSDKCoreKit.xcodeproj; path = "../../../Downloads/facebook-sdk-swift-0.2.0/Carthage/Checkouts/facebook-ios-sdk/FBSDKCoreKit/FBSDKCoreKit.xcodeproj"; sourceTree = "<group>"; };
+		AC960B461DDD1F660040E8C2 /* FBSDKLoginKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FBSDKLoginKit.xcodeproj; path = "../../../Downloads/facebook-sdk-swift-0.2.0/Carthage/Checkouts/facebook-ios-sdk/FBSDKLoginKit/FBSDKLoginKit.xcodeproj"; sourceTree = "<group>"; };
+		AC960B491DDD1F660040E8C2 /* FBSDKShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FBSDKShareKit.xcodeproj; path = "../../../Downloads/facebook-sdk-swift-0.2.0/Carthage/Checkouts/facebook-ios-sdk/FBSDKShareKit/FBSDKShareKit.xcodeproj"; sourceTree = "<group>"; };
 		AC981FAF1DD24E0C0004E6D6 /* seawag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seawag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC981FB41DD24E0C0004E6D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC981FB71DD24E0C0004E6D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC981FBA1DD24E0C0004E6D6 /* seawag.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = seawag.xcdatamodel; sourceTree = "<group>"; };
 		AC981FBC1DD24E0C0004E6D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +108,9 @@
 		AC981FD11DD24E0C0004E6D6 /* seawagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = seawagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seawagUITests.swift; sourceTree = "<group>"; };
 		AC981FD71DD24E0C0004E6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacityController.swift; sourceTree = "<group>"; };
+		ACEDD8A71DD4CD84009CF65E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		ACFB4B181DDBCD4B00F40932 /* SocialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +118,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC960B3D1DDD1E2C0040E8C2 /* FBSDKShareKit.framework in Frameworks */,
+				AC960B341DDD1E2B0040E8C2 /* Bolts.framework in Frameworks */,
+				AC960B371DDD1E2C0040E8C2 /* FBSDKCoreKit.framework in Frameworks */,
+				AC960B3A1DDD1E2C0040E8C2 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +129,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC960B3E1DDD1E2C0040E8C2 /* FBSDKShareKit.framework in Frameworks */,
+				AC960B351DDD1E2B0040E8C2 /* Bolts.framework in Frameworks */,
+				AC960B381DDD1E2C0040E8C2 /* FBSDKCoreKit.framework in Frameworks */,
+				AC960B3B1DDD1E2C0040E8C2 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +140,71 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC960B3F1DDD1E2C0040E8C2 /* FBSDKShareKit.framework in Frameworks */,
+				AC960B361DDD1E2C0040E8C2 /* Bolts.framework in Frameworks */,
+				AC960B391DDD1E2C0040E8C2 /* FBSDKCoreKit.framework in Frameworks */,
+				AC960B3C1DDD1E2C0040E8C2 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC960B0F1DDD1B660040E8C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC960B401DDD1F660040E8C2 /* Bolts.xcodeproj */,
+				AC960B431DDD1F660040E8C2 /* FBSDKCoreKit.xcodeproj */,
+				AC960B461DDD1F660040E8C2 /* FBSDKLoginKit.xcodeproj */,
+				AC960B491DDD1F660040E8C2 /* FBSDKShareKit.xcodeproj */,
+				AC960B301DDD1E2B0040E8C2 /* Bolts.framework */,
+				AC960B311DDD1E2B0040E8C2 /* FBSDKCoreKit.framework */,
+				AC960B321DDD1E2B0040E8C2 /* FBSDKLoginKit.framework */,
+				AC960B331DDD1E2B0040E8C2 /* FBSDKShareKit.framework */,
+				AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */,
+			);
+			name = Frameworks;
+			path = ../../../../../../../../../Users/mario/Desktop/Xcode/seawag;
+			sourceTree = SDKROOT;
+		};
+		AC960B1D1DDD1B890040E8C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC960B231DDD1B890040E8C2 /* FacebookCore.framework */,
+				AC960B251DDD1B890040E8C2 /* FacebookLogin.framework */,
+				AC960B271DDD1B890040E8C2 /* FacebookShare.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC960B411DDD1F660040E8C2 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC960B441DDD1F660040E8C2 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC960B471DDD1F660040E8C2 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC960B4A1DDD1F660040E8C2 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AC981FA61DD24E0B0004E6D6 = {
 			isa = PBXGroup;
 			children = (
+				AC981FB01DD24E0C0004E6D6 /* Products */,
+				AC960B0F1DDD1B660040E8C2 /* Frameworks */,
 				AC981FB11DD24E0C0004E6D6 /* seawag */,
 				AC981FC91DD24E0C0004E6D6 /* seawagTests */,
 				AC981FD41DD24E0C0004E6D6 /* seawagUITests */,
-				AC981FB01DD24E0C0004E6D6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +221,23 @@
 		AC981FB11DD24E0C0004E6D6 /* seawag */ = {
 			isa = PBXGroup;
 			children = (
+				AC4B2AD21DD6725800879D1C /* LoginController.swift */,
 				AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */,
-				AC981FB41DD24E0C0004E6D6 /* ViewController.swift */,
 				AC981FB61DD24E0C0004E6D6 /* Main.storyboard */,
 				AC981FBC1DD24E0C0004E6D6 /* Assets.xcassets */,
 				AC981FBE1DD24E0C0004E6D6 /* LaunchScreen.storyboard */,
 				AC981FC11DD24E0C0004E6D6 /* Info.plist */,
 				AC981FB91DD24E0C0004E6D6 /* seawag.xcdatamodeld */,
+				AC912BF71DD29486001297A6 /* RegisterController .swift */,
+				AC912BF91DD294FC001297A6 /* RememberController.swift */,
+				AC912BFB1DD2953F001297A6 /* FacebookController.swift */,
+				AC5D48A61DD39AA800D6D91F /* Helpers.swift */,
+				ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */,
+				ACEDD8A71DD4CD84009CF65E /* AlertController.swift */,
+				AC4B2AD41DD673F400879D1C /* CameraController.swift */,
+				AC4B2AD61DD6744B00879D1C /* EditorController.swift */,
+				AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */,
+				ACFB4B181DDBCD4B00F40932 /* SocialController.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -224,6 +356,28 @@
 			mainGroup = AC981FA61DD24E0B0004E6D6;
 			productRefGroup = AC981FB01DD24E0C0004E6D6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC960B411DDD1F660040E8C2 /* Products */;
+					ProjectRef = AC960B401DDD1F660040E8C2 /* Bolts.xcodeproj */;
+				},
+				{
+					ProductGroup = AC960B1D1DDD1B890040E8C2 /* Products */;
+					ProjectRef = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = AC960B441DDD1F660040E8C2 /* Products */;
+					ProjectRef = AC960B431DDD1F660040E8C2 /* FBSDKCoreKit.xcodeproj */;
+				},
+				{
+					ProductGroup = AC960B471DDD1F660040E8C2 /* Products */;
+					ProjectRef = AC960B461DDD1F660040E8C2 /* FBSDKLoginKit.xcodeproj */;
+				},
+				{
+					ProductGroup = AC960B4A1DDD1F660040E8C2 /* Products */;
+					ProjectRef = AC960B491DDD1F660040E8C2 /* FBSDKShareKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AC981FAE1DD24E0B0004E6D6 /* seawag */,
@@ -232,6 +386,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AC960B231DDD1B890040E8C2 /* FacebookCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FacebookCore.framework;
+			remoteRef = AC960B221DDD1B890040E8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC960B251DDD1B890040E8C2 /* FacebookLogin.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FacebookLogin.framework;
+			remoteRef = AC960B241DDD1B890040E8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC960B271DDD1B890040E8C2 /* FacebookShare.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FacebookShare.framework;
+			remoteRef = AC960B261DDD1B890040E8C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AC981FAD1DD24E0B0004E6D6 /* Resources */ = {
@@ -265,9 +443,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC981FB51DD24E0C0004E6D6 /* ViewController.swift in Sources */,
+				ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */,
+				AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */,
+				AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */,
+				ACFB4B191DDBCD4B00F40932 /* SocialController.swift in Sources */,
+				AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */,
+				AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */,
+				ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */,
+				AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */,
 				AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */,
+				AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */,
 				AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */,
+				AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */,
+				AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +608,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = seawag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -433,11 +627,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = seawag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -447,6 +647,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = seawagTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawagTests;
@@ -462,6 +666,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = seawagTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawagTests;
@@ -476,6 +684,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = seawagUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawagUITests;
@@ -490,6 +702,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = seawagUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawagUITests;
@@ -518,6 +734,7 @@
 				AC981FDC1DD24E0C0004E6D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC981FDD1DD24E0C0004E6D6 /* Build configuration list for PBXNativeTarget "seawagTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +743,7 @@
 				AC981FDF1DD24E0C0004E6D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC981FE01DD24E0C0004E6D6 /* Build configuration list for PBXNativeTarget "seawagUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +752,7 @@
 				AC981FE21DD24E0C0004E6D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
