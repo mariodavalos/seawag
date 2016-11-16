@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import FacebookCore
-import FacebookLogin
 
 class LoginController: UIViewController {
 
