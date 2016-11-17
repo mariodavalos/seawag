@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3AD577FD89969956BFA2D4 /* Pods_seawag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F5CE523339AD48FD609311 /* Pods_seawag.framework */; };
 		AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */; };
 		AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD21DD6725800879D1C /* LoginController.swift */; };
 		AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD41DD673F400879D1C /* CameraController.swift */; };
@@ -28,27 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AC960B221DDD1B890040E8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8115C0D81CFE540D001FF33B;
-			remoteInfo = FacebookCore;
-		};
-		AC960B241DDD1B890040E8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 811C5DFD1CFFD36600E4A925;
-			remoteInfo = FacebookLogin;
-		};
-		AC960B261DDD1B890040E8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 811C5E0A1CFFD36D00E4A925;
-			remoteInfo = FacebookShare;
-		};
 		AC981FC71DD24E0C0004E6D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AC981FA71DD24E0B0004E6D6 /* Project object */;
@@ -66,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01CCB95B4DD658E4E31E0E9A /* Pods-seawag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seawag.release.xcconfig"; path = "Pods/Target Support Files/Pods-seawag/Pods-seawag.release.xcconfig"; sourceTree = "<group>"; };
+		65DF8A7AB853922AD752739A /* Pods-seawag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seawag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-seawag/Pods-seawag.debug.xcconfig"; sourceTree = "<group>"; };
+		81F5CE523339AD48FD609311 /* Pods_seawag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_seawag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmController.swift; sourceTree = "<group>"; };
 		AC4B2AD21DD6725800879D1C /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AC4B2AD41DD673F400879D1C /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
@@ -74,7 +57,6 @@
 		AC912BF71DD29486001297A6 /* RegisterController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterController .swift"; sourceTree = "<group>"; wrapsLines = 1; };
 		AC912BF91DD294FC001297A6 /* RememberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberController.swift; sourceTree = "<group>"; };
 		AC912BFB1DD2953F001297A6 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
-		AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FacebookSwift.xcodeproj; path = "../../../Downloads/facebook-sdk-swift-0.2.0/FacebookSwift.xcodeproj"; sourceTree = "<group>"; };
 		AC981FAF1DD24E0C0004E6D6 /* seawag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seawag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC981FB71DD24E0C0004E6D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3AD577FD89969956BFA2D4 /* Pods_seawag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,33 +101,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AC960B0F1DDD1B660040E8C2 /* Frameworks */ = {
+		81FD9B57B6177996473BF940 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */,
+				65DF8A7AB853922AD752739A /* Pods-seawag.debug.xcconfig */,
+				01CCB95B4DD658E4E31E0E9A /* Pods-seawag.release.xcconfig */,
 			);
-			name = Frameworks;
-			path = ../../../../../../../../../Users/mario/Desktop/Xcode/seawag;
-			sourceTree = SDKROOT;
-		};
-		AC960B1D1DDD1B890040E8C2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AC960B231DDD1B890040E8C2 /* FacebookCore.framework */,
-				AC960B251DDD1B890040E8C2 /* FacebookLogin.framework */,
-				AC960B271DDD1B890040E8C2 /* FacebookShare.framework */,
-			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		AC981FA61DD24E0B0004E6D6 = {
 			isa = PBXGroup;
 			children = (
 				AC981FB01DD24E0C0004E6D6 /* Products */,
-				AC960B0F1DDD1B660040E8C2 /* Frameworks */,
 				AC981FB11DD24E0C0004E6D6 /* seawag */,
 				AC981FC91DD24E0C0004E6D6 /* seawagTests */,
 				AC981FD41DD24E0C0004E6D6 /* seawagUITests */,
+				81FD9B57B6177996473BF940 /* Pods */,
+				B077C08862740F160B0AAFF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,6 +174,14 @@
 			path = seawagUITests;
 			sourceTree = "<group>";
 		};
+		B077C08862740F160B0AAFF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81F5CE523339AD48FD609311 /* Pods_seawag.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC981FDA1DD24E0C0004E6D6 /* Build configuration list for PBXNativeTarget "seawag" */;
 			buildPhases = (
+				1800A206AE3B96DB8AA4C279 /* [CP] Check Pods Manifest.lock */,
 				AC981FAB1DD24E0B0004E6D6 /* Sources */,
 				AC981FAC1DD24E0B0004E6D6 /* Frameworks */,
 				AC981FAD1DD24E0B0004E6D6 /* Resources */,
+				BFF1E62D90BC4BB2A2CDDB95 /* [CP] Embed Pods Frameworks */,
+				FC7251AD11A96F9830F1132C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,12 +281,6 @@
 			mainGroup = AC981FA61DD24E0B0004E6D6;
 			productRefGroup = AC981FB01DD24E0C0004E6D6 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AC960B1D1DDD1B890040E8C2 /* Products */;
-					ProjectRef = AC960B1C1DDD1B890040E8C2 /* FacebookSwift.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				AC981FAE1DD24E0B0004E6D6 /* seawag */,
@@ -310,30 +289,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AC960B231DDD1B890040E8C2 /* FacebookCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FacebookCore.framework;
-			remoteRef = AC960B221DDD1B890040E8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AC960B251DDD1B890040E8C2 /* FacebookLogin.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FacebookLogin.framework;
-			remoteRef = AC960B241DDD1B890040E8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AC960B271DDD1B890040E8C2 /* FacebookShare.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FacebookShare.framework;
-			remoteRef = AC960B261DDD1B890040E8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AC981FAD1DD24E0B0004E6D6 /* Resources */ = {
@@ -361,6 +316,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1800A206AE3B96DB8AA4C279 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BFF1E62D90BC4BB2A2CDDB95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-seawag/Pods-seawag-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC7251AD11A96F9830F1132C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-seawag/Pods-seawag-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC981FAB1DD24E0B0004E6D6 /* Sources */ = {
@@ -529,6 +532,7 @@
 		};
 		AC981FDB1DD24E0C0004E6D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65DF8A7AB853922AD752739A /* Pods-seawag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
@@ -543,11 +547,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
 		AC981FDC1DD24E0C0004E6D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01CCB95B4DD658E4E31E0E9A /* Pods-seawag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZS47A3SD7X;
@@ -562,6 +568,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};

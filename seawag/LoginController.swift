@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+import FacebookCore
+import FacebookLogin
+
 class LoginController: UIViewController {
 
     @IBOutlet weak var Login: UIButton!
@@ -16,9 +19,12 @@ class LoginController: UIViewController {
     @IBOutlet weak var Facebook: UIButton!
     @IBOutlet weak var User: UITextField!
     @IBOutlet weak var Paser: UITextField!
+    @IBOutlet weak var FacebookSession: UIButton!
     
     @IBOutlet weak var FondoParallax: UIImageView!
     @IBOutlet var LoginParallax: UIView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +41,32 @@ class LoginController: UIViewController {
         self.Paser.layer.borderWidth = 2
         self.Paser.layer.borderColor = UIColor.white.cgColor
         addParallaxToView(vw: FondoParallax)
+        
+        let loginButton = LoginButton(publishPermissions: [ .publishActions ])
+        loginButton.center = view.center
+        
+        view.addSubview(loginButton)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func FacebookLogin(_ sender: UIButton) {
+        let loginManager = LoginManager()
+        loginManager.logIn([.publishActions], viewController: self) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                print(accessToken.userId!)
+                
+            }
+        }
+    }
     func addParallaxToView(vw: UIImageView) {
         let amount = 100
         

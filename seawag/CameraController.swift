@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import MobileCoreServices
 import AVFoundation
+import FacebookShare
+
 
 class CameraController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -122,6 +124,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     @IBAction func TakePhoto(_ sender: UIButton) {
+        
         if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
             stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: { (sampleBuffer, error) -> Void in
           
@@ -136,11 +139,25 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                     self.CameraScreen.image = image
                     CameraController.ImageTaken.image = image
                     self.previewView.isHidden = true
+                    do{
+                        let photo = Photo(image: image, userGenerated: true)
+                        let content = PhotoShareContent(photos: [photo])
+                        let sharer = GraphSharer(content: content)
+                        sharer.failsOnInvalidData = true
+                        sharer.completion = { result in
+                            // Handle share results
+                        }
+                        
+                        try sharer.share()
+                        //try ShareDialog.show(from: self, content: content)
+                    }
+                    catch {}
                 }
             })
         }
         Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
         Editor.isEnabled = true
+        
     }
     
     @IBAction func ActivateFlash(_ sender: UIButton) {

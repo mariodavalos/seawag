@@ -829,7 +829,7 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <segue destination="rJe-e1-uxc" kind="show" id="Phi-du-uDB"/>
+                                                                    <action selector="FacebookLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SZw-sV-5ZU"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -867,6 +867,7 @@
                     </view>
                     <connections>
                         <outlet property="Facebook" destination="pqe-GV-tDD" id="rNj-68-9c4"/>
+                        <outlet property="FacebookSession" destination="pqe-GV-tDD" id="2rI-hM-m8v"/>
                         <outlet property="FondoParallax" destination="iec-nV-9PR" id="N9G-xe-Qcp"/>
                         <outlet property="Login" destination="2U4-q1-Otl" id="7ad-b7-Mq0"/>
                         <outlet property="LoginParallax" destination="8bC-Xf-vdC" id="aCT-xy-B3N"/>
@@ -1591,7 +1592,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                                                         <subviews>
                                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3AI-5i-oaE">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="1193" height="130"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="1192" height="130"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="900" id="dD2-vQ-fW2"/>
@@ -1605,10 +1606,10 @@
                                                                                 <cells/>
                                                                             </collectionView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IGV-12-94f">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="1193" height="130"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="1192" height="130"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hmq-Ub-kf9">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="1193" height="112"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="1192" height="112"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOc-vh-NyE">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
@@ -1629,41 +1630,41 @@
                                                                                                 </state>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkU-pO-Nya">
-                                                                                                <rect key="frame" x="240" y="0.0" width="112.5" height="112"/>
+                                                                                                <rect key="frame" x="240" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiF-6Y-ync">
-                                                                                                <rect key="frame" x="360.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="360" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkI-Rt-uPs">
-                                                                                                <rect key="frame" x="480.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="480" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrZ-IR-mbi">
-                                                                                                <rect key="frame" x="600.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="600" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoD-pf-Nyj">
-                                                                                                <rect key="frame" x="720.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="720" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gav-5v-RJ3">
-                                                                                                <rect key="frame" x="840.5" y="0.0" width="112.5" height="112"/>
+                                                                                                <rect key="frame" x="840" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imw-GI-dAk">
-                                                                                                <rect key="frame" x="961" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="960" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-hN-XE3">
-                                                                                                <rect key="frame" x="1081" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="1080" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YNJ-p4-b4h">
-                                                                                        <rect key="frame" x="0.0" y="120" width="1193" height="10"/>
+                                                                                        <rect key="frame" x="0.0" y="120" width="1192" height="10"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0c4-fz-kXz">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="10"/>
@@ -1678,49 +1679,49 @@
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuJ-R8-JCM">
-                                                                                                <rect key="frame" x="240" y="0.0" width="112.5" height="10"/>
+                                                                                                <rect key="frame" x="240" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-fB-qrw">
-                                                                                                <rect key="frame" x="360.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="360" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnI-ll-jwf">
-                                                                                                <rect key="frame" x="480.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="480" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJD-Gu-FLH">
-                                                                                                <rect key="frame" x="600.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="600" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqW-z2-xPM">
-                                                                                                <rect key="frame" x="720.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="720" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwT-U4-2gM">
-                                                                                                <rect key="frame" x="840.5" y="0.0" width="112.5" height="10"/>
+                                                                                                <rect key="frame" x="840" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP0-0E-ubB">
-                                                                                                <rect key="frame" x="961" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="960" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNx-db-sRB">
-                                                                                                <rect key="frame" x="1081" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="1080" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -1733,10 +1734,10 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-4q-ioS">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="1193" height="130"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="1192" height="130"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="owz-lS-UQ2">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="1193" height="112"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="1192" height="112"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1q-vH-z93">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
@@ -1762,56 +1763,56 @@
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25m-p9-6SV">
-                                                                                                <rect key="frame" x="240" y="0.0" width="112.5" height="112"/>
+                                                                                                <rect key="frame" x="240" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction3:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="ewn-V8-lHV"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ck9-o1-lPL">
-                                                                                                <rect key="frame" x="360.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="360" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction4:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="Kbr-2o-Woa"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6s4-US-Gkd">
-                                                                                                <rect key="frame" x="480.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="480" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction5:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="0QE-VQ-gzE"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-GH-E5G">
-                                                                                                <rect key="frame" x="600.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="600" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction6:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="rl7-ND-W1f"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klt-Oa-Nug">
-                                                                                                <rect key="frame" x="720.5" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="720" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction7:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="bmM-FH-DxW"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQT-9g-mED">
-                                                                                                <rect key="frame" x="840.5" y="0.0" width="112.5" height="112"/>
+                                                                                                <rect key="frame" x="840" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction8:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="DeE-k4-8ex"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qty-GR-cmt">
-                                                                                                <rect key="frame" x="961" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="960" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction9:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="i5s-SY-s2f"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ac-Vf-CWS">
-                                                                                                <rect key="frame" x="1081" y="0.0" width="112" height="112"/>
+                                                                                                <rect key="frame" x="1080" y="0.0" width="112" height="112"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction10:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="kDg-Zd-rHP"/>
@@ -1820,7 +1821,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VO6-cw-yaK">
-                                                                                        <rect key="frame" x="0.0" y="120" width="1193" height="10"/>
+                                                                                        <rect key="frame" x="0.0" y="120" width="1192" height="10"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kp-bO-8H5">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="10"/>
@@ -1835,49 +1836,49 @@
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5h-gC-3Wr">
-                                                                                                <rect key="frame" x="240" y="0.0" width="112.5" height="10"/>
+                                                                                                <rect key="frame" x="240" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL5-3Q-1gz">
-                                                                                                <rect key="frame" x="360.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="360" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTN-ye-2yq">
-                                                                                                <rect key="frame" x="480.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="480" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz6-Ry-vpe">
-                                                                                                <rect key="frame" x="600.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="600" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79N-xi-DCC">
-                                                                                                <rect key="frame" x="720.5" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="720" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fr-zp-9cz">
-                                                                                                <rect key="frame" x="840.5" y="0.0" width="112.5" height="10"/>
+                                                                                                <rect key="frame" x="840" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk7-Th-k6A">
-                                                                                                <rect key="frame" x="961" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="960" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npb-7l-dHU">
-                                                                                                <rect key="frame" x="1081" y="0.0" width="112" height="10"/>
+                                                                                                <rect key="frame" x="1080" y="0.0" width="112" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -2538,6 +2539,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yxx-16-K68"/>
-        <segue reference="WE5-Yc-XMN"/>
+        <segue reference="c3e-sB-6ey"/>
     </inferredMetricsTieBreakers>
 </document>
