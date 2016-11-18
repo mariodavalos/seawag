@@ -13,6 +13,9 @@ import AVFoundation
 import FacebookShare
 import TwitterKit
 import TwitterCore
+import CoreFoundation
+import Fabric
+import Social
 
 
 class CameraController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -135,13 +138,57 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                     let dataProvider = CGDataProvider(data: imageData as! CFData)
                     let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
                     let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right)
+                        
                         )
-             
+                    let beginImage = CIImage(image: image)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.2, y: 0.2))
+                    
+                    let imageseend = UIImage(ciImage: beginImage!)
                     CameraController.ImageTaken = self.CameraScreen
                     self.CameraScreen.image = image
                     CameraController.ImageTaken.image = image
                     self.previewView.isHidden = true
-                    /*do{
+                    let imageDate = UIImageJPEGRepresentation(image,0.1)
+                    let imageString = imageDate?.base64EncodedString(options: (NSData.Base64EncodingOptions()))
+                    
+                    let account = ACAccountStore()
+                    let accountType = account.accountType(
+                        withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+                    
+                    account.requestAccessToAccounts(with: accountType, options: nil,
+                                                    completion: {(success, error) in
+                                                        
+                                                        if success {
+                                                            let arrayOfAccounts =
+                                                                account.accounts(with: accountType)
+                                                            
+                                                            if (arrayOfAccounts?.count)! > 0 {
+                                                                let twitterAccount = arrayOfAccounts?.first as! ACAccount
+                                                                var message = Dictionary<String, AnyObject>()
+                                                                message["status"] = "Testing Image 8" as AnyObject?
+                                                                message["media[]"] = imageString as AnyObject?
+                                                                //message["media"] = imageDate as AnyObject?
+                                                                let requestURL = NSURL(string:
+                                                                    "https://api.twitter.com/1.1/statuses/update_with_media.json")
+                                                                let postRequest = SLRequest(forServiceType:
+                                                                    SLServiceTypeTwitter,
+                                                                                            requestMethod: SLRequestMethod.POST,
+                                                                                            url: requestURL as URL!,
+                                                                                            parameters: message)
+                                                                
+                                                                postRequest?.account = twitterAccount
+                                                                postRequest?.addMultipartData(imageDate, withName: "media[]", type: "image/jpeg", filename: "image.jpg")
+                                                                postRequest?.perform(handler: { data, response, error -> Void in                                                             if let err = error {
+                                                                    print("Error : \(err.localizedDescription)")
+                                                                    }
+                                                                    print("Twitter HTTP response \(response?.statusCode)")
+                                                                })
+                                                            }
+
+                                                        }
+                    })
+                    //self.tweetWithImage(data: (UIImagePNGRepresentation(image) as! NSData))
+                    /*
+                    do{
                         let photo = Photo(image: image, userGenerated: true)
                         let content = PhotoShareContent(photos: [photo])
                         let sharer = GraphSharer(content: content)
@@ -153,12 +200,23 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                         try sharer.share()
                         //try ShareDialog.show(from: self, content: content)
                     }
-                    catch {}*/
+                    catch {}
+                    
+                    //self.post(tweetString: "publicacion correcta", tweetImage: (UIImagePNGRepresentation(image) as! NSData))
+                    */
+                    //self.post(toService: SLServiceTypeFacebook)
+                    //self.post(toService: SLServiceTypeTwitter)
+                    
+                    //self.tweetWithImage(data: (UIImagePNGRepresentation(image))
+                    
+                    
+                     /*
                     // Swift
                     let composer = TWTRComposer()
                     
                     composer.setText("Seawag")
                     composer.setImage(image)
+                    
                     
                     // Called from a UIViewController
                     composer.show(from: self) { result in
@@ -169,7 +227,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                             print("Sending tweet!")
                         }
                     }
-                    
+                    // */
                 }
             })
         }
@@ -177,7 +235,102 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         Editor.isEnabled = true
         
     }
+
+    func tweetWithImage(data:NSData)
+    {
+        
+        let account = ACAccountStore()
+        let accountType = account.accountType(
+            withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+        
+        account.requestAccessToAccounts(with: accountType, options: [:]) {
+            (success: Bool, error: Error?) -> Void in
+                                                    if success {
+                                                        let arrayOfAccounts =
+                                                            account.accounts(with: accountType)
+                                                        
+                                                        if (arrayOfAccounts?.count)! > 0 {
+                                                            let twitterAccount = arrayOfAccounts?.first as! ACAccount
+                                                            var message = Dictionary<String, AnyObject>()
+                                                            message["status"] = "Test Tweet with image" as AnyObject?
+                                                            
+                                                            let requestURL = NSURL(string:
+                                                                "https://api.twitter.com/1.1/statuses/update.json")
+                                                            let postRequest = SLRequest(forServiceType:
+                                                                SLServiceTypeTwitter,
+                                                                                        requestMethod: SLRequestMethod.POST,
+                                                                                        url: requestURL as URL!,
+                                                                                        parameters: message)
+                                                            
+                                                            postRequest?.account = twitterAccount
+                                                            postRequest?.addMultipartData(data as Data!, withName: "media", type: nil, filename: nil)
+                                                            
+                                                            postRequest?.perform(handler: { data, response, error -> Void in                                                             if let err = error {
+                                                                    print("Error : \(err.localizedDescription)")
+                                                                }
+                                                                print("Twitter HTTP response \(response?.statusCode)")
+                                                            
+                                                            })
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        // do what you want here
+                                                        
+                                                    }
+        }
+    }
     
+    func post(toService service: String) {
+        if(SLComposeViewController.isAvailable(forServiceType: service)) {
+            let socialController = SLComposeViewController(forServiceType: service)
+                        socialController?.setInitialText("Hello World!")
+            //            socialController.addImage(someUIImageInstance)
+            //            socialController.addURL(someNSURLInstance)
+            self.present(socialController!, animated: true, completion: nil)
+        }
+    }
+    
+    /*
+    func nsdataToJSON (data: Data) -> Any? {
+        do {
+            return try JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers)
+        } catch let myJSONError {
+            print(myJSONError)
+        }
+        return nil
+    }
+    
+    func post (tweetString: String, tweetImage: NSData) {
+        
+        let client = TWTRAPIClient()
+        let uploadUrl = "https://upload.twitter.com/1.1/media/upload.json"
+        let updateUrl = "https://api.twitter.com/1.1/statuses/update.json"
+        let imageString = tweetImage.base64EncodedString(options: NSData.Base64EncodingOptions())
+        let request = client.urlRequest(withMethod: "POST", url: uploadUrl, parameters: ["media": imageString], error: nil)
+        client.sendTwitterRequest(request, completion: { (urlResponse, data, connectionError) -> Void in
+            
+            if let mediaDict = (self.nsdataToJSON(data: (data!)) as AnyObject?) {
+                let validTweetString: String // = TweetValidator().validTween(tweetString)
+                validTweetString = "mensaje"
+                let message = ["status": validTweetString, "media_ids": mediaDict["media_id_string"]!] as [String : Any]
+                let request = client.urlRequest(withMethod: "POST", url: updateUrl, parameters: message, error:nil)
+                
+                client.sendTwitterRequest(request, completion: { (response, data, connectionError) -> Void in
+                })
+            }
+        })
+    }
+    
+    func nsdataToJSON (data: NSData) -> Any? {
+        do {
+            return try JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers)
+        } catch let myJSONError {
+            print(myJSONError)
+        }
+        return nil
+    }
+    */
     @IBAction func ActivateFlash(_ sender: UIButton) {
         let avDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         

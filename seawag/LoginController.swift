@@ -42,10 +42,6 @@ class LoginController: UIViewController {
         self.Paser.layer.borderColor = UIColor.white.cgColor
         addParallaxToView(vw: FondoParallax)
         
-        let loginButton = LoginButton(publishPermissions: [ .publishActions ])
-        loginButton.center = view.center
-        
-        view.addSubview(loginButton)
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seawag/LoginController.swift"
-            timestampString = "501116807.369109"
+            timestampString = "501189191.911007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "FacebookLogin(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,29 +26,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seawag/CameraController.swift"
-            timestampString = "501179749.865504"
+            timestampString = "501203750.57025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "TakePhoto(_:)"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "tweetWithImage(data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seawag/CameraController.swift"
-            timestampString = "501177173.198631"
+            timestampString = "501203750.57025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "TakePhoto(_:)"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "tweetWithImage(data:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "seawag/CameraController.swift"
+            timestampString = "501203750.57025"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "tweetWithImage(data:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "seawag.CameraController.(tweetWithImage (data : __ObjC.NSData) -&gt; ()).(closure #1)"
+                  moduleName = "seawag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mario/Desktop/Xcode/seawag/seawag/CameraController.swift"
+                  timestampString = "501204679.081559"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "seawag.CameraController.(tweetWithImage (data : __ObjC.NSData) -&gt; ()).(closure #1)"
+                  moduleName = "seawag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mario/Desktop/Xcode/seawag/seawag/CameraController.swift"
+                  timestampString = "501204679.083868"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "2708">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
