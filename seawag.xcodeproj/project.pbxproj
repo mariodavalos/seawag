@@ -13,6 +13,7 @@
 		AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD41DD673F400879D1C /* CameraController.swift */; };
 		AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD61DD6744B00879D1C /* EditorController.swift */; };
 		AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D48A61DD39AA800D6D91F /* Helpers.swift */; };
+		AC6F9BD81DDF559900A1AC65 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC6F9BD71DDF559900A1AC65 /* TwitterKitResources.bundle */; };
 		AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF71DD29486001297A6 /* RegisterController .swift */; };
 		AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF91DD294FC001297A6 /* RememberController.swift */; };
 		AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BFB1DD2953F001297A6 /* FacebookController.swift */; };
@@ -54,6 +55,7 @@
 		AC4B2AD41DD673F400879D1C /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		AC4B2AD61DD6744B00879D1C /* EditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorController.swift; sourceTree = "<group>"; };
 		AC5D48A61DD39AA800D6D91F /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		AC6F9BD71DDF559900A1AC65 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = Pods/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		AC912BF71DD29486001297A6 /* RegisterController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RegisterController .swift"; sourceTree = "<group>"; wrapsLines = 1; };
 		AC912BF91DD294FC001297A6 /* RememberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberController.swift; sourceTree = "<group>"; };
 		AC912BFB1DD2953F001297A6 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		B077C08862740F160B0AAFF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC6F9BD71DDF559900A1AC65 /* TwitterKitResources.bundle */,
 				81F5CE523339AD48FD609311 /* Pods_seawag.framework */,
 			);
 			name = Frameworks;
@@ -195,6 +198,7 @@
 				AC981FAD1DD24E0B0004E6D6 /* Resources */,
 				BFF1E62D90BC4BB2A2CDDB95 /* [CP] Embed Pods Frameworks */,
 				FC7251AD11A96F9830F1132C /* [CP] Copy Pods Resources */,
+				AC6F9BD61DDF549500A1AC65 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6F9BD81DDF559900A1AC65 /* TwitterKitResources.bundle in Resources */,
 				AC981FC01DD24E0C0004E6D6 /* LaunchScreen.storyboard in Resources */,
 				AC981FBD1DD24E0C0004E6D6 /* Assets.xcassets in Resources */,
 				AC981FB81DD24E0C0004E6D6 /* Main.storyboard in Resources */,
@@ -332,6 +337,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		AC6F9BD61DDF549500A1AC65 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 358561a1021fee376e0af713d07d6bb85a0f5bd4 b7f6f672850a531a76a514bb5a6b9730c6063d7ba681682c200f4f6c297aa53a";
 		};
 		BFF1E62D90BC4BB2A2CDDB95 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seawag/CameraController.swift"
-            timestampString = "501003007.452323"
+            timestampString = "501179749.865504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "TakePhoto(_:)"
             landmarkType = "7">
          </BreakpointContent>

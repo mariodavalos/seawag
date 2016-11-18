@@ -11,6 +11,8 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 import FacebookShare
+import TwitterKit
+import TwitterCore
 
 
 class CameraController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -139,7 +141,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                     self.CameraScreen.image = image
                     CameraController.ImageTaken.image = image
                     self.previewView.isHidden = true
-                    do{
+                    /*do{
                         let photo = Photo(image: image, userGenerated: true)
                         let content = PhotoShareContent(photos: [photo])
                         let sharer = GraphSharer(content: content)
@@ -151,7 +153,23 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                         try sharer.share()
                         //try ShareDialog.show(from: self, content: content)
                     }
-                    catch {}
+                    catch {}*/
+                    // Swift
+                    let composer = TWTRComposer()
+                    
+                    composer.setText("Seawag")
+                    composer.setImage(image)
+                    
+                    // Called from a UIViewController
+                    composer.show(from: self) { result in
+                        if (result == TWTRComposerResult.cancelled) {
+                            print("Tweet composition cancelled")
+                        }
+                        else {
+                            print("Sending tweet!")
+                        }
+                    }
+                    
                 }
             })
         }

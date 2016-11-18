@@ -8,4 +8,7 @@ target ‘seawag’ do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Fabric'
+  pod 'TwitterKit'
+  pod 'TwitterCore'
 end
