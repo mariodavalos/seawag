@@ -28,6 +28,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var Carrete: UIButton!
     @IBOutlet weak var Userconfig: UIButton!
     @IBOutlet weak var PhotoSelector: UIButton!
+    @IBOutlet weak var VideoSelector: UIButton!
     @IBOutlet weak var Center: UIButton!
     @IBOutlet weak var Editor: UIButton!
     
@@ -36,7 +37,21 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     var stillImageOutput: AVCaptureStillImageOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     public static var usingFrontCamera = false
+    var StartOrClose : Bool = true {
+        willSet(newSoC) {
+            GoStart(SoC: newSoC)
+        }
+    }
+    static var instance = CameraController()
+    class var sharedManager: CameraController {
+        struct Static {
+            static let instance = CameraController.instance
+        }
+        return Static.instance
+    }
+    
     var on: Bool = false
+    var CamerVision: Bool = false
     
     public static var ImageTaken: UIImageView!
     
@@ -45,11 +60,13 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         Editor.setImage(nil, for: .normal)
         stillImageOutput = AVCaptureStillImageOutput()
         stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+        CameraController.instance = self
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -126,84 +143,120 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         Center.setImage(#imageLiteral(resourceName: "Camera"), for: .normal)
         Editor.setImage(nil, for: .normal)
         Editor.isEnabled = false
+        CamerVision = true
+    }
+  
+    @IBAction func TakePhoto(_ sender: UIButton) {
+        if(CamerVision){
+            CamerVision = false
+            PhotoSelector.setImage(nil, for: .normal)
+            PhotoSelector.isEnabled = false
+            Center.setImage(#imageLiteral(resourceName: "Public"), for: .normal)
+            VideoSelector.setImage(nil, for: .normal)
+            Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
+            Editor.isEnabled = true
+            self.TakePicture()
+            GoStart(SoC: false)
+          //  GoStart(SoC: true)
+        }
+        else if(Editor.isEnabled){
+            self.PublicSocial()
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublicateVC") as! PublicateController
+            self.present(vc, animated: true, completion: { () -> Void in
+            
+            })
+        }
+        
     }
     
-    @IBAction func TakePhoto(_ sender: UIButton) {
+    func GoStart(SoC : Bool){
+        if(SoC)
+        {
+            self.PhotoSelector.isEnabled = true
+            self.PhotoSelector.setImage(#imageLiteral(resourceName: "PhotOff"), for: .normal)
+            self.Center.setImage(#imageLiteral(resourceName: "Center"), for: .normal)
+            self.VideoSelector.setImage(#imageLiteral(resourceName: "VideOff"), for: .normal)
+            self.Editor.setImage(nil, for: .normal)
+            self.Editor.isEnabled = false
+            
+            self.WeLabel.isHidden = false
+            self.Logo.image = #imageLiteral(resourceName: "Logo")
+            self.Userconfig.setImage(#imageLiteral(resourceName: "UserWhite"), for: .normal)
+            self.Carrete.setImage(#imageLiteral(resourceName: "CarretWhite"), for: .normal)
+            self.CameraScreen.image = #imageLiteral(resourceName: "Fondo")
+        }
+    }
+    func TakePicture(){
         
         if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
             stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: { (sampleBuffer, error) -> Void in
-          
+                
                 if sampleBuffer != nil {
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
                     let dataProvider = CGDataProvider(data: imageData as! CFData)
                     let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
                     let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right)
                         
-                        )
-                    let beginImage = CIImage(image: image)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.2, y: 0.2))
+                    )
+                    //let beginImage = CIImage(image: image)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.2, y: 0.2))
                     
-                    let imageseend = UIImage(ciImage: beginImage!)
+                    //let imageseend = UIImage(ciImage: beginImage!)
                     CameraController.ImageTaken = self.CameraScreen
                     self.CameraScreen.image = image
                     CameraController.ImageTaken.image = image
                     self.previewView.isHidden = true
-                    let imageDate = UIImageJPEGRepresentation(image,0.1)
-                    let imageString = imageDate?.base64EncodedString(options: (NSData.Base64EncodingOptions()))
+                }
+            })}
+        
+    }
+    func PublicSocial()
+    {
+        
+        let imageDate = UIImageJPEGRepresentation(self.CameraScreen.image!,0.1)
+        let imageString = imageDate?.base64EncodedString(options: (NSData.Base64EncodingOptions()))
                     
-                    let account = ACAccountStore()
-                    let accountType = account.accountType(
-                        withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+        let account = ACAccountStore()
+        let accountType = account.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
                     
-                    account.requestAccessToAccounts(with: accountType, options: nil,
-                                                    completion: {(success, error) in
+        account.requestAccessToAccounts(with: accountType, options: nil, completion: {(success, error) in
                                                         
-                                                        if success {
-                                                            let arrayOfAccounts =
-                                                                account.accounts(with: accountType)
+            if success {
+                let arrayOfAccounts = account.accounts(with: accountType)
                                                             
-                                                            if (arrayOfAccounts?.count)! > 0 {
-                                                                let twitterAccount = arrayOfAccounts?.first as! ACAccount
-                                                                var message = Dictionary<String, AnyObject>()
-                                                                message["status"] = "Testing Image 8" as AnyObject?
-                                                                message["media[]"] = imageString as AnyObject?
-                                                                //message["media"] = imageDate as AnyObject?
-                                                                let requestURL = NSURL(string:
-                                                                    "https://api.twitter.com/1.1/statuses/update_with_media.json")
-                                                                let postRequest = SLRequest(forServiceType:
-                                                                    SLServiceTypeTwitter,
-                                                                                            requestMethod: SLRequestMethod.POST,
-                                                                                            url: requestURL as URL!,
-                                                                                            parameters: message)
+                if (arrayOfAccounts?.count)! > 0 {
+                        let twitterAccount = arrayOfAccounts?.first as! ACAccount
+                        var message = Dictionary<String, AnyObject>()
+                            message["status"] = "Testing 1" as AnyObject?
+                            message["media[]"] = imageString as AnyObject?
+                            //message["media"] = imageDate as AnyObject?
+                        let requestURL = NSURL(string:"https://api.twitter.com/1.1/statuses/update_with_media.json")
+                        let postRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.POST, url: requestURL as URL!, parameters: message)
                                                                 
-                                                                postRequest?.account = twitterAccount
-                                                                postRequest?.addMultipartData(imageDate, withName: "media[]", type: "image/jpeg", filename: "image.jpg")
-                                                                postRequest?.perform(handler: { data, response, error -> Void in                                                             if let err = error {
-                                                                    print("Error : \(err.localizedDescription)")
-                                                                    }
-                                                                    print("Twitter HTTP response \(response?.statusCode)")
-                                                                })
-                                                            }
-
-                                                        }
+                            postRequest?.account = twitterAccount
+                            postRequest?.addMultipartData(imageDate, withName: "media[]", type: "image/jpeg", filename: "image.jpg")
+                            postRequest?.perform(handler: { data, response, error -> Void in                                                             if let err = error {
+                                                        print("Error : \(err.localizedDescription)")
+                                                    }
+                                                        print("Twitter HTTP response \(response?.statusCode)")
+                                                })
+                                            }
+                                    }
                     })
                     //self.tweetWithImage(data: (UIImagePNGRepresentation(image) as! NSData))
-                    /*
                     do{
-                        let photo = Photo(image: image, userGenerated: true)
+                        let photo = Photo(image: self.CameraScreen.image!, userGenerated: true)
                         let content = PhotoShareContent(photos: [photo])
                         let sharer = GraphSharer(content: content)
                         sharer.failsOnInvalidData = true
                         sharer.completion = { result in
                             // Handle share results
                         }
-                        
                         try sharer.share()
                         //try ShareDialog.show(from: self, content: content)
-                    }
-                    catch {}
-                    
+                    }catch {}
+    }
                     //self.post(tweetString: "publicacion correcta", tweetImage: (UIImagePNGRepresentation(image) as! NSData))
-                    */
+        
                     //self.post(toService: SLServiceTypeFacebook)
                     //self.post(toService: SLServiceTypeTwitter)
                     
@@ -228,14 +281,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                         }
                     }
                     // */
-                }
-            })
-        }
-        Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
-        Editor.isEnabled = true
-        
-    }
-
+ /*
     func tweetWithImage(data:NSData)
     {
         
@@ -281,17 +327,8 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         }
     }
     
-    func post(toService service: String) {
-        if(SLComposeViewController.isAvailable(forServiceType: service)) {
-            let socialController = SLComposeViewController(forServiceType: service)
-                        socialController?.setInitialText("Hello World!")
-            //            socialController.addImage(someUIImageInstance)
-            //            socialController.addURL(someNSURLInstance)
-            self.present(socialController!, animated: true, completion: nil)
-        }
-    }
     
-    /*
+    
     func nsdataToJSON (data: Data) -> Any? {
         do {
             return try JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers)
