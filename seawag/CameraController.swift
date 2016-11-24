@@ -122,9 +122,10 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             videoPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
             self.previewView.layer.addSublayer(videoPreviewLayer!)
-            DispatchQueue.main.async {
+            //DispatchQueue.main.async {
                 self.session!.startRunning()
-            }
+           // }
+                
             }
         }
     }
@@ -156,15 +157,13 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
             Editor.isEnabled = true
             self.TakePicture()
-            GoStart(SoC: false)
+            //GoStart(SoC: false)
           //  GoStart(SoC: true)
         }
         else if(Editor.isEnabled){
             self.PublicSocial()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublicateVC") as! PublicateController
-            self.present(vc, animated: true, completion: { () -> Void in
-            
-            })
+            self.present(vc, animated: true, completion: nil)
         }
         
     }
@@ -241,7 +240,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                                                 })
                                             }
                                     }
-                    })
+        })
                     //self.tweetWithImage(data: (UIImagePNGRepresentation(image) as! NSData))
                     do{
                         let photo = Photo(image: self.CameraScreen.image!, userGenerated: true)
@@ -405,4 +404,6 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         return AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     }
     
+    @IBAction func ConfigSocial(_ sender: UIButton) {
+    }
 }

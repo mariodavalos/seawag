@@ -47,6 +47,31 @@ class LoginController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func LoginAccess(_ sender: UIButton) {
+        var request = URLRequest(url: URL(string: "http://201.168.207.17:8888/seawag/kuff_api/loginUser")!)
+        request.httpMethod = "POST"
+        let postString =
+            "uname="+User.text!+"&upass="+Paser.text!
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            let responseString = String(data: data, encoding: .utf8)
+            if(responseString!.contains("\"status\":200"))
+            {
+            print("responseString = \(responseString)")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+        task.resume()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func FacebookLogin(_ sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logIn([.publishActions], viewController: self) { loginResult in
@@ -61,6 +86,7 @@ class LoginController: UIViewController {
             }
         }
     }
+    
     func addParallaxToView(vw: UIImageView) {
         let amount = 100
         

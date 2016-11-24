@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MobileCoreServices
+import AVFoundation
+import CoreFoundation
 
 class RegisterController: UIViewController, UITextFieldDelegate {
     
@@ -39,7 +42,29 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     @IBAction func Register(_ sender: UIButton) {
         if(validateDates()){
-         //Name.messageAlert(message: "Todo es correcto")
+            var request = URLRequest(url: URL(string: "http://201.168.207.17:8888/seawag/kuff_api/regUser")!)
+            request.httpMethod = "POST"
+            let postString =
+                "nombre="+Name.text!+"&apellido="+LastName.text!+"&email="+Email.text!+"&pass="+Password.text!
+            request.httpBody = postString.data(using: .utf8)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    // check for fundamental networking error
+                    print("error=\(error)")
+                    return
+                }
+                
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    // check for http errors
+                    print("usuario registrado,estatus \(httpStatus.statusCode)")
+                    print("response = \(response)")
+                }
+                
+                let responseString = String(data: data, encoding: .utf8)
+                print("responseString = \(responseString)")
+            }
+            task.resume()
+            self.dismiss(animated: true, completion: nil)
         }
     }
     func validateDates()-> Bool{
@@ -59,6 +84,21 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         }
         return success
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches , with: event)
+        self.Name.resignFirstResponder()
+        self.LastName.resignFirstResponder()
+        self.Email.resignFirstResponder()
+        self.Email2.resignFirstResponder()
+        self.Password.resignFirstResponder()
+        self.Password2.resignFirstResponder()
+        if(validateDates()){
+            //Name.messageAlert(message: "Todo es correcto")
+        }
+    }
+    
+    //MARK: TextField Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.Name {
             self.LastName.becomeFirstResponder()

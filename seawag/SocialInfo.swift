@@ -46,20 +46,44 @@ class SocialInfo: NSObject, NSCoding {
         if let LocationTwitter = aDecoder.decodeObject(forKey: "LocationTwitter") as? String {
             self.LocationTwitter = LocationTwitter
         }
+        if let CommentFacebook = aDecoder.decodeObject(forKey: "CommentFacebook") as? String {
+            self.CommentFacebook = CommentFacebook
+        }
+        if let HashtagFacebook = aDecoder.decodeObject(forKey: "HashtagFacebook") as? String {
+            self.HashtagFacebook = HashtagFacebook
+        }
+        if let UsersFacebook = aDecoder.decodeObject(forKey: "UsersFacebook") as? String {
+            self.UsersFacebook = UsersFacebook
+        }
+        if let LocationFacebook = aDecoder.decodeObject(forKey: "LocationFacebook") as? String {
+            self.LocationFacebook = LocationFacebook
+        }
     }
     
     func encode(with aCoder: NSCoder) {
-        if let message = self.todo {
-            aCoder.encode(message, forKey: "todo")
+        if let CommentTwitter = self.CommentTwitter {
+            aCoder.encode(CommentTwitter, forKey: "CommentTwitter")
         }
-        if let date = self.dueDate {
-            aCoder.encode(date, forKey: "dueDate")
+        if let HashtagTwitter = self.HashtagTwitter {
+            aCoder.encode(HashtagTwitter, forKey: "HashtagTwitter")
         }
-        if let img = self.image {
-            aCoder.encode(img, forKey: "image")
+        if let UsersTwitter = self.UsersTwitter {
+            aCoder.encode(UsersTwitter, forKey: "UsersTwitter")
         }
-        if let identifier = self.id {
-            aCoder.encode(identifier, forKey: "identifier")
+        if let LocationTwitter = self.LocationTwitter {
+            aCoder.encode(LocationTwitter, forKey: "LocationTwitter")
+        }
+        if let CommentFacebook = self.CommentFacebook {
+            aCoder.encode(CommentFacebook, forKey: "CommentFacebook")
+        }
+        if let HashtagFacebook = self.HashtagFacebook {
+            aCoder.encode(HashtagFacebook, forKey: "HashtagFacebook")
+        }
+        if let UsersTwitter = self.UsersTwitter {
+            aCoder.encode(UsersTwitter, forKey: "UsersTwitter")
+        }
+        if let UsersFacebook = self.UsersFacebook {
+            aCoder.encode(UsersFacebook, forKey: "UsersFacebook")
         }
     }
     

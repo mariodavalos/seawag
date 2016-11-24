@@ -28,6 +28,7 @@
 		ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */; };
 		ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A71DD4CD84009CF65E /* AlertController.swift */; };
 		ACEFC6DC1DE512540043D2B5 /* SocialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC6DB1DE512540043D2B5 /* SocialInfo.swift */; };
+		ACEFC6DE1DE5DE850043D2B5 /* SocialSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC6DD1DE5DE850043D2B5 /* SocialSaving.swift */; };
 		ACFB4B191DDBCD4B00F40932 /* SocialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4B181DDBCD4B00F40932 /* SocialController.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacityController.swift; sourceTree = "<group>"; };
 		ACEDD8A71DD4CD84009CF65E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		ACEFC6DB1DE512540043D2B5 /* SocialInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialInfo.swift; sourceTree = "<group>"; };
+		ACEFC6DD1DE5DE850043D2B5 /* SocialSaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSaving.swift; sourceTree = "<group>"; };
 		ACFB4B181DDBCD4B00F40932 /* SocialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 				ACFB4B181DDBCD4B00F40932 /* SocialController.swift */,
 				ACDD23461DE4A78300390B17 /* PublicateController.swift */,
 				ACEFC6DB1DE512540043D2B5 /* SocialInfo.swift */,
+				ACEFC6DD1DE5DE850043D2B5 /* SocialSaving.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACEFC6DE1DE5DE850043D2B5 /* SocialSaving.swift in Sources */,
 				ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */,
 				AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */,
 				AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */,

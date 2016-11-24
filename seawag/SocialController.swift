@@ -7,10 +7,9 @@
 //
 
 import Foundation
-
 import UIKit
 
-class SocialController: UIViewController, UITextFieldDelegate {
+class SocialController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet weak var SaveButton: UIButton!
     
@@ -20,9 +19,6 @@ class SocialController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var HashtagButton: UIImageView!
     @IBOutlet weak var UsersButton: UIImageView!
     @IBOutlet weak var LocationButton: UIImageView!
-    @IBOutlet weak var CommentsArrow: UIButton!
-    @IBOutlet weak var HastagsArrow: UIButton!
-    @IBOutlet weak var UsersArrow: UIButton!
     @IBOutlet weak var Cleaner: UIButton!
     @IBOutlet weak var CaractersNumber: UILabel!
     
@@ -31,11 +27,23 @@ class SocialController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Users: UITextField!
     @IBOutlet weak var Locations: UITextField!
     
+    let socialsave = SocialSaving()
+    var socialinfo: SocialInfo?
+    
+    var socialRed: Bool? = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.SaveButton.layer.borderWidth = 2
-        self.SaveButton.layer.borderColor = UIColor.blue.cgColor
+        self.SaveButton.layer.borderWidth = 1
+        self.SaveButton.layer.borderColor =  UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0).cgColor
         self.SaveButton.layer.cornerRadius = 22.0
+        
+        socialinfo = socialsave.getItem(index: 0)
+        Comments.isEnabled = false
+        Hastags.isEnabled = false
+        Users.isEnabled = false
+        Locations.isEnabled = false
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,9 +60,23 @@ class SocialController: UIViewController, UITextFieldDelegate {
         HashtagButton.image = #imageLiteral(resourceName: "HashtagTwr")
         UsersButton.image = #imageLiteral(resourceName: "UserTwr")
         LocationButton.image = #imageLiteral(resourceName: "LocationTwr")
-        CommentsArrow.setImage(#imageLiteral(resourceName: "MenuTwr"), for: .normal)
-        HastagsArrow.setImage(#imageLiteral(resourceName: "MenuTwr"), for: .normal)
-        UsersArrow.setImage(#imageLiteral(resourceName: "MenuTwr"), for: .normal)
+        
+        if(socialRed!){
+            socialinfo?.CommentFacebook = Comments.text
+            socialinfo?.HashtagFacebook = Hastags.text
+            socialinfo?.UsersFacebook = Users.text
+            socialinfo?.LocationFacebook = Users.text
+        }
+        Comments.text = socialinfo?.CommentTwitter
+        Hastags.text = socialinfo?.HashtagTwitter
+        Users.text = socialinfo?.UsersTwitter
+        Locations.text = socialinfo?.LocationTwitter
+        socialRed = true
+        
+        Comments.isEnabled = true
+        Hastags.isEnabled = true
+        Users.isEnabled = true
+        Locations.isEnabled = true
         
     }
     @IBAction func FaceBookDates(_ sender: UIButton) {
@@ -64,12 +86,41 @@ class SocialController: UIViewController, UITextFieldDelegate {
         HashtagButton.image = #imageLiteral(resourceName: "HashtagFace")
         UsersButton.image = #imageLiteral(resourceName: "UserFace")
         LocationButton.image = #imageLiteral(resourceName: "LocationFace")
-        CommentsArrow.setImage(#imageLiteral(resourceName: "MenuFace"), for: .normal)
-        HastagsArrow.setImage(#imageLiteral(resourceName: "MenuFace"), for: .normal)
-        UsersArrow.setImage(#imageLiteral(resourceName: "MenuFace"), for: .normal)
+        
+        if(socialRed!){
+            socialinfo?.CommentTwitter = Comments.text
+            socialinfo?.HashtagTwitter = Hastags.text
+            socialinfo?.UsersTwitter = Users.text
+            socialinfo?.LocationTwitter = Users.text
+        }
+        
+        Comments.text = socialinfo?.CommentFacebook
+        Hastags.text = socialinfo?.HashtagFacebook
+        Users.text = socialinfo?.UsersFacebook
+        Locations.text = socialinfo?.LocationFacebook
+        socialRed = true
+        
+        Comments.isEnabled = true
+        Hastags.isEnabled = true
+        Users.isEnabled = true
+        Locations.isEnabled = true
         
     }
     
+    @IBAction func SaveInfoSocial(_ sender: UIButton) {
+        print("Guardando infoSocial:\(Comments.text)")
+        socialsave.addItem(item: socialinfo!)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches , with: event)
+        self.Hastags.resignFirstResponder()
+        self.Users.resignFirstResponder()
+        self.Locations.resignFirstResponder()
+        self.Comments.resignFirstResponder()
+    }
+    
+    //MARK: TextFielDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.Comments {
             self.Hastags.becomeFirstResponder()
@@ -85,4 +136,6 @@ class SocialController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
+    
+    
 }
