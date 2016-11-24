@@ -129,7 +129,7 @@
                                                                                                 <rect key="frame" x="77" y="0.0" width="319" height="482"/>
                                                                                                 <subviews>
                                                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nombre(s)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uPT-5u-Pse">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="319" height="73"/>
+                                                                                                        <rect key="frame" x="0.33333333333331439" y="0.0" width="319" height="73"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
@@ -143,7 +143,7 @@
                                                                                                         </connections>
                                                                                                     </textField>
                                                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Apellidos" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xvX-8e-fKn">
-                                                                                                        <rect key="frame" x="0.0" y="82" width="319" height="72.666666666666657"/>
+                                                                                                        <rect key="frame" x="0.33333333333331439" y="82" width="319" height="72.666666666666657"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="next"/>
@@ -152,7 +152,7 @@
                                                                                                         </connections>
                                                                                                     </textField>
                                                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRm-JE-4xj">
-                                                                                                        <rect key="frame" x="0.0" y="163.66666666666669" width="319" height="73"/>
+                                                                                                        <rect key="frame" x="0.33333333333331439" y="163.66666666666669" width="319" height="73"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
@@ -161,7 +161,7 @@
                                                                                                         </connections>
                                                                                                     </textField>
                                                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmar correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hT9-lD-qID">
-                                                                                                        <rect key="frame" x="0.0" y="245.66666666666669" width="319" height="72.666666666666629"/>
+                                                                                                        <rect key="frame" x="0.33333333333331439" y="245.66666666666669" width="319" height="72.666666666666629"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
@@ -170,7 +170,7 @@
                                                                                                         </connections>
                                                                                                     </textField>
                                                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nBy-0O-l8S">
-                                                                                                        <rect key="frame" x="0.0" y="327.33333333333331" width="319" height="73"/>
+                                                                                                        <rect key="frame" x="0.33333333333331439" y="327.33333333333331" width="319" height="73"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                                         <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="next" secureTextEntry="YES"/>
@@ -179,7 +179,7 @@
                                                                                                         </connections>
                                                                                                     </textField>
                                                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirmar password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDo-tL-mEb">
-                                                                                                        <rect key="frame" x="0.0" y="409.33333333333326" width="319" height="72.666666666666686"/>
+                                                                                                        <rect key="frame" x="0.33333333333331439" y="409.33333333333326" width="319" height="72.666666666666686"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                                         <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
@@ -1085,10 +1085,10 @@
                                 <rect key="frame" x="35" y="158.66666666666663" width="344" height="419"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Alert" translatesAutoresizingMaskIntoConstraints="NO" id="o9E-l1-Hcp">
-                                        <rect key="frame" x="0.0" y="0.33333333333331439" width="344" height="211.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="211.00000000000003"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4j-1a-c4O">
-                                        <rect key="frame" x="0.0" y="223.33333333333337" width="344" height="80"/>
+                                        <rect key="frame" x="0.0" y="223" width="344" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="KA3-Id-34I"/>
                                         </constraints>
@@ -1103,7 +1103,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="OwQ-48-szS">
-                                        <rect key="frame" x="0.0" y="315.33333333333337" width="344" height="39.999999999999943"/>
+                                        <rect key="frame" x="0.0" y="315" width="344" height="39.999999999999943"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7u-nc-yFN">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="39.999999999999943"/>
@@ -1133,7 +1133,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="uUr-mR-aBH">
-                                        <rect key="frame" x="0.0" y="367.33333333333326" width="344" height="40"/>
+                                        <rect key="frame" x="0.0" y="367" width="344" height="40"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYQ-1a-2H0">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
@@ -1163,7 +1163,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zhr-5s-cZO">
-                                        <rect key="frame" x="0.0" y="419.33333333333326" width="344" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="419" width="344" height="0.0"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -1290,7 +1290,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="150.66666666666663"/>
                                                                         <subviews>
                                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3AI-5i-oaE">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="1400" height="150.66666666666663"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="1398.6666666666667" height="150.66666666666663"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="900" id="dD2-vQ-fW2"/>
@@ -1304,10 +1304,10 @@
                                                                                 <cells/>
                                                                             </collectionView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IGV-12-94f">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="1400" height="150.66666666666663"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="1398.6666666666667" height="150.66666666666663"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hmq-Ub-kf9">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="1400" height="132.66666666666663"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="1398.6666666666667" height="132.66666666666663"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOc-vh-NyE">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="132.66666666666663"/>
@@ -1322,47 +1322,47 @@
                                                                                                 </state>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ow2-ht-fli">
-                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="133.00000000000006" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="132.66666666666669" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert">
                                                                                                     <color key="titleShadowColor" red="0.50567001099999997" green="0.50955563780000002" blue="0.52610218519999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 </state>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkU-pO-Nya">
-                                                                                                <rect key="frame" x="281.66666666666669" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="281.33333333333326" y="0.0" width="132.66666666666669" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiF-6Y-ync">
-                                                                                                <rect key="frame" x="422.33333333333337" y="0.0" width="133.00000000000011" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="422" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkI-Rt-uPs">
-                                                                                                <rect key="frame" x="563.33333333333348" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="562.66666666666663" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrZ-IR-mbi">
-                                                                                                <rect key="frame" x="704" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="703.33333333333348" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoD-pf-Nyj">
-                                                                                                <rect key="frame" x="844.66666666666663" y="0.0" width="133" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="844" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gav-5v-RJ3">
-                                                                                                <rect key="frame" x="985.66666666666674" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="984.66666666666674" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imw-GI-dAk">
-                                                                                                <rect key="frame" x="1126.3333333333333" y="0.0" width="133" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="1125.333333333333" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqj-hN-XE3">
-                                                                                                <rect key="frame" x="1267.333333333333" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="1266" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Alert"/>
                                                                                             </button>
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YNJ-p4-b4h">
-                                                                                        <rect key="frame" x="0.0" y="140.66666666666663" width="1400" height="10"/>
+                                                                                        <rect key="frame" x="0.0" y="140.66666666666663" width="1398.6666666666667" height="10"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0c4-fz-kXz">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="10"/>
@@ -1371,55 +1371,55 @@
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSP-sf-Vxo">
-                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="133.00000000000006" height="10"/>
+                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="132.66666666666669" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuJ-R8-JCM">
-                                                                                                <rect key="frame" x="281.66666666666669" y="0.0" width="132.66666666666663" height="10"/>
+                                                                                                <rect key="frame" x="281.33333333333326" y="0.0" width="132.66666666666669" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXM-fB-qrw">
-                                                                                                <rect key="frame" x="422.33333333333337" y="0.0" width="133.00000000000011" height="10"/>
+                                                                                                <rect key="frame" x="422" y="0.0" width="132.66666666666663" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnI-ll-jwf">
-                                                                                                <rect key="frame" x="563.33333333333348" y="0.0" width="132.66666666666663" height="10"/>
+                                                                                                <rect key="frame" x="562.66666666666663" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJD-Gu-FLH">
-                                                                                                <rect key="frame" x="704" y="0.0" width="132.66666666666663" height="10"/>
+                                                                                                <rect key="frame" x="703.33333333333348" y="0.0" width="132.66666666666663" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqW-z2-xPM">
-                                                                                                <rect key="frame" x="844.66666666666663" y="0.0" width="133" height="10"/>
+                                                                                                <rect key="frame" x="844" y="0.0" width="132.66666666666663" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwT-U4-2gM">
-                                                                                                <rect key="frame" x="985.66666666666674" y="0.0" width="132.66666666666674" height="10"/>
+                                                                                                <rect key="frame" x="984.66666666666674" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RP0-0E-ubB">
-                                                                                                <rect key="frame" x="1126.3333333333333" y="0.0" width="133" height="10"/>
+                                                                                                <rect key="frame" x="1125.333333333333" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNx-db-sRB">
-                                                                                                <rect key="frame" x="1267.333333333333" y="0.0" width="132.66666666666674" height="10"/>
+                                                                                                <rect key="frame" x="1266" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -1432,10 +1432,10 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-4q-ioS">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="1400" height="150.66666666666663"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="1398.6666666666667" height="150.66666666666663"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="owz-lS-UQ2">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="1400" height="132.66666666666663"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="1398.6666666666667" height="132.66666666666663"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1q-vH-z93">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="132.66666666666663"/>
@@ -1452,7 +1452,7 @@
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJH-RT-zTO">
-                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="133.00000000000006" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="132.66666666666669" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo">
                                                                                                     <color key="titleShadowColor" red="0.50567001099999997" green="0.50955563780000002" blue="0.52610218519999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 </state>
@@ -1461,56 +1461,56 @@
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25m-p9-6SV">
-                                                                                                <rect key="frame" x="281.66666666666669" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="281.33333333333326" y="0.0" width="132.66666666666669" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction3:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="ewn-V8-lHV"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ck9-o1-lPL">
-                                                                                                <rect key="frame" x="422.33333333333337" y="0.0" width="133.00000000000011" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="422" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction4:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="Kbr-2o-Woa"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6s4-US-Gkd">
-                                                                                                <rect key="frame" x="563.33333333333348" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="562.66666666666663" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction5:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="0QE-VQ-gzE"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-GH-E5G">
-                                                                                                <rect key="frame" x="704" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="703.33333333333348" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction6:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="rl7-ND-W1f"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klt-Oa-Nug">
-                                                                                                <rect key="frame" x="844.66666666666663" y="0.0" width="133" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="844" y="0.0" width="132.66666666666663" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction7:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="bmM-FH-DxW"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQT-9g-mED">
-                                                                                                <rect key="frame" x="985.66666666666674" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="984.66666666666674" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction8:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="DeE-k4-8ex"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qty-GR-cmt">
-                                                                                                <rect key="frame" x="1126.3333333333333" y="0.0" width="133" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="1125.333333333333" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction9:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="i5s-SY-s2f"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ac-Vf-CWS">
-                                                                                                <rect key="frame" x="1267.333333333333" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
+                                                                                                <rect key="frame" x="1266" y="0.0" width="132.66666666666674" height="132.66666666666663"/>
                                                                                                 <state key="normal" image="Fondo"/>
                                                                                                 <connections>
                                                                                                     <action selector="FilterFunction10:" destination="Q7L-sh-Uvd" eventType="touchUpInside" id="kDg-Zd-rHP"/>
@@ -1519,7 +1519,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VO6-cw-yaK">
-                                                                                        <rect key="frame" x="0.0" y="140.66666666666663" width="1400" height="10"/>
+                                                                                        <rect key="frame" x="0.0" y="140.66666666666663" width="1398.6666666666667" height="10"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kp-bO-8H5">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="10"/>
@@ -1528,55 +1528,55 @@
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-Lt-tli">
-                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="133.00000000000006" height="10"/>
+                                                                                                <rect key="frame" x="140.66666666666669" y="0.0" width="132.66666666666669" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5h-gC-3Wr">
-                                                                                                <rect key="frame" x="281.66666666666669" y="0.0" width="132.66666666666663" height="10"/>
+                                                                                                <rect key="frame" x="281.33333333333326" y="0.0" width="132.66666666666669" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL5-3Q-1gz">
-                                                                                                <rect key="frame" x="422.33333333333337" y="0.0" width="133.00000000000011" height="10"/>
+                                                                                                <rect key="frame" x="422" y="0.0" width="132.66666666666663" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTN-ye-2yq">
-                                                                                                <rect key="frame" x="563.33333333333348" y="0.0" width="132.66666666666663" height="10"/>
+                                                                                                <rect key="frame" x="562.66666666666663" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz6-Ry-vpe">
-                                                                                                <rect key="frame" x="704" y="0.0" width="132.66666666666663" height="10"/>
+                                                                                                <rect key="frame" x="703.33333333333348" y="0.0" width="132.66666666666663" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79N-xi-DCC">
-                                                                                                <rect key="frame" x="844.66666666666663" y="0.0" width="133" height="10"/>
+                                                                                                <rect key="frame" x="844" y="0.0" width="132.66666666666663" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fr-zp-9cz">
-                                                                                                <rect key="frame" x="985.66666666666674" y="0.0" width="132.66666666666674" height="10"/>
+                                                                                                <rect key="frame" x="984.66666666666674" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dk7-Th-k6A">
-                                                                                                <rect key="frame" x="1126.3333333333333" y="0.0" width="133" height="10"/>
+                                                                                                <rect key="frame" x="1125.333333333333" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efecto 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npb-7l-dHU">
-                                                                                                <rect key="frame" x="1267.333333333333" y="0.0" width="132.66666666666674" height="10"/>
+                                                                                                <rect key="frame" x="1266" y="0.0" width="132.66666666666674" height="10"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                 <color key="textColor" red="0.478376627" green="0.4784628749" blue="0.47837114330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -2053,10 +2053,10 @@
                                 <rect key="frame" x="15" y="184.66666666666663" width="384" height="367"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Success" translatesAutoresizingMaskIntoConstraints="NO" id="4ET-qz-D7E">
-                                        <rect key="frame" x="0.0" y="0.33333333333331439" width="384" height="211.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="211.00000000000003"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye4-wX-dCQ">
-                                        <rect key="frame" x="0.0" y="223.33333333333337" width="384" height="80"/>
+                                        <rect key="frame" x="0.0" y="223" width="384" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Tkf-xe-ciL"/>
                                         </constraints>
@@ -2071,16 +2071,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="CaB-4n-71J">
-                                        <rect key="frame" x="0.0" y="315.33333333333337" width="384" height="39.999999999999943"/>
+                                        <rect key="frame" x="0.0" y="315" width="384" height="39.999999999999943"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGG-jd-oG2">
-                                                <rect key="frame" x="0.0" y="0.33333333333337123" width="0.0" height="39.999999999999943"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="39.999999999999943"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" id="Hhg-mw-oPu"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPp-J8-Vji">
-                                                <rect key="frame" x="13" y="0.33333333333337123" width="358" height="39.999999999999943"/>
+                                                <rect key="frame" x="13" y="0.0" width="358" height="39.999999999999943"/>
                                                 <color key="backgroundColor" red="0.16534513240000001" green="0.5222514868" blue="0.71368485690000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="qiJ-wR-ZdQ"/>
@@ -2090,7 +2090,7 @@
                                                 </state>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJ2-hS-t75">
-                                                <rect key="frame" x="384" y="0.33333333333337123" width="0.0" height="39.999999999999943"/>
+                                                <rect key="frame" x="384" y="0.0" width="0.0" height="39.999999999999943"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" id="MHa-JT-8Tw"/>
                                                 </constraints>
@@ -2098,7 +2098,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVa-G0-Y39">
-                                        <rect key="frame" x="0.0" y="367.33333333333326" width="384" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="367" width="384" height="0.0"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -2154,7 +2154,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="510"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="RDG-Qo-Wc5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="467.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="2304.6666666666665"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H6P-PO-pYs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
@@ -2201,40 +2201,91 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="omg-ou-gTM">
-                                                                <rect key="frame" x="0.0" y="167.33333333333337" width="374" height="300"/>
+                                                                <rect key="frame" x="0.0" y="167.33333333333326" width="374" height="2137.333333333333"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U54-zC-mTU">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="300"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="2137.333333333333"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" id="U4B-Ag-PUe"/>
                                                                         </constraints>
                                                                     </stackView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzX-xj-Uyq">
-                                                                        <rect key="frame" x="10" y="0.0" width="354" height="300"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzX-xj-Uyq">
+                                                                        <rect key="frame" x="10" y="0.0" width="354" height="2137.333333333333"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="77F-hS-lqr"/>
+                                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="3300" id="77F-hS-lqr"/>
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="teh-df-eD6"/>
                                                                         </constraints>
-                                                                        <attributedString key="attributedText">
-                                                                            <fragment>
-                                                                                <string key="content">Cuando los datos personales simplificados se obtengan de manera directa del titular por cualquier medio electrónico, óptico o sonoro, el aviso debe darse a conocer de manera inmediata, es decir, cuando el titular ingrese al sistema o aplicación mediante el cual se recabarán sus datos, sin que pueda ser en un momento posterior. Esta modalidad de aviso deberá incluir, al menos, la información que refiere a identidad y domicilio del responsable y las finalidades del tratamiento (artículo 17 de la Ley); este aviso deberá proveer los mecanismos para que el titular conozca el aviso de privacidad completo.</string>
-                                                                                <attributes>
-                                                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                                                                    <color key="NSColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="deviceRGB"/>
-                                                                                    <font key="NSFont" size="14.720000267028809" name="MyriadPro-Regular"/>
-                                                                                    <real key="NSKern" value="0.0"/>
-                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="17" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                                                        <tabStops/>
-                                                                                    </paragraphStyle>
-                                                                                    <color key="NSStrokeColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="deviceRGB"/>
-                                                                                    <real key="NSStrokeWidth" value="0.0"/>
-                                                                                </attributes>
-                                                                            </fragment>
-                                                                        </attributedString>
+                                                                        <mutableString key="text">Política de privacidad
+Bienvenido a SEAWAG APLICACIÓN . SEAWAG proporciona una manera rápida, eficaz y divertido para usted para postear tu foto. Simplemente guarda tus pies de fotos favoritos, saca una foto y dale en compartir!
+Nuestra política de privacidad explica cómo y algunas de las compañías con las que trabajamos recopilar, utilizar, compartir y proteger la información en relación con nuestros servicios de telefonía móvil, sitio web, y cualquier software que se proporciona sobre o en relación con los servicios de SEAWAG APLICACIÓN (colectivamente, el "Servicio" ), y sus opciones sobre la recopilación y uso de su información.
+Mediante el uso de nuestro sistema usted entiende y acepta que estamos proporcionando una plataforma para que pueda estilizar contenido.
+Nuestra política se aplica a todos los visitantes, usuarios y otras personas que tienen acceso al Servicio ( "Usuarios").
+1. INFORMACIÓN RECOLECTAMOS
+Nosotros recogemos los siguientes tipos de información.
+Información que nos proporciona directamente:
+Contenido del usuario (por ejemplo, fotos y otros materiales) que publique a través del Servicio. Las comunicaciones entre usted y SEAWAG APLICACIÓN. Por ejemplo, podemos enviarle correos electrónicos relacionados con el servicio (por ejemplo, cambios / actualizaciones a las características del servicio, avisos técnicos y de seguridad). Tenga en cuenta que es posible que no optar por correos electrónicos relacionados con el servicio.
+Analytics información:
+Utilizamos herramientas de análisis de terceros para ayudarnos a medir las tendencias de tráfico y de uso del servicio. Estas herramientas recopilan información enviada por el dispositivo o en nuestro Servicio, incluyendo las páginas web que visita, add-ons, y otra información que nos ayuda a mejorar el servicio. Recabar y utilizar esta información con la información de análisis de análisis de otros usuarios de manera que no puede razonablemente ser utilizada para identificar a ningún usuario individual particular.
+Las cookies y tecnologías similares:
+Cuando visita el servicio, podemos utilizar cookies y tecnologías similares como píxeles, interceptores de red y de almacenamiento local para recopilar información sobre cómo utiliza SEAWAG APLICACIÓN y proporciona características para usted.
+Podemos pedir a anunciantes u otros socios para publicar anuncios o servicios a sus dispositivos, que pueden utilizar cookies o tecnologías similares colocados por nosotros o por un tercero.
+La información del archivo:
+Información de registro de ficheros se notifica automáticamente por su navegador cada vez que realice una solicitud para el acceso (es decir, la visita) una página web o
+aplicación. También se puede proporcionar cuando el contenido de la página web o aplicación se descarga en el navegador o dispositivo.
+Cuando usted utiliza nuestro servicio, nuestros servidores registran automáticamente cierta información de archivo de registro, incluyendo su petición de web, Protocolo de Internet ( "IP"), tipo de navegador, páginas de referencia / salida y las direcciones URL, número de clics y la forma en que interactúan con los enlaces del servicio, nombres de dominio, páginas de destino, páginas visitadas, y otra información similar. También podemos recopilar información similar de mensajes de correo electrónico enviados a nuestros usuarios que a su vez ayudan a rastrear los correos electrónicos que se abren y qué enlaces se hace clic por los destinatarios. La información permite una información más precisa y la mejora del servicio.
+identificadores de dispositivos:
+Cuando se utiliza un dispositivo móvil como una tableta o un teléfono para acceder a nuestro servicio, podemos accesar, recopilar, controlar, almacenar en el dispositivo, y / o de forma remota almacenar uno o más "identificadores de dispositivos." Identificadores de dispositivos son pequeños ficheros de datos o similares estructuras de datos almacenados en o asociados con su dispositivo móvil, que identifica de forma exclusiva el dispositivo móvil. Un identificador de dispositivo puede ser los datos almacenados en relación con el hardware del dispositivo, los datos almacenados en relación con el sistema del dispositivo operativo u otro software, o datos enviados al dispositivo por SEAWAG APLICACIÓN .
+Un identificador de dispositivo puede entregar información a nosotros o a un socio de terceros acerca de cómo navegar y utilizar el servicio . Puede ayudar a proporcionamos informes o contenido personalizado para los anuncios. Algunas características del Servicio pueden no funcionar correctamente si el uso o la disponibilidad de los identificadores de dispositivos están deteriorados o con discapacidad.
+metadatos:
+Los metadatos son por lo general los datos técnicos que se asocia con el Contenido de Usuario. Por ejemplo, los metadatos pueden describir cómo, cuándo y por quién se recogió una pieza de contenido de usuario y cómo se formatea el contenido.
+Los usuarios pueden añadir o pueden tener metadatos añadidos a su contenido de usuario que incluye un hashtag (por ejemplo, para marcar palabras clave cuando se comparte una foto) u otros datos.
+2. ¿CÓMO USAMOS SU INFORMACIÓN
+Además de algunos de los usos específicos de información que describimos en esta política de privacidad, podemos utilizar la información que recibimos a:
+* proporcionar contenido personalizado y la información para usted y otros, que podrían incluir anuncios en línea u otras formas de comercialización
+* Proveer, mejorar, probar y controlar la eficacia de nuestro servicio
+* desarrollar y probar nuevos productos y características
+* la métrica del supervisor como el número total de visitantes, el tráfico y los patrones demográficos
+* diagnosticar o solucionar problemas de la tecnología
+* actualizar automáticamente la aplicación en su dispositivo SEAWAG APLICACIÓN
+3. INTERCAMBIO DE SU INFORMACIÓN
+No vamos a alquilar o vender su información a terceros fuera de SEAWAG (o el grupo de empresas del que forma parte SEAWAG APLICACIÓN) sin su consentimiento, excepto como partes con las cuales podemos compartir su información: en esta Política.
+Partes con las cuales podemos compartir su información:
+Podemos compartir Contenido de Usuario y su información (incluyendo, pero no limitado a, información de las cookies, archivos de registro, identificadores de dispositivos, datos de ubicación y datos de uso) con las empresas que están legalmente parte del mismo grupo de empresas que SEAWAG APLICACIÓN es parte de, o que pasan a formar parte de ese grupo ( "Afiliados"). Los afiliados pueden usar esta información para ayudar a proporcionar, entender y mejorar el servicio (en particular por su capacidad analítica) y los servicios propios de los Afiliados (incluyendo al proporcionarle experiencias mejores y más relevantes). Sin embargo, estos afiliados respetarán las decisiones que tome sobre quién puede ver tus fotos.
+También podemos compartir su información, así como información de herramientas como las cookies, archivos de registro y los identificadores de dispositivos y datos de localización, con organizaciones de terceros que nos ayudan a proporcionar el servicio a usted ( "Proveedores de Servicio").Nuestros proveedores de servicio tendrán acceso a su información que sea razonablemente necesario para proporcionar el servicio bajo condiciones de confidencialidad razonables.
+También podemos compartir cierta información, como datos de las cookies con socios de publicidad de terceros. Esta información permite a las redes de anuncios de terceros para, entre otras cosas, realizar determinados anuncios que ellos creen que será de mayor interés para usted.
+Podemos eliminar partes de los datos que le pueda identificar y compartir datos anónimos con otros partidos.
+También podemos combinar su información con otros datos de una manera que ya no se asocia con usted y compartir la información agregada.
+Partes con las que puede optar por compartir su contenido de usuario:
+Cualquier información o contenido que a estilizar voluntariamente con el Servicio, como Contenido de Usuario, se convierte a disposición de SEAWAG APLICACIÓN de forma anónima.
+¿Qué ocurre en el caso de un cambio de control:
+Si vendemos o transferimos parte o la totalidad del SEAWAG APLICACIÓN o nuestros activos a otra organización (por ejemplo, en el curso de una transacción como una fusión, adquisición, quiebra, disolución, liquidación), su información, como Contenido de Usuario y cualquier otra información de otra forma recogida a través del Servicio puede ser uno de los artículos vendidos o transferidos. Usted continuará siendo propietario de su contenido de usuario. El comprador o cesionario tendrán que cumplir con los compromisos que hemos hecho en esta política de privacidad.
+En respuesta a las peticiones legales y la prevención del daño:
+Podemos acceder, conservar y compartir su información en respuesta a una solicitud legal (como una orden de registro, orden judicial o citación) si tenemos una buena fe que la ley nos obliga a hacerlo. Esto puede incluir responder a las peticiones legales de jurisdicciones.
+México , donde tenemos una creencia de buena fe que la respuesta es requerido por la ley en esa jurisdicción, afecta a los usuarios en esa jurisdicción, y es consistente con las normas reconocidas internacionalmente. También podemos acceder, conservar y compartir información cuando tenemos una creencia de buena fe es necesaria para: detectar, prevenir el fraude y la dirección y otras actividades ilegales; para protegernos, usted y otros, incluyendo como parte de las investigaciones; y para prevenir la muerte o daño corporal inminente. La información que recibimos sobre usted puede acceder, procesar y retenido durante un período prolongado de tiempo cuando es objeto de una solicitud u obligación legal, investigación gubernamental, o las investigaciones sobre posibles violaciones de los términos o políticas, o de otra manera para prevenir el daño.
+4. CÓMO almacenar su información
+Almacenamiento y procesamiento:
+Su información recogida a través del Servicio puede ser almacenada y procesada en lo México cualquier otro país en el que SEAWAG APLICACIÓN, sus afiliados o proveedores de servicios tengan instalaciones.
+SEAWAG APLICACIÓN, sus afiliados o proveedores de servicios pueden transferir la información que recogemos sobre usted, incluyendo información personal a través de fronteras y desde su país o jurisdicción a otros países o jurisdicciones de todo el mundo. Si usted se encuentra en la Unión Europea u otras regiones con las leyes que rigen la recopilación y uso de datos que pueden diferir de las leyes mexicanas, tenga en cuenta que es posible que la transferencia de información, incluyendo información personal, a un país y jurisdicción que no tiene la misma protección de datos leyes como su jurisdicción.
+Al registrarse y utilizar el Servicio usted acepta la transferencia de información a México o a algún otro país en el que SEAWAG APLICACIÓN , sus afiliados o proveedores de servicios mantienen las instalaciones y el uso y la divulgación de información sobre usted como se describe en esta Política de Privacidad.
+Utilizamos protecciones comercialmente razonables para ayudar a mantener la información recogida a través del Servicio seguro y tomar las medidas razonables (tales como solicitar
+una contraseña única) para verificar su identidad antes de permitirle el acceso a su cuenta. Sin embargo SEAWAG APLICACIÓN no puede garantizar la seguridad de cualquier información que usted transmita a SEAWAG APLICACIÓN ni garantiza que la información sobre el servicio no se puede acceder, se da a conocer, alterado o destruido.
+Por favor, haga su parte para ayudarnos. Usted es responsable de mantener la confidencialidad de su información de cuenta y contraseña única, y para controlar el acceso a los correos electrónicos entre usted y SEAWAG APLICACIÓN en todo momento. Los ajustes de privacidad también pueden verse afectados por cambios en los servicios de medios sociales se conecta a SEAWAG APLICACIÓN hacen a sus servicios. Nosotros no somos responsables de las medidas de funcionalidad, privacidad, seguridad o de cualquier otra organización.
+5. PROTECCIÓN DE LOS NIÑOS
+SEAWAG APLICACIÓN no recopila ni solicita ninguna información de personas menores de 12. El Servicio y su contenido no están dirigidos a niños menores de 12. En el caso de que nosotros descubrimos que hemos recopilado información personal de un niño menor de edad 12 años sin el consentimiento de los padres, vamos a eliminar esa información tan
+pronto como sea posible. Si usted cree que podemos tener cualquier tipo de información de un niño menor de 12 años, por favor, póngase en contacto con nosotros.
+6. OTROS SITIOS WEB Y SERVICIOS
+Nosotros no somos responsables de las prácticas empleadas por los sitios web o servicios vinculados hacia o desde nuestro Servicio, incluyendo la información o contenido dentro de ellos.
+7. COMO CONTACTARNOS
+Si usted tiene alguna pregunta sobre esta política de privacidad o el Servicio, por favor, póngase en contacto con nosotros a través del correo electrónico info@seawag.mx
+8. CAMBIOS nuestra política de privacidad
+SEAWAG APLICACIÓN puede modificar o actualizar esta Política de Privacidad de vez en cuando, así que por favor revise periódicamente. Es posible que le proporcione otras formas de notificación de modificación o actualización como las circunstancias lo justifiquen. El uso continuado de SEAWAG APLICACIÓN o el Servicio después de cualquier modificación a esta Política de Privacidad, constituirá su aceptación de tal modificación.
+</mutableString>
+                                                                        <fontDescription key="fontDescription" name="Times-Roman" family="Times" pointSize="10"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcl-Zu-c4o">
-                                                                        <rect key="frame" x="374" y="0.0" width="0.0" height="300"/>
+                                                                        <rect key="frame" x="374" y="0.0" width="0.0" height="2137.333333333333"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" id="CIF-Oa-Rle"/>
                                                                         </constraints>
@@ -2319,11 +2370,12 @@
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="Close" destination="0d2-gN-jnh" id="a9C-bY-vgB"/>
+                        <outlet property="Privacity" destination="JzX-xj-Uyq" id="4Zz-Xb-LYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJH-Bx-E2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113" y="1655"/>
+            <point key="canvasLocation" x="-52" y="1673"/>
         </scene>
         <!--Social Controller-->
         <scene sceneID="vun-JN-wDH">

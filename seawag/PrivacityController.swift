@@ -13,10 +13,12 @@ import UIKit
 class PrivacityController: UIViewController {
     
     @IBOutlet weak var Close: UIButton!
+    @IBOutlet weak var Privacity: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Close.layer.cornerRadius = 22.0
+        
     }
     
     override func didReceiveMemoryWarning() {

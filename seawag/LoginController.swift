@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import FacebookShare
 import FacebookCore
 import FacebookLogin
 
@@ -24,6 +24,8 @@ class LoginController: UIViewController {
     @IBOutlet weak var FondoParallax: UIImageView!
     @IBOutlet var LoginParallax: UIView!
  
+    var dict : NSDictionary!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -56,33 +58,126 @@ class LoginController: UIViewController {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 // check for fundamental networking error
-                print("error=\(error)")
+                let alert = UIAlertController(title: "Error de acceso", message: "Revisa tu conexion a internet", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 return
             }
             let responseString = String(data: data, encoding: .utf8)
             if(responseString!.contains("\"status\":200"))
             {
             print("responseString = \(responseString)")
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
-                self.present(vc, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+            else
+            {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Error de acceso", message: "Usuario o contraseña incorrectos", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
         task.resume()
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
-        self.present(vc, animated: true, completion: nil)
+        
     }
     
     @IBAction func FacebookLogin(_ sender: UIButton) {
+        if AccessToken.current != nil {
+            let request = GraphRequest(graphPath: "me", parameters: ["fields":"email"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
+            request.start { (response, result) in
+                switch result {
+                case .success(let value):
+                    let email = value.dictionaryValue?["email"] as! String
+                    var request = URLRequest(url: URL(string: "http://201.168.207.17:8888/seawag/kuff_api/loginUser")!)
+                    request.httpMethod = "POST"
+                    let postString =
+                        "uname="+email+"&fb_token=ab51f5acb40977296fce11daed3feb1991e4579c"
+                    request.httpBody = postString.data(using: .utf8)
+                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                        guard let data = data, error == nil else {
+                            // check for fundamental networking error
+                            let alert = UIAlertController(title: "Error de acceso", message: "Revisa tu conexion a internet", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                            return
+                        }
+                        let responseString = String(data: data, encoding: .utf8)
+                        if(responseString!.contains("\"status\":200"))
+                        {
+                            print("responseString = \(responseString)")
+                            DispatchQueue.main.async {
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
+                                self.present(vc, animated: true, completion: nil)
+                            }
+                        }
+                        else
+                        {
+                            DispatchQueue.main.async {
+                                let alert = UIAlertController(title: "Error de acceso", message: "Revisa tu conexion a facebook", preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                        }
+                    }
+                    task.resume()
+
+                case .failed(let error):
+                    print(error)
+                }
+            }
+            
+        }
+        else{
         let loginManager = LoginManager()
-        loginManager.logIn([.publishActions], viewController: self) { loginResult in
+        loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                print(accessToken.userId!)
-                
+                let request = GraphRequest(graphPath: "me", parameters: ["fields":"email,first_name,last_name"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
+                request.start { (response, result) in
+                    switch result {
+                    case .success(let value):
+                        var request = URLRequest(url: URL(string: "http://201.168.207.17:8888/seawag/kuff_api/regUser")!)
+                        request.httpMethod = "POST"
+                        let name = value.dictionaryValue?["first_name"] as! String
+                        let apellido = value.dictionaryValue?["last_name"] as! String
+                        let email = value.dictionaryValue?["email"] as! String
+                        let postString = "nombre="+name+"&apellido="+apellido+"&email="+email+"&fb_token=ab51f5acb40977296fce11daed3feb1991e4579c"
+                        request.httpBody = postString.data(using: .utf8)
+                        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                            guard let data = data, error == nil else {
+                                // check for fundamental networking error
+                                print("error=\(error)")
+                                return
+                            }
+                            
+                            let response = String(data: data, encoding: .utf8)
+                            if(response!.contains("\"status\":200"))
+                            {
+                                print("response = \(response)")
+                                DispatchQueue.main.async {
+                                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
+                                    self.present(vc, animated: true, completion: nil)
+                                }
+                            }
+                            
+                                let responseString = String(data: data, encoding: .utf8)
+                                print("responseString = \(responseString)")
+                            }
+                            task.resume()
+                            print(value.dictionaryValue)
+                        case .failed(let error):
+                            print(error)
+                        }
+                }
+                }
             }
         }
     }

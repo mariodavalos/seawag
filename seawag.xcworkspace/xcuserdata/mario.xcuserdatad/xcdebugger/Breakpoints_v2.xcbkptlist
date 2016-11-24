@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "seawag/LoginController.swift"
-            timestampString = "501639361.541013"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "FacebookLogin(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "seawag/CameraController.swift"
             timestampString = "501635828.5382"
             startingColumnNumber = "9223372036854775807"
@@ -74,13 +58,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "seawag/LoginController.swift"
-            timestampString = "501636396.65615"
+            timestampString = "501699487.118829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "LoginAccess(_:)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "FacebookLogin(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "seawag.LoginController.(FacebookLogin (__ObjC.UIButton) -&gt; ()).(closure #2).(closure #1)"
+                  moduleName = "seawag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mario/Desktop/Xcode/seawag/seawag/LoginController.swift"
+                  timestampString = "501708034.403726"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "824">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "seawag.LoginController.(FacebookLogin (__ObjC.UIButton) -&gt; ()).(closure #2).(closure #1)"
+                  moduleName = "seawag"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mario/Desktop/Xcode/seawag/seawag/LoginController.swift"
+                  timestampString = "501708034.405866"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "5168">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

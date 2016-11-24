@@ -31,6 +31,7 @@ class SocialController: UIViewController , UITextFieldDelegate {
     var socialinfo: SocialInfo?
     
     var socialRed: Bool? = false
+    var FaceOrTwr: Bool? = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,13 +66,14 @@ class SocialController: UIViewController , UITextFieldDelegate {
             socialinfo?.CommentFacebook = Comments.text
             socialinfo?.HashtagFacebook = Hastags.text
             socialinfo?.UsersFacebook = Users.text
-            socialinfo?.LocationFacebook = Users.text
+            socialinfo?.LocationFacebook = Locations.text
         }
         Comments.text = socialinfo?.CommentTwitter
         Hastags.text = socialinfo?.HashtagTwitter
         Users.text = socialinfo?.UsersTwitter
         Locations.text = socialinfo?.LocationTwitter
         socialRed = true
+        FaceOrTwr = false
         
         Comments.isEnabled = true
         Hastags.isEnabled = true
@@ -91,7 +93,7 @@ class SocialController: UIViewController , UITextFieldDelegate {
             socialinfo?.CommentTwitter = Comments.text
             socialinfo?.HashtagTwitter = Hastags.text
             socialinfo?.UsersTwitter = Users.text
-            socialinfo?.LocationTwitter = Users.text
+            socialinfo?.LocationTwitter = Locations.text
         }
         
         Comments.text = socialinfo?.CommentFacebook
@@ -99,6 +101,7 @@ class SocialController: UIViewController , UITextFieldDelegate {
         Users.text = socialinfo?.UsersFacebook
         Locations.text = socialinfo?.LocationFacebook
         socialRed = true
+        FaceOrTwr = true
         
         Comments.isEnabled = true
         Hastags.isEnabled = true
@@ -109,6 +112,17 @@ class SocialController: UIViewController , UITextFieldDelegate {
     
     @IBAction func SaveInfoSocial(_ sender: UIButton) {
         print("Guardando infoSocial:\(Comments.text)")
+        if(FaceOrTwr)!{
+            socialinfo?.CommentFacebook = Comments.text
+            socialinfo?.HashtagFacebook = Hastags.text
+            socialinfo?.UsersFacebook = Users.text
+            socialinfo?.LocationFacebook = Locations.text
+        }else{
+            socialinfo?.CommentTwitter = Comments.text
+            socialinfo?.HashtagTwitter = Hastags.text
+            socialinfo?.UsersTwitter = Users.text
+            socialinfo?.LocationTwitter = Locations.text
+        }
         socialsave.addItem(item: socialinfo!)
     }
     
