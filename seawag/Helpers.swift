@@ -15,7 +15,7 @@ extension UITextField {
         let border = CALayer()
         let width = CGFloat(1.0)
         border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - 13, width:  self.frame.size.width, height: 1)
+        border.frame = CGRect(x: 0, y: self.frame.size.height * 0.65, width:  self.frame.size.width, height: 1)
         border.borderWidth = width
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
@@ -34,9 +34,9 @@ extension UITextField {
         let alert = CATextLayer()
         alert.string = message
         alert.foregroundColor = UIColor.red.cgColor
-        alert.fontSize = 11
-        alert.font = UIFont.italicSystemFont(ofSize: 11)
-        alert.frame = CGRect(x: 0, y: self.frame.size.height - 12, width: self.frame.size.width, height: 13)
+        alert.fontSize = 12
+        alert.font = UIFont.italicSystemFont(ofSize: 12)
+        alert.frame = CGRect(x: 0, y: self.frame.size.height * 0.66, width: self.frame.size.width, height: self.frame.size.height * 0.33)
         self.layer.sublayers?.removeAll()
         self.layer.masksToBounds = true
         self.layer.addSublayer(alert)
@@ -46,9 +46,9 @@ extension UITextField {
         let alert = CATextLayer()
         alert.string = message
         alert.foregroundColor = UIColor.red.cgColor
-        alert.fontSize = 11
-        alert.font = UIFont.italicSystemFont(ofSize: 11)
-        alert.frame = CGRect(x: 0, y: self.frame.size.height - 12, width: self.frame.size.width, height: 13)
+        alert.fontSize = 12
+        alert.font = UIFont.italicSystemFont(ofSize: 12)
+        alert.frame = CGRect(x: 0, y: self.frame.size.height * 0.66, width: self.frame.size.width, height: self.frame.size.height * 0.33)
         self.layer.sublayers?.removeAll()
         self.underlined()
         self.layer.masksToBounds = true
@@ -59,4 +59,19 @@ extension UITextField {
             return true
         }
     }
+}
+
+@IBDesignable
+class FormTextField: UITextField {
+    
+    @IBInspectable var inset: CGFloat = 0
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: inset, dy: bounds.origin.y)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return textRect(forBounds: bounds)
+    }
+    
 }

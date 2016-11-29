@@ -79,11 +79,11 @@ class SocialInfo: NSObject, NSCoding {
         if let HashtagFacebook = self.HashtagFacebook {
             aCoder.encode(HashtagFacebook, forKey: "HashtagFacebook")
         }
-        if let UsersTwitter = self.UsersTwitter {
-            aCoder.encode(UsersTwitter, forKey: "UsersTwitter")
-        }
         if let UsersFacebook = self.UsersFacebook {
             aCoder.encode(UsersFacebook, forKey: "UsersFacebook")
+        }
+        if let LocationFacebook = self.LocationFacebook {
+            aCoder.encode(LocationFacebook, forKey: "LocationFacebook")
         }
     }
     

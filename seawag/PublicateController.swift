@@ -30,7 +30,6 @@ class PublicateController: UIViewController {
         self.dismiss(animated: true, completion:{ () -> Void in
            CameraController.sharedManager.StartOrClose = true
         })
-
     }
     
     @IBAction func Closing(_ sender: UIButton) {

@@ -28,4 +28,9 @@ class ConfirmController: UIViewController {
     @IBAction func Closing(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func Confirm(_ sender: Any) {
+        self.dismiss(animated: true, completion: {
+            CameraController.EditorView?.dismiss(animated: true, completion: nil)
+        })
+    }
 }

@@ -1,15 +1,15 @@
 //
-//  SocialSaving.swift
+//  LoginSaving.swift
 //  seawag
 //
-//  Created by Mario Dávalos on 23/11/16.
+//  Created by Mario Dávalos on 24/11/16.
 //  Copyright © 2016 Ooomovil. All rights reserved.
 //
 
 import UIKit
 
-class SocialSaving: NSObject {
-    var items: [SocialInfo] = []
+class LoginSaving: NSObject {
+    var items: [LoginInfo] = []
     
     override init(){
         super.init()
@@ -21,10 +21,10 @@ class SocialSaving: NSObject {
         let documentDirectoryURLs = fileManager.urls(for: .documentDirectory, in: .userDomainMask) as [NSURL]
         let documentDirectoryURL = documentDirectoryURLs.first!
         print ("path de documents \(documentDirectoryURL)")
-        return documentDirectoryURL.appendingPathComponent("SeawagSocial.plist")!
+        return documentDirectoryURL.appendingPathComponent("SeawagLog.plist")!
     }()
     
-    func addItem(item:SocialInfo){
+    func addItem(item:LoginInfo){
         items.removeAll()
         items.append(item)
         saveItems()
@@ -41,11 +41,13 @@ class SocialSaving: NSObject {
     }
     func loadItems(){
         if let itemsArray = (NSKeyedUnarchiver.unarchiveObject(withFile: self.fileURL.path)){
-            self.items = (itemsArray as? [SocialInfo])!
+            self.items = (itemsArray as? [LoginInfo])!
         }
     }
-    func getItem(index: Int) -> SocialInfo{
-        let item: SocialInfo? = SocialInfo()
+    func getItem(index: Int) -> LoginInfo{
+        //items.removeAll()
+        let item: LoginInfo? = LoginInfo()
+        item?.SavingAccess = "0"
         if (items.count<1){
             return item!
         }

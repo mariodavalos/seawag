@@ -24,6 +24,11 @@
 		AC981FC01DD24E0C0004E6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC981FBE1DD24E0C0004E6D6 /* LaunchScreen.storyboard */; };
 		AC981FCB1DD24E0C0004E6D6 /* seawagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FCA1DD24E0C0004E6D6 /* seawagTests.swift */; };
 		AC981FD61DD24E0C0004E6D6 /* seawagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */; };
+		ACAFF5D01DE88A2200BBC11B /* AlertEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFF5CF1DE88A2100BBC11B /* AlertEmailController.swift */; };
+		ACB4AC761DE7B8B900C4CBCC /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4AC751DE7B8B800C4CBCC /* LoginInfo.swift */; };
+		ACB4AC781DE7B8D100C4CBCC /* LoginSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4AC771DE7B8D100C4CBCC /* LoginSaving.swift */; };
+		ACBBB80D1DECD9F800739034 /* LogoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBB80C1DECD9F800739034 /* LogoutController.swift */; };
+		ACBBB80F1DED02E600739034 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBB80E1DED02E600739034 /* SplashController.swift */; };
 		ACDD23471DE4A78300390B17 /* PublicateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD23461DE4A78300390B17 /* PublicateController.swift */; };
 		ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */; };
 		ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A71DD4CD84009CF65E /* AlertController.swift */; };
@@ -75,6 +80,11 @@
 		AC981FD11DD24E0C0004E6D6 /* seawagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = seawagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seawagUITests.swift; sourceTree = "<group>"; };
 		AC981FD71DD24E0C0004E6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACAFF5CF1DE88A2100BBC11B /* AlertEmailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertEmailController.swift; sourceTree = "<group>"; };
+		ACB4AC751DE7B8B800C4CBCC /* LoginInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
+		ACB4AC771DE7B8D100C4CBCC /* LoginSaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSaving.swift; sourceTree = "<group>"; };
+		ACBBB80C1DECD9F800739034 /* LogoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutController.swift; sourceTree = "<group>"; };
+		ACBBB80E1DED02E600739034 /* SplashController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		ACDD23461DE4A78300390B17 /* PublicateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicateController.swift; sourceTree = "<group>"; };
 		ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacityController.swift; sourceTree = "<group>"; };
 		ACEDD8A71DD4CD84009CF65E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -163,6 +173,11 @@
 				ACDD23461DE4A78300390B17 /* PublicateController.swift */,
 				ACEFC6DB1DE512540043D2B5 /* SocialInfo.swift */,
 				ACEFC6DD1DE5DE850043D2B5 /* SocialSaving.swift */,
+				ACB4AC751DE7B8B800C4CBCC /* LoginInfo.swift */,
+				ACB4AC771DE7B8D100C4CBCC /* LoginSaving.swift */,
+				ACAFF5CF1DE88A2100BBC11B /* AlertEmailController.swift */,
+				ACBBB80C1DECD9F800739034 /* LogoutController.swift */,
+				ACBBB80E1DED02E600739034 /* SplashController.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -266,7 +281,7 @@
 				TargetAttributes = {
 					AC981FAE1DD24E0B0004E6D6 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = ZS47A3SD7X;
+						DevelopmentTeam = W3SFNKKMD2;
 						ProvisioningStyle = Automatic;
 					};
 					AC981FC51DD24E0C0004E6D6 = {
@@ -402,15 +417,20 @@
 				AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */,
 				AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */,
 				ACFB4B191DDBCD4B00F40932 /* SocialController.swift in Sources */,
+				ACBBB80F1DED02E600739034 /* SplashController.swift in Sources */,
 				AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */,
 				AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */,
 				ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */,
+				ACAFF5D01DE88A2200BBC11B /* AlertEmailController.swift in Sources */,
 				ACDD23471DE4A78300390B17 /* PublicateController.swift in Sources */,
 				AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */,
 				AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */,
+				ACB4AC761DE7B8B900C4CBCC /* LoginInfo.swift in Sources */,
 				AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */,
 				AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */,
+				ACBBB80D1DECD9F800739034 /* LogoutController.swift in Sources */,
 				AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */,
+				ACB4AC781DE7B8D100C4CBCC /* LoginSaving.swift in Sources */,
 				ACEFC6DC1DE512540043D2B5 /* SocialInfo.swift in Sources */,
 				AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */,
 			);
@@ -565,7 +585,7 @@
 			baseConfigurationReference = 65DF8A7AB853922AD752739A /* Pods-seawag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				DEVELOPMENT_TEAM = W3SFNKKMD2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -573,7 +593,7 @@
 				INFOPLIST_FILE = seawag/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawag;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oOMovil.seawag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -586,7 +606,7 @@
 			baseConfigurationReference = 01CCB95B4DD658E4E31E0E9A /* Pods-seawag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZS47A3SD7X;
+				DEVELOPMENT_TEAM = W3SFNKKMD2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -594,7 +614,7 @@
 				INFOPLIST_FILE = seawag/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = oomovil.seawag;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oOMovil.seawag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
