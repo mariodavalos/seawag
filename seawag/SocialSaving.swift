@@ -25,8 +25,18 @@ class SocialSaving: NSObject {
     }()
     
     func addItem(item:SocialInfo){
-        items.removeAll()
-        items.append(item)
+        var index = 0
+        var insert:Bool = false
+        for itemb in items{
+            if(itemb.UsuarioEmail == item.UsuarioEmail){
+                items.insert(itemb, at: index)
+                insert = true
+            }
+            index += 1
+        }
+        if(!insert){
+            items.append(item)
+        }
         saveItems()
     }
     
@@ -44,13 +54,25 @@ class SocialSaving: NSObject {
             self.items = (itemsArray as? [SocialInfo])!
         }
     }
-    func getItem(index: Int) -> SocialInfo{
+    func getItem() -> SocialInfo{
         let item: SocialInfo? = SocialInfo()
+        item?.CommentFacebook = ""
+        item?.HashtagTwitter = ""
+        item?.CommentTwitter = ""
+        item?.HashtagFacebook = ""
+        item?.UsersTwitter = ""
+        item?.UsersFacebook = ""
+        item?.UsuarioEmail = LoginController.EmaiLog
         if (items.count<1){
             return item!
         }
         else{
-            return items[index]
+            for itemb in items{
+                if(itemb.UsuarioEmail == LoginController.EmaiLog){
+                    return itemb
+                }
+            }
+            return item!
         }
     }
 }

@@ -12,7 +12,7 @@ import FacebookShare
 import FacebookCore
 import FacebookLogin
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var Login: UIButton!
     @IBOutlet weak var Registrate: UIButton!
@@ -39,20 +39,6 @@ class LoginController: UIViewController {
         super.viewDidLoad()
        
         logininfo = loginsave.getItem(index: 0)
-         /*if(logininfo?.SavingAccess == "1")
-        {
-            if(logininfo?.FacebookAccess == "1")
-            {
-                FacebookAcces()
-            }
-            else{
-                User.text = logininfo?.UserEmail
-                Paser.text = logininfo?.PassLogin
-                LoginAcces()
-            }
-        }*/
-        
-        //User.beginningOfDocument
         
         self.User.textRect(forBounds: CGRect(x: self.User.bounds.origin.x + 25, y: self.User.bounds.origin.y+8, width: self.User.bounds.width-50, height: self.User.bounds.height-5))
         self.User.editingRect(forBounds: CGRect(x: self.User.bounds.origin.x + 25, y: self.User.bounds.origin.y+8, width: self.User.bounds.width-50, height: self.User.bounds.height-5))
@@ -96,6 +82,7 @@ class LoginController: UIViewController {
             {
                 print("responseString = \(responseString)")
                 DispatchQueue.main.async {
+                    
                     LoginController.EmaiLog = self.User.text!
                     LoginController.PassLog = self.Paser.text!
                     let datacom = responseString?.components(separatedBy: "\"")
@@ -113,7 +100,8 @@ class LoginController: UIViewController {
                     self.logininfo?.PassLogin = self.Paser.text
                     self.loginsave.addItem(item: self.logininfo!)
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
-                    self.present(vc, animated: true, completion: nil)
+                    
+                    self.present(vc, animated: true, completion: {CameraController.sharedManager.StartOrClose = true})
                 }
             }
             else
@@ -161,6 +149,11 @@ class LoginController: UIViewController {
                         let responseString = String(data: data, encoding: .utf8)
                         if(responseString!.contains("\"status\":200"))
                         {
+                            let datacom = responseString?.components(separatedBy: "\"")
+                            print(datacom?[15])
+                            print(datacom?[19])
+                            LoginController.NameLog = (datacom?[15])!
+                            LoginController.NamLLog = (datacom?[19])!
                             print("responseString = \(responseString)")
                             DispatchQueue.main.async {
                                 if(self.SaveSession.isOn){
@@ -171,14 +164,16 @@ class LoginController: UIViewController {
                                 self.loginsave.addItem(item: self.logininfo!)
                                 
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
-                                self.present(vc, animated: true, completion: nil)
+                                self.present(vc, animated: true, completion: {CameraController.sharedManager.StartOrClose = true})
                             }
                         }
-                        else if(responseString!.contains("cuenta no activa"))
+                        else if(responseString!.contains("Duplicate entry"))
                         {
+                            let datacom = responseString?.components(separatedBy: "\"")
+                            print(datacom?[5])
                             DispatchQueue.main.async {
                                 let alert = UIAlertController(title: "Error de registro", message: "El correo electronico ya esta registrado", preferredStyle: UIAlertControllerStyle.alert)
-                                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
+                                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler:nil))
                                 self.present(alert, animated: true, completion: nil)
                             }
                         }
@@ -250,19 +245,20 @@ class LoginController: UIViewController {
                     let response = String(data: data, encoding: .utf8)
                     if(response!.contains("\"status\":200"))
                     {
+                        //let datacom = response?.components(separatedBy: "\"")
                         print("response = \(response)")
                         DispatchQueue.main.async {
-                             if(self.SaveSession.isOn){
-                             self.logininfo?.SavingAccess = "1"}
-                             else{
-                             self.logininfo?.SavingAccess = "0"}
-                             self.logininfo?.FacebookAccess = "1"
-                             self.loginsave.addItem(item: self.logininfo!)
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
-                            self.present(vc, animated: true, completion: nil)
+                            self.FacebookAcces()
                         }
                     }
-                    
+                    else
+                    {
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Error de registro", message: "No se ha podido registrar el usuario", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
                     let responseString = String(data: data, encoding: .utf8)
                     print("responseString = \(responseString)")
                 }
@@ -305,6 +301,18 @@ class LoginController: UIViewController {
             return CGRect(x: bounds.origin.x + 10, y: bounds.origin.y, width: bounds.width, height: bounds.height)
         }
         
+    }
+    
+    //MARK: TextField Delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.User {
+            self.Paser.becomeFirstResponder()
+        }
+        else if textField == self.Paser {
+            self.Paser.resignFirstResponder()
+            LoginAcces()
+        }
+        return true
     }
 }
 

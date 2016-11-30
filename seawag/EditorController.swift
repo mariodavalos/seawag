@@ -12,7 +12,7 @@ import CoreImage
 var context: CIContext!
 var currentFilter: CIFilter!
 
-class EditorController: UIViewController {
+class EditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     @IBOutlet weak var AplicateButton: UIButton!
@@ -139,7 +139,7 @@ class EditorController: UIViewController {
     @IBAction func CarreteShow(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        //imagePicker.delegate = self
+        imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
     @IBAction func FilterFunction1(_ sender: UIButton) {
@@ -181,5 +181,16 @@ class EditorController: UIViewController {
         CameraController.ImageTaken.image = ImageTake.image;
         self.dismiss(animated: true, completion: nil)
     }
+    //MARK: UIImagePickerController methods
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let imagetak = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.dismiss(animated: true, completion:{ () -> Void in
+                CameraController.sharedManager.ImageShow = imagetak
+            })
+           
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+
 }

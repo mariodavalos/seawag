@@ -17,15 +17,13 @@ class SocialInfo: NSObject, NSCoding {
     
     var UsersTwitter: String?
     
-    var LocationTwitter: String?
-    
     var CommentFacebook: String?
     
     var HashtagFacebook: String?
     
     var UsersFacebook: String?
     
-    var LocationFacebook: String?
+    var UsuarioEmail: String?
     
     
     override init(){
@@ -43,9 +41,6 @@ class SocialInfo: NSObject, NSCoding {
         if let UsersTwitter = aDecoder.decodeObject(forKey: "UsersTwitter") as? String {
             self.UsersTwitter = UsersTwitter
         }
-        if let LocationTwitter = aDecoder.decodeObject(forKey: "LocationTwitter") as? String {
-            self.LocationTwitter = LocationTwitter
-        }
         if let CommentFacebook = aDecoder.decodeObject(forKey: "CommentFacebook") as? String {
             self.CommentFacebook = CommentFacebook
         }
@@ -55,8 +50,8 @@ class SocialInfo: NSObject, NSCoding {
         if let UsersFacebook = aDecoder.decodeObject(forKey: "UsersFacebook") as? String {
             self.UsersFacebook = UsersFacebook
         }
-        if let LocationFacebook = aDecoder.decodeObject(forKey: "LocationFacebook") as? String {
-            self.LocationFacebook = LocationFacebook
+        if let UsuarioEmail = aDecoder.decodeObject(forKey: "UsuarioEmail") as? String {
+            self.UsuarioEmail = UsuarioEmail
         }
     }
     
@@ -70,9 +65,6 @@ class SocialInfo: NSObject, NSCoding {
         if let UsersTwitter = self.UsersTwitter {
             aCoder.encode(UsersTwitter, forKey: "UsersTwitter")
         }
-        if let LocationTwitter = self.LocationTwitter {
-            aCoder.encode(LocationTwitter, forKey: "LocationTwitter")
-        }
         if let CommentFacebook = self.CommentFacebook {
             aCoder.encode(CommentFacebook, forKey: "CommentFacebook")
         }
@@ -82,8 +74,8 @@ class SocialInfo: NSObject, NSCoding {
         if let UsersFacebook = self.UsersFacebook {
             aCoder.encode(UsersFacebook, forKey: "UsersFacebook")
         }
-        if let LocationFacebook = self.LocationFacebook {
-            aCoder.encode(LocationFacebook, forKey: "LocationFacebook")
+        if let UsuarioEmail = self.UsuarioEmail {
+            aCoder.encode(UsuarioEmail, forKey: "UsuarioEmail")
         }
     }
     

@@ -204,13 +204,19 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                     print("responseString = \(responseString)")
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "Registro", message: "Usuario registrado correctamente", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: {
+                        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler:{ action in
+                            
+                            LoginController.NameLog = self.Name.text!
+                            LoginController.NamLLog = self.LastName.text!
+                            LoginController.EmaiLog = self.Email.text!
+                            LoginController.PassLog = self.Password.text!
+                            
                             DispatchQueue.main.async {
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
                                 self.present(vc, animated: true, completion: nil)
                             }
-                        })
+                        }))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
                 else if(responseString!.contains("Duplicate entry"))
@@ -264,13 +270,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         success  = (Password.messageAlertLine(message: "Campo obligatorio", isview: (Password.text?.isEmpty)!) && success) ? true : false
         success  = (Password2.messageAlertLine(message: "Campo obligatorio", isview: (Password2.text?.isEmpty)!) && success) ? true : false
         
-        if((!(Email.text?.isEmpty)!)){
-           success  = (Email.messageAlertLine(message: "Correo no coincide", isview: ((Email2.text!.compare(Email.text!)) != ComparisonResult.orderedSame)) && success) ? true : false
-            success = ((Email.messageAlertLine(message: "Correo invalido", isview: !(validateEmail(candidate: Email.text!))) && success) ? true : false)
-        }
-        
         if((!(Password.text?.isEmpty)!)){
-            success  = (Password.messageAlertLine(message: "Password no coincide", isview: ((Password2.text!.compare(Password.text!)) != ComparisonResult.orderedSame)) && success) ? true : false
+            success  = (Password2.messageAlertLine(message: "Password no coincide", isview: ((Password2.text!.compare(Password.text!)) != ComparisonResult.orderedSame)) && success) ? true : false
             if((Password2.text!.compare(Password.text!)) != ComparisonResult.orderedSame)
             {
                 self.PasswordLogo.image = #imageLiteral(resourceName: "PasswordIncorrect")
@@ -284,6 +285,17 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         }else{
             self.PasswordLogo.image = #imageLiteral(resourceName: "PasswordIncorrect")
         }
+        
+        if((!(Email.text?.isEmpty)!)){
+            let compareR = ((Email2.text!.compare(Email.text!)) != ComparisonResult.orderedSame)
+            success = ((Email.messageAlertLine(message: "Correo invalido", isview: !(validateEmail(candidate: Email.text!))) && success) ? true : false)
+            if((Password2.text!.compare(Password.text!)) == ComparisonResult.orderedSame)
+            {
+                success = ((Email2.messageAlertLine(message: "Correo invalido", isview: !(validateEmail(candidate: Email.text!))) && success) ? true : false)
+            }
+            success  = (Email2.messageAlertLine(message: "Correo no coincide", isview: compareR) && success) ? true : false
+        }
+
         return success
     }
     func validateEmail(candidate: String) -> Bool {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SocialController: UIViewController , UITextFieldDelegate {
+class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var SaveButton: UIButton!
     
@@ -18,15 +18,13 @@ class SocialController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var CommentButton: UIImageView!
     @IBOutlet weak var HashtagButton: UIImageView!
     @IBOutlet weak var UsersButton: UIImageView!
-    @IBOutlet weak var LocationButton: UIImageView!
     @IBOutlet weak var Cleaner: UIButton!
     @IBOutlet weak var CaractersNumber: UILabel!
     @IBOutlet weak var CaracteresLabel: UILabel!
     
-    @IBOutlet weak var Comments: UITextField!
-    @IBOutlet weak var Hastags: UITextField!
-    @IBOutlet weak var Users: UITextField!
-    @IBOutlet weak var Locations: UITextField!
+    @IBOutlet weak var Comments: UITextView!
+    @IBOutlet weak var Hastags: UITextView!
+    @IBOutlet weak var Users: UITextView!
     
     let socialsave = SocialSaving()
     var socialinfo: SocialInfo?
@@ -38,7 +36,7 @@ class SocialController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var BottomConstrain: NSLayoutConstraint!
     
     var keyboardHeight:CGFloat!
-    var textFields: [UITextField]!
+    var textFields: [UITextView]!
     var KeyShow: Bool = false
     
     @IBOutlet weak var TopConstrain: NSLayoutConstraint!
@@ -52,18 +50,24 @@ class SocialController: UIViewController , UITextFieldDelegate {
         CaractersNumber.text = ""
         CaracteresLabel.text = ""
         
+        Comments.text = "Comentario"
+        Comments.textColor = UIColor.lightGray
+        Hastags.text = "Hashtags"
+        Hastags.textColor = UIColor.lightGray
+        Users.text = "Etiquetar personas"
+        Users.textColor = UIColor.lightGray
+        
         self.SaveButton.layer.borderWidth = 1
         self.SaveButton.layer.borderColor =  UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0).cgColor
         self.SaveButton.layer.cornerRadius = 22.0
         TwitterButton.imageView?.contentMode = .scaleAspectFit
         FaceButton.imageView?.contentMode = .scaleAspectFit
         
-        socialinfo = socialsave.getItem(index: 0)
-        Comments.isEnabled = false
-        Hastags.isEnabled = false
-        Users.isEnabled = false
-        Locations.isEnabled = false
-        LocationButton.image = nil
+        socialinfo = socialsave.getItem()
+        Comments.isEditable = false
+        Hastags.isEditable = false
+        Users.isEditable = false
+        //LocationButton.image = nil
         Cleaner.setImage(nil, for: .normal)
         // Keyboard notifications
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -82,10 +86,10 @@ class SocialController: UIViewController , UITextFieldDelegate {
         let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
         
         UIView.animate(withDuration: animationDurarion, animations: { () -> Void in
-            if(self.Hastags.isEditing){
+            if(self.Hastags.isFocused){
                 self.TopConstrain.constant = -self.Comments.frame.size.height
             }
-            else if(self.Users.isEditing){
+            else if(self.Users.isFocused){
                 self.TopConstrain.constant = -self.Comments.frame.size.height*2
             }
             else {
@@ -115,17 +119,17 @@ class SocialController: UIViewController , UITextFieldDelegate {
                 let heightField = textField.frame.size.height
                 // Guardamos la posición 'Y' del UITextField
                 let heighttop = StackDates.frame.origin.y
-                if(textField.placeholder=="Comentario"){
-                    yPositionField = heighttop + ((heightField+7) * 1)
-                    yPositionScrol = (heighttop-100) + ((heightField+7) * 3)
+                if(textField.accessibilityLabel=="Comentario"){
+                    yPositionField = heighttop + (((heightField+7)/2) * 2)
+                    yPositionScrol = (heighttop-180) + ((heightField) * 2)
                 }
-                if(textField.placeholder=="Hashtag"){
-                    yPositionField = heighttop + ((heightField+7) * 2)
+                if(textField.accessibilityLabel=="Hashtags"){
+                    yPositionField = heighttop + (((heightField+7)/2) * 2)
                     yPositionScrol = (heighttop-100) + ((heightField) * 2)
                 }
-                if(textField.placeholder=="Etiquetar personas"){
+                if(textField.accessibilityLabel=="Etiquetar"){
                     yPositionField = heighttop + ((heightField+7) * 3)
-                    yPositionScrol = (heighttop-100) + ((heightField) * 1)
+                    yPositionScrol = (heighttop-120) + ((heightField) * 1)
                 }
                 // Calculamos la 'Y' máxima del UITextField
                 let yPositionMaxField = yPositionField + heightField
@@ -184,18 +188,25 @@ class SocialController: UIViewController , UITextFieldDelegate {
         Comments.text = socialinfo?.CommentTwitter
         Hastags.text = socialinfo?.HashtagTwitter
         Users.text = socialinfo?.UsersTwitter
+        
+        if(!Comments.text.isEmpty){
+            Comments.textColor = UIColor.black}
+        if(!Hastags.text.isEmpty){
+            Hastags.textColor = UIColor.black}
+        if(!Users.text.isEmpty){
+            Users.textColor = UIColor.black}
         //Locations.text = socialinfo?.LocationTwitter
         socialRed = true
         FaceOrTwr = false
         
-        Comments.isEnabled = true
-        Hastags.isEnabled = true
-        Users.isEnabled = true
+        Comments.isEditable = true
+        Hastags.isEditable = true
+        Users.isEditable = true
         //Locations.isEnabled = true
         
         let cadena = (Comments.text)! + (Hastags.text)! + (Users.text)!
         let Length = cadena.characters.count
-        CaractersNumber.text = Length <= 133 ? String(133 - Length) : "0"
+        CaractersNumber.text = Length <= 128 ? String(128 - Length) : "0"
         CaracteresLabel.text = "Caracteres"
     }
     @IBAction func FaceBookDates(_ sender: UIButton) {
@@ -217,13 +228,19 @@ class SocialController: UIViewController , UITextFieldDelegate {
         Comments.text = socialinfo?.CommentFacebook
         Hastags.text = socialinfo?.HashtagFacebook
         Users.text = socialinfo?.UsersFacebook
+        if(!Comments.text.isEmpty){
+            Comments.textColor = UIColor.black}
+        if(!Hastags.text.isEmpty){
+            Hastags.textColor = UIColor.black}
+        if(!Users.text.isEmpty){
+                Users.textColor = UIColor.black}
         //Locations.text = socialinfo?.LocationFacebook
         socialRed = true
         FaceOrTwr = true
         
-        Comments.isEnabled = true
-        Hastags.isEnabled = true
-        Users.isEnabled = true
+        Comments.isEditable = true
+        Hastags.isEditable = true
+        Users.isEditable = true
         //Locations.isEnabled = true
         CaractersNumber.text = ""
         CaracteresLabel.text = ""
@@ -235,12 +252,10 @@ class SocialController: UIViewController , UITextFieldDelegate {
             socialinfo?.CommentFacebook = Comments.text
             socialinfo?.HashtagFacebook = Hastags.text
             socialinfo?.UsersFacebook = Users.text
-            socialinfo?.LocationFacebook = Locations.text
         }else{
             socialinfo?.CommentTwitter = Comments.text
             socialinfo?.HashtagTwitter = Hastags.text
             socialinfo?.UsersTwitter = Users.text
-            socialinfo?.LocationTwitter = Locations.text
         }
         socialsave.addItem(item: socialinfo!)
         self.dismiss(animated: true, completion: nil) 
@@ -277,7 +292,7 @@ class SocialController: UIViewController , UITextFieldDelegate {
         if(FaceOrTwr! == false && socialRed!){
             let cadena = (Comments.text)! + (Hastags.text)! + (Users.text)!
             let Length = cadena.characters.count
-            CaractersNumber.text = Length <= 133 ? String(133 - Length) : "0"
+            CaractersNumber.text = Length <= 128 ? String(128 - Length) : "0"
         }
     }
     
@@ -285,36 +300,67 @@ class SocialController: UIViewController , UITextFieldDelegate {
     @IBAction func CarreteShow(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        //imagePicker.delegate = self
+        imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    //MARK: TextFielDelegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.Comments {
-            self.Hastags.becomeFirstResponder()
+    //MARK: TextViewDelegate
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {  //guard let text = textField.text else { return true }
+        
+        if (text == "\n") {
+            if textView == self.Comments {
+                self.Hastags.becomeFirstResponder()
+            }
+            else if textView == self.Hastags {
+                self.Users.becomeFirstResponder()
+            }
+            else if textView == self.Users {
+                self.Users.resignFirstResponder()
+            }
+            return true
         }
-        else if textField == self.Hastags {
-            self.Users.becomeFirstResponder()
-        }
-        else if textField == self.Users {
-            self.Users.resignFirstResponder()
-        }
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //guard let text = textField.text else { return true }
-       
+        
         var Length = 0
         if(FaceOrTwr! == false){
-            let cadena = (Comments.text)! + (Hastags.text)! + (Users.text)!
-            Length = string.characters.count > 0 ? cadena.characters.count : cadena.characters.count - 2
+            let cadena = (Comments.text)!+(Hastags.text)!+(Users.text)!
+            Length = (text == "") ? cadena.characters.count : cadena.characters.count - 2
             CaracteresLabel.text = "Caracteres"
-            CaractersNumber.text = Length <= 133 ? String(133 - (Length)) : "0"
-            //Length = string.characters.count > 0 ? Length : 133
+            CaractersNumber.text = Length <= 128 ? String(128 - (Length)) : "0"
+            //Length = 1
         }
-        return Length <= 133
+        return Length <= 128
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    //MARK: UIImagePickerController methods
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let imagetak = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.dismiss(animated: true, completion:{ () -> Void in
+                CameraController.sharedManager.ImageShow = imagetak
+            })
+            
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            if(textView.accessibilityLabel=="Comentario"){
+                textView.text = "Comentario"
+            }
+            if(textView.accessibilityLabel=="Hashtags"){
+                textView.text = "Hashtags"
+            }
+            if(textView.accessibilityLabel=="Etiquetar"){
+                textView.text = "Etiquetar personas"
+            }
+            textView.textColor = UIColor.lightGray
+        }
+    }
 }

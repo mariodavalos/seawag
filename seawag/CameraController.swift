@@ -22,7 +22,6 @@ import FacebookLogin
 
 class CameraController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     @IBOutlet weak var CameraScreen: UIImageView!
     @IBOutlet var previewView: UIView!
     @IBOutlet weak var WeLabel: UILabel!
@@ -34,6 +33,8 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var Center: UIButton!
     @IBOutlet weak var Editor: UIButton!
     @IBOutlet weak var Rotate: UIButton!
+    
+    @IBOutlet weak var PUBLICAR: UITextField!
     
     let socialsave = SocialSaving()
     var socialinfo: SocialInfo?
@@ -51,6 +52,11 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     var StartOrClose : Bool = true {
         willSet(newSoC) {
             GoStart(SoC: newSoC)
+        }
+    }
+    var ImageShow : UIImage = UIImage() {
+        willSet(newSoC) {
+            ImageShowOtherController(imagetak: newSoC)
         }
     }
     static var instance = CameraController()
@@ -74,10 +80,25 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         stillImageOutput = AVCaptureStillImageOutput()
         stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
         CameraController.instance = self
+        loadCamera()
         CameraController.EditorView = self.storyboard?.instantiateViewController(withIdentifier: "EditorVC") as! EditorController
         CameraController.SocialView = self.storyboard?.instantiateViewController(withIdentifier: "SocialVC") as! SocialController
         CameraController.LogOutView = self.storyboard?.instantiateViewController(withIdentifier: "LogOutVC") as! LogoutController
         Rotate.setImage(nil, for: .normal)
+        if AccessToken.current == nil {
+            let loginManager = LoginManager()
+            loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+                switch loginResult {
+                case .failed(let error):
+                    print(error)
+                case .cancelled:
+                    print("User cancelled login.")
+                case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                    print("Hecho el tiro.")
+                }
+            }
+        }
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -86,8 +107,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadCamera()
-        if(CameraController.ImageTaken != nil){
+                if(CameraController.ImageTaken != nil){
             CameraScreen.image = CameraController.ImageTaken.image
         }
     }
@@ -98,11 +118,11 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     
     @IBAction func UserReturn(_ sender: UIButton) {
         if(UserOrReturn){
+            CameraController.LogOutView = self.storyboard?.instantiateViewController(withIdentifier: "LogOutVC") as! LogoutController
             self.present(CameraController.LogOutView!, animated: true, completion: nil)
         }else{
             CameraController.sharedManager.StartOrClose = true
         }
-        
     }
     
     @IBAction func ChangeCamera(_ sender: UIButton) {
@@ -185,6 +205,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         FlashIcon = true
         PhotoSelector.setImage(#imageLiteral(resourceName: "PhotOnn"), for: .normal)
         Center.setImage(#imageLiteral(resourceName: "Camera"), for: .normal)
+        PUBLICAR.isHidden = true
         Editor.setImage(nil, for: .normal)
         Editor.isEnabled = false
         CamerVision = true
@@ -197,12 +218,11 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             PhotoSelector.setImage(nil, for: .normal)
             PhotoSelector.isEnabled = false
             Center.setImage(#imageLiteral(resourceName: "Public"), for: .normal)
+            PUBLICAR.isHidden = false
             VideoSelector.setImage(nil, for: .normal)
             Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
             Editor.isEnabled = true
             self.TakePicture()
-            //GoStart(SoC: false)
-          //  GoStart(SoC: true)
         }
         else if(Editor.isEnabled){
             self.PublicSocial()
@@ -218,6 +238,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             self.PhotoSelector.isEnabled = true
             self.PhotoSelector.setImage(#imageLiteral(resourceName: "PhotOff"), for: .normal)
             self.Center.setImage(#imageLiteral(resourceName: "Center"), for: .normal)
+            self.PUBLICAR.isHidden = true
             self.VideoSelector.setImage(nil, for: .normal)
             self.Editor.setImage(nil, for: .normal)
             self.Editor.isEnabled = false
@@ -265,6 +286,13 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                     self.CameraScreen.image = image
                     CameraController.ImageTaken.image = image
                     self.previewView.isHidden = true
+                    
+                    self.Logo.image = #imageLiteral(resourceName: "Logo")
+                    self.Userconfig.setImage(#imageLiteral(resourceName: "UserWhite"), for: .normal)
+                    self.UserOrReturn = true
+                    self.Rotate.setImage(nil, for: .normal)
+                    self.Carrete.setImage(#imageLiteral(resourceName: "CarretWhite"), for: .normal)
+                    self.FlashIcon = false
                 }
             })}
         
@@ -291,21 +319,8 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     func PublicSocial()
     {
-        if AccessToken.current == nil {
-            
-        let loginManager = LoginManager()
-        loginManager.logIn([.publishActions], viewController: self) { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                 print("Hecho el tiro.")
-            }
-        }
-        }
-        socialinfo = socialsave.getItem(index: 0)
+        socialinfo = socialsave.getItem()
+       
         let imageDate = UIImageJPEGRepresentation(self.CameraScreen.image!,0.1)
         let imageString = imageDate?.base64EncodedString(options: (NSData.Base64EncodingOptions()))
                     
@@ -316,12 +331,17 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                                                         
             if success {
                 let arrayOfAccounts = account.accounts(with: accountType)
-                                                            
+                
                 if (arrayOfAccounts?.count)! > 0 {
                         let twitterAccount = arrayOfAccounts?.first as! ACAccount
+                        print(twitterAccount)
                         var message = Dictionary<String, AnyObject>()
                         let status = (self.socialinfo?.CommentTwitter)! + " #Seawag " + (self.socialinfo?.HashtagTwitter)!+" "+(self.socialinfo?.UsersTwitter)!
-                            message["status"] = status as AnyObject?
+                            print(status.characters.count)
+                       let startIndex = status.index(status.startIndex, offsetBy: 140)
+                       let statu = status.substring(to: startIndex)
+                    
+                            message["status"] = statu as AnyObject?
                             message["media[]"] = imageString as AnyObject?
                             //message["media"] = imageDate as AnyObject?
                         let requestURL = NSURL(string:"https://api.twitter.com/1.1/statuses/update_with_media.json")
@@ -333,32 +353,40 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                                                         print("Error : \(err.localizedDescription)")
                                                     }
                                                         print("Twitter HTTP response \(response?.statusCode)")
-                                                })
-                                            }
-                                    }
-        })
+                            })
+                }else{
+                   /* let alert = UIAlertController(title: "Twiter no publicado", message: "Twitter no tiene session iniciada, en twitter no se publicara", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    self.present(alert, animated: true, completion:{*/
+                        DispatchQueue.main.async {
+                            
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PublicateVC") as! PublicateController
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                    //})
+                }
+            }
+                })
                     //self.tweetWithImage(data: (UIImagePNGRepresentation(image) as! NSData))
                     do{
                         var photo = Photo(image: self.CameraScreen.image!, userGenerated: true)
-                        photo.caption = (socialinfo?.CommentFacebook)! + " #Seawag" + (socialinfo?.HashtagFacebook)!+" "+(socialinfo?.UsersFacebook)!
+                        
+                        photo.caption = (socialinfo?.CommentFacebook)! + " #Seawag " + (socialinfo?.HashtagFacebook)!+" "+(socialinfo?.UsersFacebook)!
                         var content = PhotoShareContent(photos: [photo])
                         
                         if((socialinfo?.UsersFacebook?.isEmpty)!){
                             content.taggedPeopleIds = [(socialinfo?.UsersFacebook)!]
                         }
                         
-                        if((socialinfo?.LocationFacebook?.isEmpty)!){
-                           content.placeId = (socialinfo?.LocationFacebook)!
-                        }
                         let sharer = GraphSharer(content: content)
                         sharer.failsOnInvalidData = true
                         sharer.completion = { result in
-                            // Handle share results
+                            
                         }
                         try sharer.share()
                         //try ShareDialog.show(from: self, content: content)
                     }catch {}
-    }
+        }
                     //self.post(tweetString: "publicacion correcta", tweetImage: (UIImagePNGRepresentation(image) as! NSData))
         
                     //self.post(toService: SLServiceTypeFacebook)
@@ -497,7 +525,48 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             imagePicker.delegate = self
             self.present(imagePicker, animated: true, completion: nil)
+            
+            
         }
+    }
+    func ImageShowOtherController(imagetak: UIImage){
+        var image = imagetak
+        
+        CamerVision = false
+        PhotoSelector.setImage(nil, for: .normal)
+        PhotoSelector.isEnabled = false
+        Center.setImage(#imageLiteral(resourceName: "Public"), for: .normal)
+        PUBLICAR.isHidden = false
+        VideoSelector.setImage(nil, for: .normal)
+        Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
+        Editor.isEnabled = true
+        
+        let marca = UIImage(cgImage: #imageLiteral(resourceName: "marcadeAgua").cgImage!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up))
+        
+        image = self.compositeTwoImages(top: marca, bottom: image)!
+        
+        CameraController.ImageTaken = self.CameraScreen
+        
+        self.CameraScreen.image = image
+        CameraController.ImageTaken.image = image
+        self.previewView.isHidden = true
+        
+        self.Logo.image = #imageLiteral(resourceName: "Logo")
+        self.Userconfig.setImage(#imageLiteral(resourceName: "UserWhite"), for: .normal)
+        self.UserOrReturn = true
+        self.Rotate.setImage(nil, for: .normal)
+        self.Carrete.setImage(#imageLiteral(resourceName: "CarretWhite"), for: .normal)
+        self.FlashIcon = false
+        self.WeLabel.isHidden = true
+        
+    }
+    //MARK: UIImagePickerController methods
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let imagetak = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            ImageShowOtherController(imagetak: imagetak)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     func getFrontCamera() -> AVCaptureDevice?{
