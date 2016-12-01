@@ -13,6 +13,11 @@ import FacebookLogin
 import FacebookShare
 import FacebookCore
 
+import TwitterKit
+import TwitterCore
+import CoreFoundation
+import Fabric
+
 class LogoutController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var ConfirmButton: UIButton!
@@ -146,7 +151,7 @@ class LogoutController: UIViewController, UITextFieldDelegate {
                     yPositionScrol = 40.0 + ((heightField) * 2)
                 }
                 if(textField.placeholder=="Confirmar password"){
-                    yPositionField = 80.0 + ((heightField+7) * 5)
+                    yPositionField = 100.0 + ((heightField+7) * 5)
                     yPositionScrol = 40.0 + ((heightField) * 1)
                 }
                 // Calculamos la 'Y' máxima del UITextField
@@ -178,6 +183,7 @@ class LogoutController: UIViewController, UITextFieldDelegate {
     }
     func keyboardWillHide(notification: NSNotification) {
         BottomConstrain.constant = 0
+        TopConstrain.constant = 0
         self.view.layoutIfNeeded()
         KeyShow = false
     }
@@ -190,12 +196,13 @@ class LogoutController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func EditUser(_ sender: UIButton) {
+        do{
         if(Save){
             self.view.endEditing(true)
-            if(validateDates()){
+            if(try validateDates()){
                SavingInfo()
             }
-        }else{
+        }   else{
             Save = true
             Name.text = LoginController.NameLog
             LastNameStack.isHidden = false
@@ -215,12 +222,21 @@ class LogoutController: UIViewController, UITextFieldDelegate {
             Password.underlined()
             Password2.underlined()*/
         }
+        }catch{}
     }
     @IBAction func LogOut(_ sender: UIButton) {
         let loginManager = LoginManager()
         loginManager.logOut()
         self.logininfo?.SavingAccess = "0"
         self.loginsave.addItem(item: self.logininfo!)
+        
+        // Swift
+        let store = Twitter.sharedInstance().sessionStore
+        
+        if let userID = store.session()?.userID {
+            store.logOutUserID(userID)
+        }
+        
         let LoginC = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
         self.present(LoginC, animated: true, completion: nil)
     }
@@ -280,19 +296,21 @@ class LogoutController: UIViewController, UITextFieldDelegate {
         }
         task.resume()
     }
-    func validateDates()-> Bool{
+    func validateDates()throws -> Bool{
         var success: Bool
         success = true
         success  = (Name.messageAlertLine(message: "Campo obligatorio", isview: (Name.text?.isEmpty)!) && success) ? true : false
-        
-        if(success) { self.UserImage.image = #imageLiteral(resourceName: "UserCorrect")
-            self.Name.textColor =  UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0)
-        }
-        else{
-            self.UserImage.image = #imageLiteral(resourceName: "UserIncorrect")
-            self.Name.textColor = UIColor.red
-        }
-        
+        do{
+            if(success) { self.UserImage.image = #imageLiteral(resourceName: "UserCorrect")
+                if(self.isBeingPresented){
+                self.Name.textColor =  UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0)
+                }
+            }
+            else{
+                self.UserImage.image = #imageLiteral(resourceName: "UserIncorrect")
+                self.Name.textColor = UIColor.red
+            }
+        }catch{}
         success  = (LastName.messageAlertLine(message: "Campo obligatorio", isview: (LastName.text?.isEmpty)!) && success) ? true : false
         if(LoginController.PassLog != "ab51f5acb40977296fce11daed3feb1991e4579c"){
         success  = (Password.messageAlertLine(message: "Campo obligatorio", isview: (Password.text?.isEmpty)!) && success) ? true : false
@@ -319,9 +337,11 @@ class LogoutController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches , with: event)
         self.view.endEditing(true)
-        if(validateDates()){
+        do{
+        if(try validateDates()){
             //Name.messageAlert(message: "Todo es correcto")
         }
+        }catch{}
     }
     func addGestureReogizer(){
         let gr = UITapGestureRecognizer()
@@ -349,6 +369,7 @@ class LogoutController: UIViewController, UITextFieldDelegate {
         }
         else if textField == self.Password2 {
             Password2.resignFirstResponder()
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
         return true
     }

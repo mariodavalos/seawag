@@ -16,8 +16,8 @@ class PublicateController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Close.layer.cornerRadius = 22.0
-        Start.layer.cornerRadius = 22.0
+        Close.layer.cornerRadius = 18.0
+        Start.layer.cornerRadius = 18.0
     }
 
     override func didReceiveMemoryWarning() {

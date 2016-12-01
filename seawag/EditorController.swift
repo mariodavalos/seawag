@@ -39,7 +39,7 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ImageTake.image = CameraController.ImageTaken.image
+        //ImageTake.image = CameraController.ImageTaken.image
         ReturnButton.imageView?.contentMode = .scaleAspectFit
         //Filter1.setImage(ImageTake.image, for: .normal)
     }
@@ -53,11 +53,8 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
         
     }
     override func viewDidAppear(_ animated: Bool) {
+        ImageTake.image = CameraController.ImageTaken.image
         RoundFilters()
-        DispatchQueue.main.async {
-            self.FilterAplicate1()
-        }
-        
     }
     
     public func dimis(){
@@ -66,7 +63,7 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
     func FilterAplicate1(){
         
         context = CIContext()
-        let beginImage = CIImage(image: ImageTake.image!)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.4, y: 0.4))
+        let beginImage = CIImage(image: ImageTake.image!)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.7, y: 0.7))
         var procesedFilter: [UIImage] = []
         for i in 1...6 {
             autoreleasepool {
@@ -84,7 +81,7 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
                 currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
                 
                 if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-                    procesedFilter.append(UIImage(cgImage: cgimg, scale: CGFloat(0.1), orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up)))
+                    procesedFilter.append(UIImage(cgImage: cgimg, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up)))
                }
                 context = nil
                 currentFilter = nil
@@ -108,6 +105,10 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
         FiltersImage(Filter: Filter4)
         FiltersImage(Filter: Filter5)
         FiltersImage(Filter: Filter6)
+        
+        DispatchQueue.main.async {
+            self.FilterAplicate1()
+        }
     }
     
     func FiltersImage(Filter: UIButton!)

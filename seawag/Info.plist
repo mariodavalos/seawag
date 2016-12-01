@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.7</string>
+	<string>1.8</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -39,9 +39,9 @@
 				<key>KitInfo</key>
 				<dict>
 					<key>consumerKey</key>
-					<string>KU1CV6gQ37gJDf2tbakapgLic</string>
+					<string>T8IYRhp9LQ53Lt0IfkX91y70u</string>
 					<key>consumerSecret</key>
-					<string>o1rd9Q7a9lqd7VOuEA4IkGxxiqrOAj5Np78oMCfNLYPdmNy2ca</string>
+					<string>AqstDTl8y6KGcTqbJRDYRXjrGds1MEzf37kn18vp2fbaSrrbd3</string>
 				</dict>
 				<key>KitName</key>
 				<string>Twitter</string>
@@ -95,6 +95,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -106,5 +108,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

@@ -61,8 +61,13 @@ class SplashController: UIViewController {
             guard let data = data, error == nil else {
                 // check for fundamental networking error
                 let alert = UIAlertController(title: "Error de acceso", message: "Revisa tu conexion a internet", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+                    DispatchQueue.main.async {
+                        self.present(SplashController.LogInView!, animated: true, completion: nil)
+                    }
+                }))
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)}
                 return
             }
             let responseString = String(data: data, encoding: .utf8)

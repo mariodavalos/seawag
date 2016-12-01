@@ -167,6 +167,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     func keyboardWillHide(notification: NSNotification) {
         BottomConstrain.constant = 0
+        TopConstrain.constant = 0
         self.view.layoutIfNeeded()
         KeyShow = false
     }
@@ -179,7 +180,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     @IBAction func Register(_ sender: UIButton) {
         self.view.endEditing(true)
-        if(validateDates()){
+        do{
+        if(try validateDates()){
             var request = URLRequest(url: URL(string: "http://201.168.207.17:8888/seawag/kuff_api/regUser")!)
             request.httpMethod = "POST"
             let postString =
@@ -222,7 +224,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                 else if(responseString!.contains("Duplicate entry"))
                 {
                     DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Error de registro", message: "Correo duplicado", preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title: "Error de registro", message: "Este correo ya existe.", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                     }
@@ -239,14 +241,19 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             task.resume()
             //self.dismiss(animated: true, completion: nil)
         }
+        } catch {}
     }
-    func validateDates()-> Bool{
+    func validateDates()throws -> Bool{
         var success: Bool
         success = true
         success  = (Name.messageAlertLine(message: "Campo obligatorio", isview: (Name.text?.isEmpty)!) && success) ? true : false
         
-        if(success) { self.UserName.image = #imageLiteral(resourceName: "UserCorrect")
-        self.Name.textColor =  UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0)
+        if(success) {
+            self.UserName.image = #imageLiteral(resourceName: "UserCorrect")
+            if(self.isBeingPresented){
+             self.Name.textColor =  UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0)
+            }
+          
         }
         else{
             self.UserName.image = #imageLiteral(resourceName: "UserIncorrect")
@@ -258,7 +265,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         if(validateEmail(candidate: Email.text!))
         { self.EmailLogo.image = #imageLiteral(resourceName: "EmailCorrect")
-          self.Email.textColor = UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0)
+            if(self.isBeingPresented){
+                self.Email.textColor = UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0)}
         }
         else{
             self.EmailLogo.image = #imageLiteral(resourceName: "EmailIncorrect")
@@ -280,7 +288,9 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             }
             else{
                 self.PasswordLogo.image = #imageLiteral(resourceName: "PasswordCorrect")
+                if(self.isBeingPresented){
                 self.Password.textColor = UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0)
+                }
             }
         }else{
             self.PasswordLogo.image = #imageLiteral(resourceName: "PasswordIncorrect")
@@ -305,9 +315,11 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches , with: event)
         self.view.endEditing(true)
-        if(validateDates()){
+        do{
+         if(try validateDates()){
             //Name.messageAlert(message: "Todo es correcto")
         }
+        }catch{}
     }
     func addGestureReogizer(){
         let gr = UITapGestureRecognizer()
@@ -341,6 +353,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         }
         else if textField == self.Password2 {
             Password2.resignFirstResponder()
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
         return true
     }

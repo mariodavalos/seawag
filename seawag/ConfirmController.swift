@@ -17,8 +17,8 @@ class ConfirmController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ConfirmButton.layer.cornerRadius = 22.0
-        ClosingButton.layer.cornerRadius = 22.0
+        ConfirmButton.layer.cornerRadius = 18.0
+        ClosingButton.layer.cornerRadius = 18.0
     }
     
     override func didReceiveMemoryWarning() {

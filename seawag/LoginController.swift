@@ -33,6 +33,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     public static var EmaiLog: String = ""
     public static var PassLog: String = ""
     
+    public static var FaceTwr: Int = 0
+    
     @IBOutlet weak var SaveSession: UISwitch!
     
     override func viewDidLoad() {
@@ -64,6 +66,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         LoginAcces()
     }
     func LoginAcces(){
+        
         var request = URLRequest(url: URL(string: "http://201.168.207.17:8888/seawag/kuff_api/loginUser")!)
         request.httpMethod = "POST"
         let postString =
@@ -74,7 +77,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 // check for fundamental networking error
                 let alert = UIAlertController(title: "Error de acceso", message: "Revisa tu conexion a internet", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)}
                 return
             }
             let responseString = String(data: data, encoding: .utf8)
@@ -101,7 +105,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     self.loginsave.addItem(item: self.logininfo!)
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
                     
-                    self.present(vc, animated: true, completion: {CameraController.sharedManager.StartOrClose = true})
+                    self.present(vc, animated: true, completion: nil)
                 }
             }
             else

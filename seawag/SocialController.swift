@@ -9,6 +9,15 @@
 import Foundation
 import UIKit
 
+import FacebookCore
+import FacebookLogin
+import FacebookShare
+import TwitterKit
+import TwitterCore
+import CoreFoundation
+import Fabric
+import Social
+
 class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var SaveButton: UIButton!
@@ -67,12 +76,21 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         Comments.isEditable = false
         Hastags.isEditable = false
         Users.isEditable = false
-        //LocationButton.image = nil
+        
         Cleaner.setImage(nil, for: .normal)
-        // Keyboard notifications
+        
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        if(LoginController.FaceTwr==1)
+        {
+            FacebookInfo()
+        }
+        if(LoginController.FaceTwr==2)
+        {
+            TwitterInfo()
+        }
 
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -120,15 +138,15 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
                 // Guardamos la posición 'Y' del UITextField
                 let heighttop = StackDates.frame.origin.y
                 if(textField.accessibilityLabel=="Comentario"){
-                    yPositionField = heighttop + (((heightField+7)/2) * 2)
-                    yPositionScrol = (heighttop-180) + ((heightField) * 2)
+                    yPositionField = heighttop + (((heightField+7)) * 1)
+                    yPositionScrol = (heighttop-120) + ((heightField))
                 }
                 if(textField.accessibilityLabel=="Hashtags"){
-                    yPositionField = heighttop + (((heightField+7)/2) * 2)
-                    yPositionScrol = (heighttop-100) + ((heightField) * 2)
+                    yPositionField = heighttop + (((heightField+7)) * 2)
+                    yPositionScrol = (heighttop-160) + ((heightField) * 2)
                 }
                 if(textField.accessibilityLabel=="Etiquetar"){
-                    yPositionField = heighttop + ((heightField+7) * 3)
+                    yPositionField = heighttop + ((heightField+7) * 4)
                     yPositionScrol = (heighttop-120) + ((heightField) * 1)
                 }
                 // Calculamos la 'Y' máxima del UITextField
@@ -160,6 +178,7 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
     }
     func keyboardWillHide(notification: NSNotification) {
         BottomConstrain.constant = 0
+        TopConstrain.constant = 0
         self.view.layoutIfNeeded()
         KeyShow = false
     }
@@ -171,6 +190,9 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func TwiterDates(_ sender: UIButton) {
+        TwitterInfo()
+    }
+    func TwitterInfo(){
         TwitterButton.setImage(#imageLiteral(resourceName: "Twittonn"), for: .normal)
         FaceButton.setImage(#imageLiteral(resourceName: "Feceboof"), for: .normal)
         CommentButton.image = #imageLiteral(resourceName: "CommentTwr")
@@ -180,22 +202,36 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         //LocationButton.image = #imageLiteral(resourceName: "LocationTwr")
         
         if(socialRed!){
-            socialinfo?.CommentFacebook = Comments.text
-            socialinfo?.HashtagFacebook = Hastags.text
-            socialinfo?.UsersFacebook = Users.text
-            //socialinfo?.LocationFacebook = Locations.text
+            if Comments.textColor == UIColor.black {
+                socialinfo?.CommentFacebook = Comments.text}
+            if Hastags.textColor == UIColor.black {
+                socialinfo?.HashtagFacebook = Hastags.text}
+            if Users.textColor == UIColor.black {
+                socialinfo?.UsersFacebook = Users.text}
         }
-        Comments.text = socialinfo?.CommentTwitter
-        Hastags.text = socialinfo?.HashtagTwitter
-        Users.text = socialinfo?.UsersTwitter
         
-        if(!Comments.text.isEmpty){
+         if(!(socialinfo?.CommentTwitter?.isEmpty)!){
+            Comments.text = socialinfo?.CommentTwitter
             Comments.textColor = UIColor.black}
-        if(!Hastags.text.isEmpty){
+         else{
+            Comments.text = "Comentario"
+            Comments.textColor = UIColor.lightGray
+        }
+         if(!(socialinfo?.HashtagTwitter?.isEmpty)!){
+            Hastags.text = socialinfo?.HashtagTwitter
             Hastags.textColor = UIColor.black}
-        if(!Users.text.isEmpty){
+         else{
+            Hastags.text = "Hashtags"
+            Hastags.textColor = UIColor.lightGray
+        }
+         if(!(socialinfo?.UsersTwitter?.isEmpty)!){
+            Users.text = socialinfo?.UsersTwitter
             Users.textColor = UIColor.black}
-        //Locations.text = socialinfo?.LocationTwitter
+         else{
+            Users.text = "Etiquetar personas"
+            Users.textColor = UIColor.lightGray
+        }
+        
         socialRed = true
         FaceOrTwr = false
         
@@ -204,12 +240,57 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         Users.isEditable = true
         //Locations.isEnabled = true
         
-        let cadena = (Comments.text)! + (Hastags.text)! + (Users.text)!
+        LoginController.FaceTwr = 2
+        let comments = Comments.textColor == UIColor.black ? (Comments.text)! : ""
+        let hashtags = Comments.textColor == UIColor.black ? (Comments.text)! : ""
+        let uuseerss = Comments.textColor == UIColor.black ? (Comments.text)! : ""
+        let cadena = comments + hashtags + uuseerss
         let Length = cadena.characters.count
         CaractersNumber.text = Length <= 128 ? String(128 - Length) : "0"
         CaracteresLabel.text = "Caracteres"
+        
+        let account = ACAccountStore()
+        let accountType = account.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+        
+        account.requestAccessToAccounts(with: accountType, options: nil, completion: {(success, error) in
+            
+            if success {
+                let arrayOfAccounts = account.accounts(with: accountType)
+                
+                if (arrayOfAccounts?.count)! <= 0 {
+        // Swift
+        
+        // If using the TWTRLoginButton
+        let logInButton = TWTRLogInButton() { session, error in
+            print(session)
+            DispatchQueue.main.async {
+                self.dismiss(animated: false, completion: {
+                    CameraController.sharedManager.SocialValide = true
+                })
+            }
+        }
+        logInButton.loginMethods = [.webBased]
+        
+        // If using the log in methods on the Twitter instance
+        Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
+            print(session)
+            DispatchQueue.main.async {
+                self.dismiss(animated: false, completion: {
+                    CameraController.sharedManager.SocialValide = true
+                })
+            }
+        }
+                    
+                
+    }}})
+        
     }
+    
     @IBAction func FaceBookDates(_ sender: UIButton) {
+        FacebookInfo()
+    }
+    
+    func FacebookInfo(){
         TwitterButton.setImage(#imageLiteral(resourceName: "Twittoff"), for: .normal)
         FaceButton.setImage(#imageLiteral(resourceName: "Faceboon"), for: .normal)
         CommentButton.image = #imageLiteral(resourceName: "CommentFace")
@@ -218,23 +299,42 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         Cleaner.setImage(#imageLiteral(resourceName: "Eraser"), for: .normal)
         //LocationButton.image = #imageLiteral(resourceName: "LocationFace")
         
+        
         if(socialRed!){
-            socialinfo?.CommentTwitter = Comments.text
-            socialinfo?.HashtagTwitter = Hastags.text
-            socialinfo?.UsersTwitter = Users.text
-          //  socialinfo?.LocationTwitter = Locations.text
+            if Comments.textColor == UIColor.black {
+                socialinfo?.CommentTwitter = Comments.text}
+            if Hastags.textColor == UIColor.black {
+                socialinfo?.HashtagTwitter = Hastags.text}
+            if Users.textColor == UIColor.black {
+                socialinfo?.UsersTwitter = Users.text}
         }
         
-        Comments.text = socialinfo?.CommentFacebook
-        Hastags.text = socialinfo?.HashtagFacebook
-        Users.text = socialinfo?.UsersFacebook
-        if(!Comments.text.isEmpty){
+        
+        
+        
+        
+        if(!(socialinfo?.CommentFacebook?.isEmpty)!){
+            Comments.text = socialinfo?.CommentFacebook
             Comments.textColor = UIColor.black}
-        if(!Hastags.text.isEmpty){
+        else{
+            Comments.text = "Comentario"
+            Comments.textColor = UIColor.lightGray
+        }
+        if(!(socialinfo?.HashtagFacebook?.isEmpty)!){
+            Hastags.text = socialinfo?.HashtagFacebook
             Hastags.textColor = UIColor.black}
-        if(!Users.text.isEmpty){
-                Users.textColor = UIColor.black}
-        //Locations.text = socialinfo?.LocationFacebook
+        else{
+            Hastags.text = "Hashtags"
+            Hastags.textColor = UIColor.lightGray
+        }
+        if(!(socialinfo?.UsersFacebook?.isEmpty)!){
+            Users.text = socialinfo?.UsersFacebook
+            Users.textColor = UIColor.black}
+        else{
+            Users.text = "Etiquetar personas"
+            Users.textColor = UIColor.lightGray
+        }
+        
         socialRed = true
         FaceOrTwr = true
         
@@ -244,18 +344,44 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         //Locations.isEnabled = true
         CaractersNumber.text = ""
         CaracteresLabel.text = ""
+        
+        LoginController.FaceTwr = 1
+        
+        if AccessToken.current == nil {
+            let loginManager = LoginManager()
+            loginManager.logIn([ .publishActions ], viewController: self) { loginResult in
+                switch loginResult {
+                case .failed(let error):
+                    print(error)
+                case .cancelled:
+                    print("User cancelled login.")
+                case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                     DispatchQueue.main.async {
+                        self.dismiss(animated: false, completion: {
+                            CameraController.sharedManager.SocialValide = true
+                        })
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func SaveInfoSocial(_ sender: UIButton) {
         print("Guardando infoSocial:\(Comments.text)")
         if(FaceOrTwr)!{
-            socialinfo?.CommentFacebook = Comments.text
-            socialinfo?.HashtagFacebook = Hastags.text
-            socialinfo?.UsersFacebook = Users.text
+            if Comments.textColor == UIColor.black {
+                socialinfo?.CommentFacebook = Comments.text}
+            if Hastags.textColor == UIColor.black {
+                socialinfo?.HashtagFacebook = Hastags.text}
+            if Users.textColor == UIColor.black {
+                socialinfo?.UsersFacebook = Users.text}
         }else{
-            socialinfo?.CommentTwitter = Comments.text
-            socialinfo?.HashtagTwitter = Hastags.text
-            socialinfo?.UsersTwitter = Users.text
+            if Comments.textColor == UIColor.black {
+                socialinfo?.CommentTwitter = Comments.text}
+            if Hastags.textColor == UIColor.black {
+                socialinfo?.HashtagTwitter = Hastags.text}
+            if Users.textColor == UIColor.black {
+                socialinfo?.UsersTwitter = Users.text}
         }
         socialsave.addItem(item: socialinfo!)
         self.dismiss(animated: true, completion: nil) 
@@ -286,11 +412,15 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
     }
     
     @IBAction func CleanerEraser(_ sender: UIButton) {
-        Users.text = ""
-        Hastags.text = ""
-        Comments.text =  ""
+        Users.text = Users.textColor == UIColor.black ? "" : (Users.text)!
+        Hastags.text = Hastags.textColor == UIColor.black ? "" : (Hastags.text)!
+        Comments.text =  Comments.textColor == UIColor.black ? "" : (Comments.text)!
+        
         if(FaceOrTwr! == false && socialRed!){
-            let cadena = (Comments.text)! + (Hastags.text)! + (Users.text)!
+            let comments = Comments.textColor == UIColor.black ? (Comments.text)! : ""
+            let hashtags = Hastags.textColor == UIColor.black ? (Hastags.text)! : ""
+            let uuseerss = Users.textColor == UIColor.black ? (Users.text)! : ""
+            let cadena = comments + hashtags + uuseerss
             let Length = cadena.characters.count
             CaractersNumber.text = Length <= 128 ? String(128 - Length) : "0"
         }
@@ -317,6 +447,7 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
             }
             else if textView == self.Users {
                 self.Users.resignFirstResponder()
+                scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
             return true
         }
@@ -324,7 +455,7 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         var Length = 0
         if(FaceOrTwr! == false){
             let cadena = (Comments.text)!+(Hastags.text)!+(Users.text)!
-            Length = (text == "") ? cadena.characters.count : cadena.characters.count - 2
+            Length = (text != "") ? cadena.characters.count : cadena.characters.count - 2
             CaracteresLabel.text = "Caracteres"
             CaractersNumber.text = Length <= 128 ? String(128 - (Length)) : "0"
             //Length = 1
@@ -347,6 +478,12 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
             
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: nil)
+        CameraController.SocialView = self.storyboard?.instantiateViewController(withIdentifier: "SocialVC") as! SocialController
+         self.present(CameraController.SocialView!, animated: false, completion: nil)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
