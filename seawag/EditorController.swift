@@ -41,6 +41,12 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
         
         //ImageTake.image = CameraController.ImageTaken.image
         ReturnButton.imageView?.contentMode = .scaleAspectFit
+        Filter1.imageView?.contentMode = .scaleAspectFill
+        Filter2.imageView?.contentMode = .scaleAspectFill
+        Filter3.imageView?.contentMode = .scaleAspectFill
+        Filter4.imageView?.contentMode = .scaleAspectFill
+        Filter5.imageView?.contentMode = .scaleAspectFill
+        Filter6.imageView?.contentMode = .scaleAspectFill
         //Filter1.setImage(ImageTake.image, for: .normal)
     }
     
@@ -63,7 +69,7 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
     func FilterAplicate1(){
         
         context = CIContext()
-        let beginImage = CIImage(image: ImageTake.image!)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.7, y: 0.7))
+        let beginImage = CIImage(image: ImageTake.image!)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.6, y: 0.6))
         var procesedFilter: [UIImage] = []
         for i in 1...6 {
             autoreleasepool {
@@ -81,7 +87,7 @@ class EditorController: UIViewController, UIImagePickerControllerDelegate, UINav
                 currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
                 
                 if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
-                    procesedFilter.append(UIImage(cgImage: cgimg, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up)))
+                    procesedFilter.append(UIImage(cgImage: cgimg, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right)))
                }
                 context = nil
                 currentFilter = nil

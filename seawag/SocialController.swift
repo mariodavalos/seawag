@@ -18,7 +18,7 @@ import CoreFoundation
 import Fabric
 import Social
 
-class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SocialController: KeyBoardViewController , UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var SaveButton: UIButton!
     
@@ -31,6 +31,8 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
     @IBOutlet weak var CaractersNumber: UILabel!
     @IBOutlet weak var CaracteresLabel: UILabel!
     
+    @IBOutlet weak var vistaUsuario: UIView!
+    
     @IBOutlet weak var Comments: UITextView!
     @IBOutlet weak var Hastags: UITextView!
     @IBOutlet weak var Users: UITextView!
@@ -41,47 +43,28 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
     var socialRed: Bool? = false
     var FaceOrTwr: Bool? = false
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var BottomConstrain: NSLayoutConstraint!
+    var comentariosTwitter = ""
+    var hashtagsTwitter = ""
+    var usuariosTwitter = ""
     
-    var keyboardHeight:CGFloat!
     var textFields: [UITextView]!
-    var KeyShow: Bool = false
-    
-    @IBOutlet weak var TopConstrain: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addGestureReogizer()
         textFields = [Comments, Hastags, Users]
         
-        CaractersNumber.text = ""
-        CaracteresLabel.text = ""
-        
-        Comments.text = "Comentario"
-        Comments.textColor = UIColor.lightGray
-        Hastags.text = "Hashtags"
-        Hastags.textColor = UIColor.lightGray
-        Users.text = "Etiquetar personas"
-        Users.textColor = UIColor.lightGray
+        self.inicializarTextViews()
         
         self.SaveButton.layer.borderWidth = 1
         self.SaveButton.layer.borderColor =  UIColor.init(red: 98/255.0, green: 159/255.0, blue: 196/255.0, alpha: 1.0).cgColor
         self.SaveButton.layer.cornerRadius = 22.0
-        TwitterButton.imageView?.contentMode = .scaleAspectFit
-        FaceButton.imageView?.contentMode = .scaleAspectFit
         
-        socialinfo = socialsave.getItem()
         Comments.isEditable = false
         Hastags.isEditable = false
         Users.isEditable = false
         
         Cleaner.setImage(nil, for: .normal)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         if(LoginController.FaceTwr==1)
         {
@@ -93,144 +76,81 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         }
 
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    func adjustingHeight(show:Bool, notification:NSNotification) {
+    
+    func inicializarTextViews(){
+        CaractersNumber.text = ""
+        CaracteresLabel.text = ""
         
-        var userInfo = notification.userInfo!
-        
-        let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
-        
-        UIView.animate(withDuration: animationDurarion, animations: { () -> Void in
-            if(self.Hastags.isFocused){
-                self.TopConstrain.constant = -self.Comments.frame.size.height
-            }
-            else if(self.Users.isFocused){
-                self.TopConstrain.constant = -self.Comments.frame.size.height*2
-            }
-            else {
-                self.TopConstrain.constant = 0
-            }
-        })
+        Comments.text = "Comentario"
+        Comments.textColor = UIColor.lightGray
+        Hastags.text = "Hashtags"
+        Hastags.textColor = UIColor.lightGray
+        Users.text = "Etiquetar personas"
+        Users.textColor = UIColor.lightGray
     }
     
-    @IBOutlet weak var ScrollDates: UIScrollView!
-    
-    @IBOutlet weak var StackDates: UIStackView!
-    func setScrollViewPosition(){
-        BottomConstrain.constant = keyboardHeight + 40
-        self.view.layoutIfNeeded()
-        
-        // Calculamos la altura de la pantalla
-        
-        let screenSize: CGRect = UIScreen.main.bounds
-        let screenHeight: CGFloat = screenSize.height
-        
-        // Recorremos el array de textFields en busca de quien tiene el foco
-        for textField in textFields {
-            if textField.isFirstResponder {
-                var yPositionField: CGFloat = 0.0
-                var yPositionScrol: CGFloat = 0.0
-                // Guardamos la altura del UITextField
-                let heightField = textField.frame.size.height
-                // Guardamos la posición 'Y' del UITextField
-                let heighttop = StackDates.frame.origin.y
-                if(textField.accessibilityLabel=="Comentario"){
-                    yPositionField = heighttop + (((heightField+7)) * 1)
-                    yPositionScrol = (heighttop-120) + ((heightField))
-                }
-                if(textField.accessibilityLabel=="Hashtags"){
-                    yPositionField = heighttop + (((heightField+7)) * 2)
-                    yPositionScrol = (heighttop-160) + ((heightField) * 2)
-                }
-                if(textField.accessibilityLabel=="Etiquetar"){
-                    yPositionField = heighttop + ((heightField+7) * 4)
-                    yPositionScrol = (heighttop-120) + ((heightField) * 1)
-                }
-                // Calculamos la 'Y' máxima del UITextField
-                let yPositionMaxField = yPositionField + heightField
-                // Calculamos la 'Y' máxima del View que no queda oculta por el teclado
-                let Ymax = screenHeight - keyboardHeight
-                // Comprobamos si nuestra 'Y' máxima del UITextField es superior a la Ymax
-                if Ymax < yPositionMaxField {
-                    // Comprobar si la 'Ymax' el UITextField es más grande que el tamaño de la pantalla
-                    if yPositionMaxField > screenHeight {
-                        let diff = yPositionMaxField - screenHeight
-                        print("El UITextField se sale por debajo \(diff) unidades")
-                        // Hay que añadir la distancia a la que está por debajo el UITextField ya que se sale del screen height
-                        scrollView.setContentOffset(CGPoint(x: 0, y: self.keyboardHeight + diff), animated: true)
-                    }else{
-                        // El UITextField queda oculto por el teclado, entonces movemos el Scroll View
-                        scrollView.setContentOffset(CGPoint(x: 0, y: self.keyboardHeight - yPositionScrol), animated: true)
-                    }
-                }else{print("NO MUEVO EL SCROLL")}
-            }
-        }
-    }
-    func keyboardWillShow(notification: NSNotification) {
-        let info:NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardHeight = keyboardSize.height
-        KeyShow = true
-        setScrollViewPosition()
-    }
-    func keyboardWillHide(notification: NSNotification) {
-        BottomConstrain.constant = 0
-        TopConstrain.constant = 0
-        self.view.layoutIfNeeded()
-        KeyShow = false
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @IBAction func Closing(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func TwiterDates(_ sender: UIButton) {
         TwitterInfo()
     }
+    
     func TwitterInfo(){
+        
         TwitterButton.setImage(#imageLiteral(resourceName: "Twittonn"), for: .normal)
         FaceButton.setImage(#imageLiteral(resourceName: "Feceboof"), for: .normal)
         CommentButton.image = #imageLiteral(resourceName: "CommentTwr")
         HashtagButton.image = #imageLiteral(resourceName: "HashtagTwr")
         UsersButton.image = #imageLiteral(resourceName: "UserTwr")
         Cleaner.setImage(#imageLiteral(resourceName: "Eraser"), for: .normal)
-        //LocationButton.image = #imageLiteral(resourceName: "LocationTwr")
         
         if(socialRed!){
             if Comments.textColor == UIColor.black {
-                socialinfo?.CommentFacebook = Comments.text}
+                self.comentariosTwitter = Comments.text
+            }
             if Hastags.textColor == UIColor.black {
-                socialinfo?.HashtagFacebook = Hastags.text}
+                self.hashtagsTwitter = Hastags.text
+            }
             if Users.textColor == UIColor.black {
-                socialinfo?.UsersFacebook = Users.text}
+                self.usuariosTwitter = Users.text
+            }
         }
         
-         if(!(socialinfo?.CommentTwitter?.isEmpty)!){
-            Comments.text = socialinfo?.CommentTwitter
-            Comments.textColor = UIColor.black}
-         else{
+        self.vistaUsuario.isHidden = false
+        
+        let defaults = UserDefaults.standard
+        
+        let comentarios = defaults.string(forKey: UserDefaultsKeys.Twitter_Comments) ?? ""
+        let hashtag = defaults.string(forKey: UserDefaultsKeys.Twitter_Hashtags) ?? ""
+        let usuariosEtiquetados = defaults.string(forKey: UserDefaultsKeys.Twitter_Usuarios_Etiquetados) ?? ""
+        
+        if !comentarios.isEmpty{
+            Comments.text = comentarios
+            Comments.textColor = UIColor.black
+        }else{
             Comments.text = "Comentario"
             Comments.textColor = UIColor.lightGray
         }
-         if(!(socialinfo?.HashtagTwitter?.isEmpty)!){
-            Hastags.text = socialinfo?.HashtagTwitter
-            Hastags.textColor = UIColor.black}
-         else{
+        
+        if !hashtag.isEmpty{
+            Hastags.text = hashtag
+            Hastags.textColor = UIColor.black
+        }
+        else{
             Hastags.text = "Hashtags"
             Hastags.textColor = UIColor.lightGray
         }
-         if(!(socialinfo?.UsersTwitter?.isEmpty)!){
-            Users.text = socialinfo?.UsersTwitter
+        
+        if !usuariosEtiquetados.isEmpty{
+            Users.text = usuariosEtiquetados
             Users.textColor = UIColor.black}
-         else{
+        else{
             Users.text = "Etiquetar personas"
             Users.textColor = UIColor.lightGray
         }
+        
         
         socialRed = true
         FaceOrTwr = false
@@ -238,18 +158,19 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         Comments.isEditable = true
         Hastags.isEditable = true
         Users.isEditable = true
-        //Locations.isEnabled = true
         
         LoginController.FaceTwr = 2
+        
         let comments = Comments.textColor == UIColor.black ? (Comments.text)! : ""
         let hashtags = Comments.textColor == UIColor.black ? (Comments.text)! : ""
         let uuseerss = Comments.textColor == UIColor.black ? (Comments.text)! : ""
         let cadena = comments + hashtags + uuseerss
         let Length = cadena.characters.count
-        CaractersNumber.text = Length <= 128 ? String(128 - Length) : "0"
+        print(Length)
+        CaractersNumber.text = Length <= 130 ? String(130 - Length) : "0"
         CaracteresLabel.text = "Caracteres"
         
-        let account = ACAccountStore()
+       /* let account = ACAccountStore()
         let accountType = account.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         
         account.requestAccessToAccounts(with: accountType, options: nil, completion: {(success, error) in
@@ -258,11 +179,7 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
                 let arrayOfAccounts = account.accounts(with: accountType)
                 
                 if (arrayOfAccounts?.count)! <= 0 {
-        // Swift
-        
-        // If using the TWTRLoginButton
         let logInButton = TWTRLogInButton() { session, error in
-            print(session)
             DispatchQueue.main.async {
                 self.dismiss(animated: false, completion: {
                     CameraController.sharedManager.SocialValide = true
@@ -273,7 +190,6 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
         
         // If using the log in methods on the Twitter instance
         Twitter.sharedInstance().logIn(withMethods: [.webBased]) { session, error in
-            print(session)
             DispatchQueue.main.async {
                 self.dismiss(animated: false, completion: {
                     CameraController.sharedManager.SocialValide = true
@@ -283,7 +199,7 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
                     
                 
     }}})
-        
+        */
     }
     
     @IBAction func FaceBookDates(_ sender: UIButton) {
@@ -309,8 +225,7 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
                 socialinfo?.UsersTwitter = Users.text}
         }
         
-        
-        
+        self.vistaUsuario.isHidden = true
         
         
         if(!(socialinfo?.CommentFacebook?.isEmpty)!){
@@ -367,10 +282,10 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
     }
     
     @IBAction func SaveInfoSocial(_ sender: UIButton) {
-        print("Guardando infoSocial:\(Comments.text)")
         if(FaceOrTwr)!{
             if Comments.textColor == UIColor.black {
-                socialinfo?.CommentFacebook = Comments.text}
+                socialinfo?.CommentFacebook = Comments.text
+            }
             if Hastags.textColor == UIColor.black {
                 socialinfo?.HashtagFacebook = Hastags.text}
             if Users.textColor == UIColor.black {
@@ -384,9 +299,25 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
                 socialinfo?.UsersTwitter = Users.text}
         }
         socialsave.addItem(item: socialinfo!)
-        self.dismiss(animated: true, completion: nil) 
-        let alert = UIAlertController(title: "Guardado", message: "La informacion se ha guardado", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
+        
+        let defaults = UserDefaults.standard
+        
+        if FaceOrTwr!{
+            if Comments.textColor == UIColor.black {
+                socialinfo?.CommentFacebook = Comments.text
+            }
+            defaults.set(Hastags.text, forKey: UserDefaultsKeys.Facebook_Hashtags)
+            defaults.set(Comments.text, forKey: UserDefaultsKeys.Facebook_Comments)
+        }else{
+            defaults.set(Hastags.text, forKey: UserDefaultsKeys.Twitter_Hashtags)
+            defaults.set(Comments.text, forKey: UserDefaultsKeys.Twitter_Comments)
+        }
+        defaults.synchronize()
+        
+        let alert = UIAlertController(title: "Guardado", message: "La información se ha guardado", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }))
         self.present(alert, animated: true, completion: nil)
         
     }
@@ -394,21 +325,6 @@ class SocialController: UIViewController , UITextFieldDelegate, UITextViewDelega
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches , with: event)
         self.view.endEditing(true)
-    }
-    func addGestureReogizer(){
-        let gr = UITapGestureRecognizer()
-        gr.numberOfTapsRequired = 1
-        gr.numberOfTouchesRequired = 1
-        gr.addTarget(self, action: #selector(RegisterController.dimisskey))
-        self.ScrollDates.isUserInteractionEnabled = true
-        self.ScrollDates.addGestureRecognizer(gr)
-        self.scrollView.isUserInteractionEnabled = true
-        self.scrollView.addGestureRecognizer(gr)
-    }
-    func dimisskey(){
-        if(KeyShow){
-            self.view.endEditing(true)
-        }
     }
     
     @IBAction func CleanerEraser(_ sender: UIButton) {

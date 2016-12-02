@@ -17,11 +17,12 @@ class SplashController: UIViewController {
     
     let loginsave = LoginSaving()
     var logininfo: LoginInfo?
-    public static var LogInView: UIViewController?
+    //public static var LogInView: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SplashController.LogInView = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+        let LogInView = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+        
         logininfo = loginsave.getItem(index: 0)
         /*
         self.logininfo?.SavingAccess = "0"
@@ -41,7 +42,7 @@ class SplashController: UIViewController {
         else
         {
             DispatchQueue.main.async {
-                self.present(SplashController.LogInView!, animated: true, completion: nil)
+                self.present(LogInView, animated: true, completion: nil)
             }
         }
         
@@ -63,11 +64,11 @@ class SplashController: UIViewController {
                 let alert = UIAlertController(title: "Error de acceso", message: "Revisa tu conexion a internet", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
                     DispatchQueue.main.async {
-                        self.present(SplashController.LogInView!, animated: true, completion: nil)
+                        let LogInView = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+                        self.present(LogInView, animated: true, completion: nil)
                     }
                 }))
-                DispatchQueue.main.async {
-                    self.present(alert, animated: true, completion: nil)}
+                self.present(alert, animated: true, completion: nil)
                 return
             }
             let responseString = String(data: data, encoding: .utf8)
@@ -92,7 +93,8 @@ class SplashController: UIViewController {
                     let alert = UIAlertController(title: "Error de acceso", message: "Usuario  inactivo", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
                         DispatchQueue.main.async {
-                            self.present(SplashController.LogInView!, animated: true, completion: nil)
+                            let LogInView = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+                            self.present(LogInView, animated: true, completion: nil)
                         }
                     }))
                     self.present(alert, animated: true, completion: nil)
@@ -126,6 +128,10 @@ class SplashController: UIViewController {
                             let alert = UIAlertController(title: "Error de acceso", message: "Revisa tu conexion a internet", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
+                            DispatchQueue.main.async {
+                                let LogInView = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+                                self.present(LogInView, animated: true, completion: nil)
+                            }
                             return
                         }
                         let responseString = String(data: data, encoding: .utf8)
@@ -148,7 +154,8 @@ class SplashController: UIViewController {
                                 let alert = UIAlertController(title: "Error de registro", message: "Error al acceder con facebook", preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
                                     DispatchQueue.main.async {
-                                        self.present(SplashController.LogInView!, animated: true, completion: nil)
+                                        let LogInView = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+                                        self.present(LogInView, animated: true, completion: nil)
                                     }
                                 }))
 
@@ -174,7 +181,8 @@ class SplashController: UIViewController {
                     let alert = UIAlertController(title: "Error de login", message: "Cancelaste el acceso a facebook", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler:{ action in
                         DispatchQueue.main.async {
-                            self.present(SplashController.LogInView!, animated: true, completion: nil)
+                            let LogInView = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+                            self.present(LogInView, animated: true, completion: nil)
                         }
                     }))
                     self.present(alert, animated: true, completion: nil)

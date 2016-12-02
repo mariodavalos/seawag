@@ -26,6 +26,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet var previewView: UIView!
     @IBOutlet weak var WeLabel: UILabel!
     @IBOutlet weak var Logo: UIImageView!
+    @IBOutlet weak var MarcaAgua: UIImageView!
     @IBOutlet weak var Carrete: UIButton!
     @IBOutlet weak var Userconfig: UIButton!
     @IBOutlet weak var PhotoSelector: UIButton!
@@ -53,7 +54,13 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     var StartOrClose : Bool = true {
         willSet(newSoC) {
             //self.CameraScreen.image = #imageLiteral(resourceName: "Fondo")
-            GoStart(SoC: newSoC)
+            
+            DispatchQueue.main.async {
+                self.GoStart(SoC: newSoC)
+            }
+            
+            
+            
         }
     }
     var ImageShow : UIImage = UIImage() {
@@ -82,6 +89,7 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         VideoSelector.setImage(nil, for: .normal)
         Editor.setImage(nil, for: .normal)
         Editor.imageView?.contentMode = .scaleAspectFit
@@ -119,7 +127,26 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
             CameraController.LogOutView = self.storyboard?.instantiateViewController(withIdentifier: "LogOutVC") as! LogoutController
             self.present(CameraController.LogOutView!, animated: true, completion: nil)
         }else{
-            CameraController.sharedManager.StartOrClose = true
+            //CameraController.sharedManager.StartOrClose = true
+            self.PhotoSelector.isEnabled = true
+            self.PhotoSelector.setImage(#imageLiteral(resourceName: "PhotOff"), for: .normal)
+            self.Center.setImage(#imageLiteral(resourceName: "Center"), for: .normal)
+            self.PUBLICAR.isHidden = true
+            self.VideoSelector.setImage(nil, for: .normal)
+            self.Editor.setImage(nil, for: .normal)
+            self.Editor.isEnabled = false
+            
+            self.WeLabel.isHidden = false
+            self.Logo.image = #imageLiteral(resourceName: "Logo")
+            self.Userconfig.setImage(#imageLiteral(resourceName: "UserWhite"), for: .normal)
+            UserOrReturn = true
+            self.Rotate.setImage(nil, for: .normal)
+            self.Carrete.setImage(#imageLiteral(resourceName: "CarretWhite"), for: .normal)
+            Carrete.isEnabled = true
+            FlashIcon = false
+            self.CameraScreen.image = #imageLiteral(resourceName: "Fondo")
+            self.previewView.isHidden = true
+            self.MarcaAgua.isHidden = true
         }
     }
     
@@ -232,24 +259,28 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     func GoStart(SoC : Bool){
         if(SoC)
         {
-            self.PhotoSelector.isEnabled = true
-            self.PhotoSelector.setImage(#imageLiteral(resourceName: "PhotOff"), for: .normal)
-            self.Center.setImage(#imageLiteral(resourceName: "Center"), for: .normal)
-            self.PUBLICAR.isHidden = true
-            self.VideoSelector.setImage(nil, for: .normal)
-            self.Editor.setImage(nil, for: .normal)
-            self.Editor.isEnabled = false
             
-            self.WeLabel.isHidden = false
-            self.Logo.image = #imageLiteral(resourceName: "Logo")
-            self.Userconfig.setImage(#imageLiteral(resourceName: "UserWhite"), for: .normal)
-            UserOrReturn = true
-            self.Rotate.setImage(nil, for: .normal)
-            self.Carrete.setImage(#imageLiteral(resourceName: "CarretWhite"), for: .normal)
-            Carrete.isEnabled = true
-            FlashIcon = false
-            self.CameraScreen.image = #imageLiteral(resourceName: "Fondo")
-            self.previewView.isHidden = true
+            if(!self.isBeingPresented)
+            {
+                self.PhotoSelector.isEnabled = true
+                self.PhotoSelector.setImage(#imageLiteral(resourceName: "PhotOff"), for: .normal)
+                self.Center.setImage(#imageLiteral(resourceName: "Center"), for: .normal)
+                self.PUBLICAR.isHidden = true
+                self.VideoSelector.setImage(nil, for: .normal)
+                self.Editor.setImage(nil, for: .normal)
+                self.Editor.isEnabled = false
+                
+                self.WeLabel.isHidden = false
+                self.Logo.image = #imageLiteral(resourceName: "Logo")
+                self.Userconfig.setImage(#imageLiteral(resourceName: "UserWhite"), for: .normal)
+                UserOrReturn = true
+                self.Rotate.setImage(nil, for: .normal)
+                self.Carrete.setImage(#imageLiteral(resourceName: "CarretWhite"), for: .normal)
+                Carrete.isEnabled = true
+                FlashIcon = false
+                self.CameraScreen.image = #imageLiteral(resourceName: "Fondo")
+                self.previewView.isHidden = true
+            }
         }
     }
     func TakePicture(){
@@ -262,16 +293,15 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                     let dataProvider = CGDataProvider(data: imageData as! CFData)
                     let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
                     
-                    let newImage = UIImage(cgImage: cgImageRef!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right))
+                    let imageOriginal = UIImage(cgImage: cgImageRef!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right))
                     
+                    //let beginImage = CIImage(image: newImage)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.35, y: 0.35))
                     
-                    let beginImage = CIImage(image: newImage)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.35, y: 0.35))
+                    //let imageOriginal = UIImage(ciImage: beginImage!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.right))
                     
-                    var image = UIImage(ciImage: beginImage!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.leftMirrored: UIImageOrientation.right))
+                     //let marca = UIImage(cgImage: #imageLiteral(resourceName: "marcadeAgua").cgImage!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up))
                     
-                     let marca = UIImage(cgImage: #imageLiteral(resourceName: "marcadeAgua").cgImage!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up))
-                    
-                    image = self.compositeTwoImages(top: marca, bottom: image)!
+                    //let image = self.compositeTwoImages(top: marca, bottom: imageOriginal)!
                     /*context = CIContext()-ñ
                     currentFilter = CIFilter(name: "CIPhotoEffectProcess")
                     currentFilter.setValue(cgImageRef, forKey: kCIInputImageKey)
@@ -286,8 +316,9 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                     //let imageseend = UIImage(ciImage: beginImage!)
                     CameraController.ImageTaken = self.CameraScreen
                     
-                    self.CameraScreen.image = image
-                    CameraController.ImageTaken.image = image
+                    self.CameraScreen.image = imageOriginal
+                    self.MarcaAgua.isHidden = false
+                    CameraController.ImageTaken.image = imageOriginal
                     self.previewView.isHidden = true
                     
                     self.Logo.image = #imageLiteral(resourceName: "Logo")
@@ -311,6 +342,8 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         // draw images to context
         bottom.draw(in: CGRect(origin: CGPoint.zero, size: bottom.size))
         top.draw(in: CGRect(origin: CGPoint(x: 0, y: bottom.size.height-top.size.height*(bottom.size.width/top.size.width)), size: CGSize.init(width: bottom.size.width, height: top.size.height*(bottom.size.width/top.size.width))))
+
+        
         // return the new image
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -326,14 +359,22 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
     {
         socialinfo = socialsave.getItem()
         var PublicateSuccess: Bool = true
-        let imageDate = UIImageJPEGRepresentation(self.CameraScreen.image!,0.1)
+        let marca = UIImage(cgImage: #imageLiteral(resourceName: "marcadeAgua").cgImage!, scale: 1, orientation: UIImageOrientation.up)
+        
+        let image = self.compositeTwoImages(top: marca, bottom: CameraController.ImageTaken.image!)!
+        
+        let imageDate = UIImageJPEGRepresentation(image,0.5)
         let imageString = imageDate?.base64EncodedString(options: (NSData.Base64EncodingOptions()))
         
         if AccessToken.current != nil {
             do{
-                var photo = Photo(image: self.CameraScreen.image!, userGenerated: true)
+                var photo = Photo(image: CameraController.ImageTaken.image!, userGenerated: true)
                 
-                photo.caption = (socialinfo?.CommentFacebook)! + " #Seawag " + (socialinfo?.HashtagFacebook)!+" "+(socialinfo?.UsersFacebook)!
+                let standar = UserDefaults.standard
+                let hashtags = standar.string(forKey: UserDefaultsKeys.Facebook_Hashtags) ?? ""
+                let comentarios = standar.string(forKey: UserDefaultsKeys.Facebook_Comments) ?? ""
+                print((socialinfo?.UsersFacebook)!)
+                photo.caption = comentarios + " #Seawag " + hashtags + " " + (socialinfo?.UsersFacebook)!
                 var content = PhotoShareContent(photos: [photo])
                 
                 if((socialinfo?.UsersFacebook?.isEmpty)!){
@@ -364,8 +405,13 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
                 if (arrayOfAccounts?.count)! > 0 {
                         let twitterAccount = arrayOfAccounts?.first as! ACAccount
                         print(twitterAccount)
-                        var message = Dictionary<String, AnyObject>()
-                        var status = (self.socialinfo?.CommentTwitter)! + " #Seawag " + (self.socialinfo?.HashtagTwitter)!+" "+(self.socialinfo?.UsersTwitter)!
+                    var message = Dictionary<String, AnyObject>()
+                    
+                    let standar = UserDefaults.standard
+                    let hashtags = standar.string(forKey: UserDefaultsKeys.Twitter_Hashtags) ?? ""
+                    let comentarios = standar.string(forKey: UserDefaultsKeys.Twitter_Comments) ?? ""
+                    let social = (self.socialinfo?.UsersTwitter)!
+                        var status = comentarios + " #Seawag " + hashtags + " "
                         print(status.characters.count)
                     if(status.characters.count > 140){
                        let startIndex = status.index(status.startIndex, offsetBy: 140)
@@ -546,11 +592,16 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         }
     }
     func ImageShowOtherController(imagetak: UIImage){
-        var image = imagetak
+        /*var image = imagetak
+        
         
         let beginImage = CIImage(image: image)?.applying(CGAffineTransform(rotationAngle: 0.0).scaledBy(x: 0.4, y: 0.4))
         
-        image = UIImage(ciImage: beginImage!)
+        image = UIImage(ciImage: beginImage!)//, scale: 1, orientation: UIImageOrientation.right)*/
+        
+        let image = UIImage(data: UIImageJPEGRepresentation(imagetak, 8.0)!)
+        
+        //image = UIImage(cgImage: #imageLiteral(resourceName: "marcadeAgua").cgImage!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up))
         
         CamerVision = false
         PhotoSelector.setImage(nil, for: .normal)
@@ -561,13 +612,10 @@ class CameraController: UIViewController, UIImagePickerControllerDelegate, UINav
         Editor.setImage(#imageLiteral(resourceName: "Edit"), for: .normal)
         Editor.isEnabled = true
         
-        let marca = UIImage(cgImage: #imageLiteral(resourceName: "marcadeAgua").cgImage!, scale: 1, orientation: (CameraController.usingFrontCamera ? UIImageOrientation.up: UIImageOrientation.up))
-        
-        image = self.compositeTwoImages(top: marca, bottom: image)!
-        
         CameraController.ImageTaken = self.CameraScreen
         
         self.CameraScreen.image = image
+        self.MarcaAgua.isHidden = false
         CameraController.ImageTaken.image = image
         self.previewView.isHidden = true
         

@@ -37,9 +37,13 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var SaveSession: UISwitch!
     
+    public static var CamerView: UIViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        LoginController.CamerView = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
+        
         logininfo = loginsave.getItem(index: 0)
         
         self.User.textRect(forBounds: CGRect(x: self.User.bounds.origin.x + 25, y: self.User.bounds.origin.y+8, width: self.User.bounds.width-50, height: self.User.bounds.height-5))
@@ -63,6 +67,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func LoginAccess(_ sender: UIButton) {
+        
         LoginAcces()
     }
     func LoginAcces(){
@@ -103,8 +108,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     self.logininfo?.UserEmail = self.User.text
                     self.logininfo?.PassLogin = self.Paser.text
                     self.loginsave.addItem(item: self.logininfo!)
+                    //SplashController.CamerView = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
+                    //LoginController.CamerView = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
-                    
                     self.present(vc, animated: true, completion: nil)
                 }
             }
@@ -120,6 +126,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         task.resume()
     }
     @IBAction func FacebookLogin(_ sender: UIButton) {
+        Facebook.isEnabled = false
         FacebookAcces()
     }
     
@@ -168,7 +175,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                                 self.loginsave.addItem(item: self.logininfo!)
                                 
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
-                                self.present(vc, animated: true, completion: {CameraController.sharedManager.StartOrClose = true})
+                                self.present(LoginController.CamerView!, animated: true, completion: nil)// {CameraController.sharedManager.StartOrClose = true})
                             }
                         }
                         else if(responseString!.contains("Duplicate entry"))

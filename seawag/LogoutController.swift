@@ -229,15 +229,16 @@ class LogoutController: UIViewController, UITextFieldDelegate {
         loginManager.logOut()
         self.logininfo?.SavingAccess = "0"
         self.loginsave.addItem(item: self.logininfo!)
-        
+        /*
         // Swift
         let store = Twitter.sharedInstance().sessionStore
         
         if let userID = store.session()?.userID {
             store.logOutUserID(userID)
         }
-        
+        */
         let LoginC = self.storyboard?.instantiateViewController(withIdentifier: "LoginCV") as! LoginController
+        //SplashController.CamerView = self.storyboard?.instantiateViewController(withIdentifier: "CameraVC") as! CameraController
         self.present(LoginC, animated: true, completion: nil)
     }
     func SavingInfo(){

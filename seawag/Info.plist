@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.8</string>
+	<string>2.2.2</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -83,6 +83,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Tomar imagenes del carrete</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Para edición de fotografía y video</string>
 	<key>NSPhotoLibraryUsageDescription</key>

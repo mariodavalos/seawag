@@ -48,11 +48,13 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         self.addGestureReogizer()
+        self.underline()
     }
     override func viewWillAppear(_ animated: Bool) {
         
     }
-    override func viewDidAppear(_ animated: Bool) {
+    
+    func underline() {
         Name.underlined()
         LastName.underlined()
         Email.underlined()
@@ -60,6 +62,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         Password.underlined()
         Password2.underlined()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -180,16 +183,25 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     @IBAction func Register(_ sender: UIButton) {
         self.view.endEditing(true)
+        let loading = self.storyboard!.instantiateViewController(withIdentifier: "Loading")
         do{
         if(try validateDates()){
+            
+            self.present(loading, animated: false, completion: nil)
+            
             var request = URLRequest(url: URL(string: "http://201.168.207.17:8888/seawag/kuff_api/regUser")!)
             request.httpMethod = "POST"
             let postString =
                 "nombre="+Name.text!+"&apellido="+LastName.text!+"&email="+Email.text!+"&pass="+Password.text!
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                DispatchQueue.main.async {
+                    loading.dismiss(animated: false, completion: nil)
+                }
+                
+                
                 guard let data = data, error == nil else {
-                    // check for fundamental networking error
                     print("error=\(error)")
                     return
                 }

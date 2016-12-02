@@ -13,7 +13,6 @@
 		AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD41DD673F400879D1C /* CameraController.swift */; };
 		AC4B2AD71DD6744B00879D1C /* EditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B2AD61DD6744B00879D1C /* EditorController.swift */; };
 		AC5D48A71DD39AA800D6D91F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D48A61DD39AA800D6D91F /* Helpers.swift */; };
-		AC6F9BD81DDF559900A1AC65 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC6F9BD71DDF559900A1AC65 /* TwitterKitResources.bundle */; };
 		AC912BF81DD29486001297A6 /* RegisterController .swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF71DD29486001297A6 /* RegisterController .swift */; };
 		AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BF91DD294FC001297A6 /* RememberController.swift */; };
 		AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC912BFB1DD2953F001297A6 /* FacebookController.swift */; };
@@ -24,7 +23,10 @@
 		AC981FC01DD24E0C0004E6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC981FBE1DD24E0C0004E6D6 /* LaunchScreen.storyboard */; };
 		AC981FCB1DD24E0C0004E6D6 /* seawagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FCA1DD24E0C0004E6D6 /* seawagTests.swift */; };
 		AC981FD61DD24E0C0004E6D6 /* seawagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */; };
-		AC9C15FE1DEF8E0E001DFBAA /* Fabric.app in Resources */ = {isa = PBXBuildFile; fileRef = AC9C15FD1DEF8E0E001DFBAA /* Fabric.app */; };
+		ACA8B4D91DF0BC660098C2C0 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8B4D81DF0BC660098C2C0 /* UserDefaultsKeys.swift */; };
+		ACA8B4DB1DF0D3560098C2C0 /* KeyBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8B4DA1DF0D3560098C2C0 /* KeyBoardViewController.swift */; };
+		ACA8B4DD1DF0EFC60098C2C0 /* TwitterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8B4DC1DF0EFC60098C2C0 /* TwitterLoginViewController.swift */; };
+		ACA8B4DF1DF0F1460098C2C0 /* SocialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8B4DE1DF0F1460098C2C0 /* SocialInfo.swift */; };
 		ACAFF5D01DE88A2200BBC11B /* AlertEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAFF5CF1DE88A2100BBC11B /* AlertEmailController.swift */; };
 		ACB4AC761DE7B8B900C4CBCC /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4AC751DE7B8B800C4CBCC /* LoginInfo.swift */; };
 		ACB4AC781DE7B8D100C4CBCC /* LoginSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4AC771DE7B8D100C4CBCC /* LoginSaving.swift */; };
@@ -33,7 +35,6 @@
 		ACDD23471DE4A78300390B17 /* PublicateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDD23461DE4A78300390B17 /* PublicateController.swift */; };
 		ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */; };
 		ACEDD8A81DD4CD84009CF65E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEDD8A71DD4CD84009CF65E /* AlertController.swift */; };
-		ACEFC6DC1DE512540043D2B5 /* SocialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC6DB1DE512540043D2B5 /* SocialInfo.swift */; };
 		ACEFC6DE1DE5DE850043D2B5 /* SocialSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEFC6DD1DE5DE850043D2B5 /* SocialSaving.swift */; };
 		ACFB4B191DDBCD4B00F40932 /* SocialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4B181DDBCD4B00F40932 /* SocialController.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,10 @@
 		AC981FD51DD24E0C0004E6D6 /* seawagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seawagUITests.swift; sourceTree = "<group>"; };
 		AC981FD71DD24E0C0004E6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9C15FD1DEF8E0E001DFBAA /* Fabric.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Fabric.app; path = ../../../Downloads/Fabric.app; sourceTree = "<group>"; };
+		ACA8B4D81DF0BC660098C2C0 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		ACA8B4DA1DF0D3560098C2C0 /* KeyBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoardViewController.swift; sourceTree = "<group>"; };
+		ACA8B4DC1DF0EFC60098C2C0 /* TwitterLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterLoginViewController.swift; sourceTree = "<group>"; };
+		ACA8B4DE1DF0F1460098C2C0 /* SocialInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialInfo.swift; sourceTree = "<group>"; };
 		ACAFF5CF1DE88A2100BBC11B /* AlertEmailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertEmailController.swift; sourceTree = "<group>"; };
 		ACB4AC751DE7B8B800C4CBCC /* LoginInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		ACB4AC771DE7B8D100C4CBCC /* LoginSaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSaving.swift; sourceTree = "<group>"; };
@@ -90,7 +95,6 @@
 		ACDD23461DE4A78300390B17 /* PublicateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicateController.swift; sourceTree = "<group>"; };
 		ACEDD8A51DD4BBE0009CF65E /* PrivacityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacityController.swift; sourceTree = "<group>"; };
 		ACEDD8A71DD4CD84009CF65E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		ACEFC6DB1DE512540043D2B5 /* SocialInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialInfo.swift; sourceTree = "<group>"; };
 		ACEFC6DD1DE5DE850043D2B5 /* SocialSaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSaving.swift; sourceTree = "<group>"; };
 		ACFB4B181DDBCD4B00F40932 /* SocialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +160,8 @@
 		AC981FB11DD24E0C0004E6D6 /* seawag */ = {
 			isa = PBXGroup;
 			children = (
+				ACFB4B181DDBCD4B00F40932 /* SocialController.swift */,
+				ACA8B4D71DF0BBCE0098C2C0 /* Support */,
 				AC4B2AD21DD6725800879D1C /* LoginController.swift */,
 				AC981FB21DD24E0C0004E6D6 /* AppDelegate.swift */,
 				AC981FB61DD24E0C0004E6D6 /* Main.storyboard */,
@@ -172,15 +178,15 @@
 				AC4B2AD41DD673F400879D1C /* CameraController.swift */,
 				AC4B2AD61DD6744B00879D1C /* EditorController.swift */,
 				AC33CF4F1DDB89C500460C50 /* ConfirmController.swift */,
-				ACFB4B181DDBCD4B00F40932 /* SocialController.swift */,
 				ACDD23461DE4A78300390B17 /* PublicateController.swift */,
-				ACEFC6DB1DE512540043D2B5 /* SocialInfo.swift */,
+				ACA8B4DE1DF0F1460098C2C0 /* SocialInfo.swift */,
 				ACEFC6DD1DE5DE850043D2B5 /* SocialSaving.swift */,
 				ACB4AC751DE7B8B800C4CBCC /* LoginInfo.swift */,
 				ACB4AC771DE7B8D100C4CBCC /* LoginSaving.swift */,
 				ACAFF5CF1DE88A2100BBC11B /* AlertEmailController.swift */,
 				ACBBB80C1DECD9F800739034 /* LogoutController.swift */,
 				ACBBB80E1DED02E600739034 /* SplashController.swift */,
+				ACA8B4DC1DF0EFC60098C2C0 /* TwitterLoginViewController.swift */,
 			);
 			path = seawag;
 			sourceTree = "<group>";
@@ -201,6 +207,15 @@
 				AC981FD71DD24E0C0004E6D6 /* Info.plist */,
 			);
 			path = seawagUITests;
+			sourceTree = "<group>";
+		};
+		ACA8B4D71DF0BBCE0098C2C0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				ACA8B4DA1DF0D3560098C2C0 /* KeyBoardViewController.swift */,
+				ACA8B4D81DF0BC660098C2C0 /* UserDefaultsKeys.swift */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 		B077C08862740F160B0AAFF9 /* Frameworks */ = {
@@ -326,9 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC6F9BD81DDF559900A1AC65 /* TwitterKitResources.bundle in Resources */,
 				AC981FC01DD24E0C0004E6D6 /* LaunchScreen.storyboard in Resources */,
-				AC9C15FE1DEF8E0E001DFBAA /* Fabric.app in Resources */,
 				AC981FBD1DD24E0C0004E6D6 /* Assets.xcassets in Resources */,
 				AC981FB81DD24E0C0004E6D6 /* Main.storyboard in Resources */,
 			);
@@ -426,17 +439,20 @@
 				AC33CF501DDB89C500460C50 /* ConfirmController.swift in Sources */,
 				ACEDD8A61DD4BBE0009CF65E /* PrivacityController.swift in Sources */,
 				ACAFF5D01DE88A2200BBC11B /* AlertEmailController.swift in Sources */,
+				ACA8B4DF1DF0F1460098C2C0 /* SocialInfo.swift in Sources */,
 				ACDD23471DE4A78300390B17 /* PublicateController.swift in Sources */,
 				AC4B2AD51DD673F400879D1C /* CameraController.swift in Sources */,
 				AC981FBB1DD24E0C0004E6D6 /* seawag.xcdatamodeld in Sources */,
 				ACB4AC761DE7B8B900C4CBCC /* LoginInfo.swift in Sources */,
 				AC912BFC1DD2953F001297A6 /* FacebookController.swift in Sources */,
 				AC981FB31DD24E0C0004E6D6 /* AppDelegate.swift in Sources */,
+				ACA8B4D91DF0BC660098C2C0 /* UserDefaultsKeys.swift in Sources */,
 				ACBBB80D1DECD9F800739034 /* LogoutController.swift in Sources */,
 				AC912BFA1DD294FC001297A6 /* RememberController.swift in Sources */,
 				ACB4AC781DE7B8D100C4CBCC /* LoginSaving.swift in Sources */,
-				ACEFC6DC1DE512540043D2B5 /* SocialInfo.swift in Sources */,
 				AC4B2AD31DD6725800879D1C /* LoginController.swift in Sources */,
+				ACA8B4DB1DF0D3560098C2C0 /* KeyBoardViewController.swift in Sources */,
+				ACA8B4DD1DF0EFC60098C2C0 /* TwitterLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
